@@ -1,0 +1,86 @@
+2020-01-20 14:14:10  [ nioEventLoopGroup-3-1:1 ] - [ INFO ]  Client /127.0.0.1:64071 connected 
+  2020-01-20 14:14:10  [ nioEventLoopGroup-3-1:22 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:14:10  [ nioEventLoopGroup-3-1:29 ] - [ INFO ]  Read complete is /127.0.0.1:64071
+  2020-01-20 14:15:50  [ nioEventLoopGroup-3-2:100023 ] - [ INFO ]  Client /127.0.0.1:64537 connected 
+  2020-01-20 14:15:50  [ nioEventLoopGroup-2-1:0 ] - [ INFO ]  client receive connect /127.0.0.1:1111
+  2020-01-20 14:15:50  [ nioEventLoopGroup-3-2:100057 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:15:50  [ nioEventLoopGroup-3-2:100057 ] - [ INFO ]  Read complete is /127.0.0.1:64537
+  2020-01-20 14:16:10  [ nioEventLoopGroup-3-3:119858 ] - [ INFO ]  Client /127.0.0.1:64635 connected 
+  2020-01-20 14:16:10  [ nioEventLoopGroup-2-1:0 ] - [ INFO ]  client receive connect /127.0.0.1:1111
+  2020-01-20 14:16:10  [ nioEventLoopGroup-3-3:119888 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:16:10  [ nioEventLoopGroup-3-3:119888 ] - [ INFO ]  Read complete is /127.0.0.1:64635
+  2020-01-20 14:16:10  [ nioEventLoopGroup-2-1:29 ] - [ INFO ]  Client receive msg Client received connect /127.0.0.1:1111hhhhhhhhhhhhh from /127.0.0.1:1111
+  2020-01-20 14:16:58  [ nioEventLoopGroup-3-4:168181 ] - [ INFO ]  Client /127.0.0.1:64859 connected 
+  2020-01-20 14:16:58  [ nioEventLoopGroup-2-1:0 ] - [ INFO ]  client receive connect /127.0.0.1:1111
+  2020-01-20 14:16:58  [ nioEventLoopGroup-3-4:168209 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:16:58  [ nioEventLoopGroup-3-4:168210 ] - [ INFO ]  Read complete is /127.0.0.1:64859
+  2020-01-20 14:16:58  [ nioEventLoopGroup-2-1:28 ] - [ INFO ]  Client receive msg Client received connect /127.0.0.1:1111hhhhhhhhhhhhh from /127.0.0.1:1111
+  2020-01-20 14:20:47  [ nioEventLoopGroup-3-5:396860 ] - [ INFO ]  Client /127.0.0.1:49613 connected 
+  2020-01-20 14:20:47  [ nioEventLoopGroup-2-1:0 ] - [ INFO ]  client receive connect /127.0.0.1:1111
+  2020-01-20 14:20:47  [ nioEventLoopGroup-3-5:396891 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:20:47  [ nioEventLoopGroup-3-5:396892 ] - [ INFO ]  Read complete is /127.0.0.1:49613
+  2020-01-20 14:20:47  [ nioEventLoopGroup-2-1:30 ] - [ INFO ]  Client receive msg Client received connect /127.0.0.1:1111hhhhhhhhhhhhh from /127.0.0.1:1111
+  2020-01-20 14:39:07  [ nioEventLoopGroup-3-6:1496936 ] - [ INFO ]  Client /127.0.0.1:54758 connected 
+  2020-01-20 14:39:07  [ nioEventLoopGroup-2-1:1 ] - [ INFO ]  client receive connect /127.0.0.1:1111
+  2020-01-20 14:39:07  [ nioEventLoopGroup-3-6:1496989 ] - [ INFO ]  Read message is PooledUnsafeDirectByteBuf(ridx: 0, widx: 39, cap: 1024)
+  2020-01-20 14:39:07  [ nioEventLoopGroup-3-6:1496990 ] - [ INFO ]  Read complete is /127.0.0.1:54758
+  2020-01-20 14:39:07  [ nioEventLoopGroup-2-1:52 ] - [ INFO ]  Client receive msg Client received connect /127.0.0.1:1111hhhhhhhhhhhhh from /127.0.0.1:1111
+  2020-01-20 15:03:16  [ nioEventLoopGroup-2-1:0 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0xbb7f6211, L:/172.25.167.48:8080 - R:/10.24.107.254:53498]'
+  2020-01-20 15:03:29  [ nioEventLoopGroup-2-1:13408 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0x66e8b3e8, L:/172.25.167.48:8080 - R:/10.21.168.62:49888]'
+  2020-01-20 15:03:44  [ nioEventLoopGroup-2-1:28428 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0x97775988, L:/172.25.167.48:8080 - R:/10.21.168.62:57270]'
+  2020-01-20 15:03:58  [ nioEventLoopGroup-2-1:41888 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0xcaecae52, L:/172.25.167.48:8080 - R:/10.24.133.220:18957]'
+  2020-01-20 15:04:12  [ nioEventLoopGroup-2-1:55918 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0x0b526c8e, L:/172.25.167.48:8080 - R:/10.21.44.28:52895]'
+  2020-01-20 15:04:12  [ nioEventLoopGroup-2-1:56515 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0x91d03778, L:/127.0.0.1:8080 - R:/127.0.0.1:62121]'
+  2020-01-20 15:04:26  [ nioEventLoopGroup-2-1:69647 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0x4abbc6bd, L:/172.25.167.48:8080 - R:/10.24.133.220:30884]'
+  2020-01-20 15:04:57  [ main:0 ] - [ WARN ]  Unknown channel option 'SO_TIMEOUT' for channel '[id: 0xc7361909]'
+  2020-01-20 15:46:01  [ nioEventLoopGroup-3-12:1 ] - [ WARN ]  An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+  java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1108)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:646)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-01-20 15:58:10  [ nioEventLoopGroup-3-1:1 ] - [ WARN ]  An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+  io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release0(AbstractReferenceCountedByteBuf.java:100)
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:84)
+	at io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpMessage.release(HttpObjectAggregator.java:386)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:88)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:112)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:310)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:284)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:646)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)

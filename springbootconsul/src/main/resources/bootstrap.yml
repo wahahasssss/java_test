@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: testConsulApp
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8414
+      enabled: true
+      config:
+        watch:
+          enabled: true
+        format: YAML
+

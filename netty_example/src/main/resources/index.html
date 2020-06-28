@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+<div>
+    <input type="text" id="message">
+    <input type="button" id="send" onclick="sendMessage()" value="send">
+    <input type="button" id="connect" onclick="connect()">
+</div>
+</body>
+<script>
+    var socket;
+    function sendMessage() {
+        var msg = $("#message").val()
+        socket.send(msg)
+    }
+
+    function connect() {
+        socket = new WebSocket("wss://127.0.0.1:9999/ws");
+        socket.onmessage = function (ev) {
+            console.log(ev.data)
+        }
+
+        socket.onopen = function (ev) {
+            console.log("websocket open")
+        }
+
+        socket.onclose = function (ev) {
+            console.log("webscoket close" + ev.data)
+        }
+    }
+</script>
+</html>

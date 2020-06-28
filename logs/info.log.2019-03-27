@@ -1,0 +1,620 @@
+2019-03-27 17:21:16  [ main:0 ] - [ INFO ]  Verifying properties
+  2019-03-27 17:21:16  [ main:63 ] - [ INFO ]  Property auto.commit.interval.ms is overridden to 2000
+  2019-03-27 17:21:16  [ main:64 ] - [ INFO ]  Property auto.offset.reset is overridden to smallest
+  2019-03-27 17:21:16  [ main:64 ] - [ INFO ]  Property fetch.message.max.bytes is overridden to 20971520
+  2019-03-27 17:21:16  [ main:64 ] - [ INFO ]  Property group.id is overridden to test2
+  2019-03-27 17:21:16  [ main:64 ] - [ INFO ]  Property rebalance.backoff.ms is overridden to 12000
+  2019-03-27 17:21:16  [ main:65 ] - [ INFO ]  Property rebalance.max.retries is overridden to 5
+  2019-03-27 17:21:16  [ main:65 ] - [ INFO ]  Property zookeeper.connect is overridden to gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08
+  2019-03-27 17:21:16  [ main:65 ] - [ INFO ]  Property zookeeper.session.timeout.ms is overridden to 60000
+  2019-03-27 17:21:16  [ main:66 ] - [ INFO ]  Property zookeeper.sync.time.ms is overridden to 2000
+  2019-03-27 17:21:16  [ main:250 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Connecting to zookeeper instance at gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08
+  2019-03-27 17:21:16  [ ZkClient-EventThread-17-gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08:283 ] - [ INFO ]  Starting ZkClient event thread.
+  2019-03-27 17:21:16  [ main:312 ] - [ INFO ]  Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+  2019-03-27 17:21:16  [ main:312 ] - [ INFO ]  Client environment:host.name=172.25.160.241
+  2019-03-27 17:21:16  [ main:313 ] - [ INFO ]  Client environment:java.version=1.8.0_161
+  2019-03-27 17:21:16  [ main:313 ] - [ INFO ]  Client environment:java.vendor=Oracle Corporation
+  2019-03-27 17:21:16  [ main:316 ] - [ INFO ]  Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+  2019-03-27 17:21:16  [ main:316 ] - [ INFO ]  Client environment:java.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/tools.jar:/Users/shushoufu/Desktop/document/java_test/kafkademo/target/classes:/Users/shushoufu/.m2/repository/org/apache/kafka/kafka-clients/0.8.2.1/kafka-clients-0.8.2.1.jar:/Users/shushoufu/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/Users/shushoufu/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/shushoufu/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.6/snappy-java-1.1.1.6.jar:/Users/shushoufu/.m2/repository/org/apache/kafka/kafka_2.10/0.8.2.1/kafka_2.10-0.8.2.1.jar:/Users/shushoufu/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/shushoufu/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar:/Users/shushoufu/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/shushoufu/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar:/Users/shushoufu/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/shushoufu/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/shushoufu/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/shushoufu/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/shushoufu/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/shushoufu/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.jar:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar:/Users/shushoufu/Library/Caches/IntelliJIdea2017.3/captureAgent/debugger-agent.jar
+  2019-03-27 17:21:16  [ main:317 ] - [ INFO ]  Client environment:java.library.path=/Users/shushoufu/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+  2019-03-27 17:21:16  [ main:318 ] - [ INFO ]  Client environment:java.io.tmpdir=/var/folders/53/rr8z2m6j5j1fzg1x_9f4wqc80000gn/T/
+  2019-03-27 17:21:16  [ main:319 ] - [ INFO ]  Client environment:java.compiler=<NA>
+  2019-03-27 17:21:16  [ main:319 ] - [ INFO ]  Client environment:os.name=Mac OS X
+  2019-03-27 17:21:16  [ main:320 ] - [ INFO ]  Client environment:os.arch=x86_64
+  2019-03-27 17:21:16  [ main:320 ] - [ INFO ]  Client environment:os.version=10.14.3
+  2019-03-27 17:21:16  [ main:333 ] - [ INFO ]  Client environment:user.name=shushoufu
+  2019-03-27 17:21:16  [ main:334 ] - [ INFO ]  Client environment:user.home=/Users/shushoufu
+  2019-03-27 17:21:16  [ main:334 ] - [ INFO ]  Client environment:user.dir=/Users/shushoufu/Desktop/document/java_test
+  2019-03-27 17:21:16  [ main:336 ] - [ INFO ]  Initiating client connection, connectString=gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08 sessionTimeout=60000 watcher=org.I0Itec.zkclient.ZkClient@7e057f43
+  2019-03-27 17:21:16  [ main-SendThread(gh-data-rt-zk-qa04.corp.sankuai.com:2181):392 ] - [ INFO ]  Opening socket connection to server gh-data-rt-zk-qa04.corp.sankuai.com/10.21.137.232:2181. Will not attempt to authenticate using SASL (unknown error)
+  2019-03-27 17:21:17  [ main-SendThread(gh-data-rt-zk-qa04.corp.sankuai.com:2181):589 ] - [ INFO ]  Socket connection established to gh-data-rt-zk-qa04.corp.sankuai.com/10.21.137.232:2181, initiating session
+  2019-03-27 17:21:17  [ main-SendThread(gh-data-rt-zk-qa04.corp.sankuai.com:2181):641 ] - [ INFO ]  Session establishment complete on server gh-data-rt-zk-qa04.corp.sankuai.com/10.21.137.232:2181, sessionid = 0x1637df048949e01, negotiated timeout = 60000
+  2019-03-27 17:21:17  [ main-EventThread:644 ] - [ INFO ]  zookeeper state changed (SyncConnected)
+  2019-03-27 17:21:17  [ main:662 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], starting auto committer every 2000 ms
+  2019-03-27 17:21:17  [ main:729 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], begin registering consumer test2_shusf.local-1553678476696-32f3340b in ZK
+  2019-03-27 17:21:17  [ main:864 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], end registering consumer test2_shusf.local-1553678476696-32f3340b in ZK
+  2019-03-27 17:21:17  [ test2_shusf.local-1553678476696-32f3340b_watcher_executor:874 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], starting watcher executor thread for consumer test2_shusf.local-1553678476696-32f3340b
+  2019-03-27 17:21:17  [ main:1025 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], begin rebalancing consumer test2_shusf.local-1553678476696-32f3340b try #0
+  2019-03-27 17:21:19  [ main:2677 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] Stopping leader finder thread
+  2019-03-27 17:21:19  [ main:2678 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] Stopping all fetchers
+  2019-03-27 17:21:19  [ main:2679 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] All connections stopped
+  2019-03-27 17:21:19  [ main:2680 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Cleared all relevant queues for this fetcher
+  2019-03-27 17:21:19  [ main:2681 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:21:19  [ main:2682 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:21:19  [ main:2682 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Releasing partition ownership
+  2019-03-27 17:21:19  [ main:2967 ] - [ INFO ]  Consumer test2_shusf.local-1553678476696-32f3340b rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678348652-c0624e20-0, test2_shusf.local-1553678439596-8a175586-0, test2_shusf.local-1553678476696-32f3340b-0)
+  2019-03-27 17:21:19  [ main:2972 ] - [ INFO ]  test2_shusf.local-1553678476696-32f3340b-0 attempting to claim partition 2
+  2019-03-27 17:21:19  [ main:3121 ] - [ INFO ]  conflict in /consumers/test2/owners/test.waimai_lupin_parser/2 data: test2_shusf.local-1553678476696-32f3340b-0 stored data: test2_shusf.local-1553678348652-c0624e20-0
+  2019-03-27 17:21:19  [ main:3121 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], waiting for the partition ownership to be deleted: 2
+  2019-03-27 17:21:19  [ main:3123 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], end rebalancing consumer test2_shusf.local-1553678476696-32f3340b try #0
+  2019-03-27 17:21:19  [ main:3123 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] Stopping leader finder thread
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] Stopping all fetchers
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [ConsumerFetcherManager-1553678477102] All connections stopped
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Cleared all relevant queues for this fetcher
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:21:19  [ main:3124 ] - [ INFO ]  [test2_shusf.local-1553678476696-32f3340b], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:00  [ main:0 ] - [ INFO ]  Verifying properties
+  2019-03-27 17:22:01  [ main:109 ] - [ INFO ]  Property auto.commit.interval.ms is overridden to 2000
+  2019-03-27 17:22:01  [ main:115 ] - [ INFO ]  Property auto.offset.reset is overridden to smallest
+  2019-03-27 17:22:01  [ main:117 ] - [ INFO ]  Property fetch.message.max.bytes is overridden to 20971520
+  2019-03-27 17:22:01  [ main:118 ] - [ INFO ]  Property group.id is overridden to test2
+  2019-03-27 17:22:01  [ main:119 ] - [ INFO ]  Property rebalance.backoff.ms is overridden to 12000
+  2019-03-27 17:22:01  [ main:119 ] - [ INFO ]  Property rebalance.max.retries is overridden to 5
+  2019-03-27 17:22:01  [ main:120 ] - [ INFO ]  Property zookeeper.connect is overridden to gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08
+  2019-03-27 17:22:01  [ main:121 ] - [ INFO ]  Property zookeeper.session.timeout.ms is overridden to 60000
+  2019-03-27 17:22:01  [ main:122 ] - [ INFO ]  Property zookeeper.sync.time.ms is overridden to 2000
+  2019-03-27 17:22:01  [ main:306 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Connecting to zookeeper instance at gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08
+  2019-03-27 17:22:01  [ ZkClient-EventThread-17-gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08:321 ] - [ INFO ]  Starting ZkClient event thread.
+  2019-03-27 17:22:01  [ main:334 ] - [ INFO ]  Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+  2019-03-27 17:22:01  [ main:334 ] - [ INFO ]  Client environment:host.name=172.25.160.241
+  2019-03-27 17:22:01  [ main:334 ] - [ INFO ]  Client environment:java.version=1.8.0_161
+  2019-03-27 17:22:01  [ main:338 ] - [ INFO ]  Client environment:java.vendor=Oracle Corporation
+  2019-03-27 17:22:01  [ main:338 ] - [ INFO ]  Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+  2019-03-27 17:22:01  [ main:338 ] - [ INFO ]  Client environment:java.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/lib/tools.jar:/Users/shushoufu/Desktop/document/java_test/kafkademo/target/classes:/Users/shushoufu/.m2/repository/org/apache/kafka/kafka-clients/0.8.2.1/kafka-clients-0.8.2.1.jar:/Users/shushoufu/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/Users/shushoufu/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/shushoufu/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.6/snappy-java-1.1.1.6.jar:/Users/shushoufu/.m2/repository/org/apache/kafka/kafka_2.10/0.8.2.1/kafka_2.10-0.8.2.1.jar:/Users/shushoufu/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/shushoufu/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar:/Users/shushoufu/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/shushoufu/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar:/Users/shushoufu/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/shushoufu/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/shushoufu/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/shushoufu/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/shushoufu/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/shushoufu/.m2/repository/com/101tec/zkclient/0.3/zkclient-0.3.jar:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar:/Users/shushoufu/Library/Caches/IntelliJIdea2017.3/captureAgent/debugger-agent.jar
+  2019-03-27 17:22:01  [ main:339 ] - [ INFO ]  Client environment:java.library.path=/Users/shushoufu/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+  2019-03-27 17:22:01  [ main:339 ] - [ INFO ]  Client environment:java.io.tmpdir=/var/folders/53/rr8z2m6j5j1fzg1x_9f4wqc80000gn/T/
+  2019-03-27 17:22:01  [ main:340 ] - [ INFO ]  Client environment:java.compiler=<NA>
+  2019-03-27 17:22:01  [ main:340 ] - [ INFO ]  Client environment:os.name=Mac OS X
+  2019-03-27 17:22:01  [ main:343 ] - [ INFO ]  Client environment:os.arch=x86_64
+  2019-03-27 17:22:01  [ main:343 ] - [ INFO ]  Client environment:os.version=10.14.3
+  2019-03-27 17:22:01  [ main:343 ] - [ INFO ]  Client environment:user.name=shushoufu
+  2019-03-27 17:22:01  [ main:344 ] - [ INFO ]  Client environment:user.home=/Users/shushoufu
+  2019-03-27 17:22:01  [ main:344 ] - [ INFO ]  Client environment:user.dir=/Users/shushoufu/Desktop/document/java_test
+  2019-03-27 17:22:01  [ main:346 ] - [ INFO ]  Initiating client connection, connectString=gh-data-rt-zk-qa04.corp.sankuai.com:2181,gh-data-rt-zk-qa05.corp.sankuai.com:2181,gh-data-rt-zk-qa06.corp.sankuai.com:2181/kafka08 sessionTimeout=60000 watcher=org.I0Itec.zkclient.ZkClient@73eb439a
+  2019-03-27 17:22:01  [ main-SendThread(gh-data-rt-zk-qa06.corp.sankuai.com:2181):393 ] - [ INFO ]  Opening socket connection to server gh-data-rt-zk-qa06.corp.sankuai.com/10.20.127.216:2181. Will not attempt to authenticate using SASL (unknown error)
+  2019-03-27 17:22:01  [ main-SendThread(gh-data-rt-zk-qa06.corp.sankuai.com:2181):580 ] - [ INFO ]  Socket connection established to gh-data-rt-zk-qa06.corp.sankuai.com/10.20.127.216:2181, initiating session
+  2019-03-27 17:22:01  [ main-SendThread(gh-data-rt-zk-qa06.corp.sankuai.com:2181):635 ] - [ INFO ]  Session establishment complete on server gh-data-rt-zk-qa06.corp.sankuai.com/10.20.127.216:2181, sessionid = 0x3637dbff9f1a5d7, negotiated timeout = 60000
+  2019-03-27 17:22:01  [ main-EventThread:640 ] - [ INFO ]  zookeeper state changed (SyncConnected)
+  2019-03-27 17:22:01  [ main:659 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], starting auto committer every 2000 ms
+  2019-03-27 17:22:01  [ main:730 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin registering consumer test2_shusf.local-1553678521289-33e6ee6a in ZK
+  2019-03-27 17:22:01  [ main:851 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end registering consumer test2_shusf.local-1553678521289-33e6ee6a in ZK
+  2019-03-27 17:22:01  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:874 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], starting watcher executor thread for consumer test2_shusf.local-1553678521289-33e6ee6a
+  2019-03-27 17:22:02  [ main:1086 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:03  [ main:2970 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:03  [ main:2972 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:03  [ main:2975 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:03  [ main:2978 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:03  [ main:2982 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:03  [ main:2983 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:03  [ main:2984 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:04  [ main:3310 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678476696-32f3340b-0, test2_shusf.local-1553678494464-499c1c2d-0, test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:04  [ main:3318 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:04  [ main:3470 ] - [ INFO ]  conflict in /consumers/test2/owners/test.waimai_lupin_parser/2 data: test2_shusf.local-1553678521289-33e6ee6a-0 stored data: test2_shusf.local-1553678494464-499c1c2d-0
+  2019-03-27 17:22:04  [ main:3472 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], waiting for the partition ownership to be deleted: 2
+  2019-03-27 17:22:04  [ main:3476 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:04  [ main:3477 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+  2019-03-27 17:22:04  [ main:3478 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:04  [ main:3478 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:04  [ main:3479 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:04  [ main:3479 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:04  [ main:3480 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:04  [ main:3480 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:16  [ main:15482 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #1
+  2019-03-27 17:22:17  [ main:16777 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:17  [ main:16778 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:17  [ main:16778 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:17  [ main:16779 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:17  [ main:16779 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:17  [ main:16780 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:17  [ main:16780 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:18  [ main:17029 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678476696-32f3340b-0, test2_shusf.local-1553678494464-499c1c2d-0, test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:18  [ main:17031 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:18  [ main:17135 ] - [ INFO ]  conflict in /consumers/test2/owners/test.waimai_lupin_parser/2 data: test2_shusf.local-1553678521289-33e6ee6a-0 stored data: test2_shusf.local-1553678494464-499c1c2d-0
+  2019-03-27 17:22:18  [ main:17135 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], waiting for the partition ownership to be deleted: 2
+  2019-03-27 17:22:18  [ main:17135 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #1
+  2019-03-27 17:22:18  [ main:17136 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+  2019-03-27 17:22:18  [ main:17136 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:18  [ main:17136 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:18  [ main:17136 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:18  [ main:17137 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:18  [ main:17137 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:18  [ main:17137 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:30  [ main:29139 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #2
+  2019-03-27 17:22:31  [ main:30488 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:31  [ main:30488 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:31  [ main:30488 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:31  [ main:30488 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:31  [ main:30489 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:31  [ main:30489 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:31  [ main:30489 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:31  [ main:30697 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678494464-499c1c2d-0, test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:31  [ main:30698 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:31  [ main:30800 ] - [ INFO ]  conflict in /consumers/test2/owners/test.waimai_lupin_parser/2 data: test2_shusf.local-1553678521289-33e6ee6a-0 stored data: test2_shusf.local-1553678494464-499c1c2d-0
+  2019-03-27 17:22:31  [ main:30800 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], waiting for the partition ownership to be deleted: 2
+  2019-03-27 17:22:31  [ main:30801 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #2
+  2019-03-27 17:22:31  [ main:30801 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+  2019-03-27 17:22:31  [ main:30801 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:31  [ main:30802 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:31  [ main:30802 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:31  [ main:30802 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:31  [ main:30802 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:31  [ main:30803 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:43  [ main:42808 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #3
+  2019-03-27 17:22:45  [ main:44150 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:45  [ main:44150 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:45  [ main:44151 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:45  [ main:44151 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:45  [ main:44151 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:45  [ main:44152 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:45  [ main:44152 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:45  [ main:44336 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:45  [ main:44338 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 0
+  2019-03-27 17:22:45  [ main:44339 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 1
+  2019-03-27 17:22:45  [ main:44340 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:45  [ main:44489 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 2 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:45  [ main:44526 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 1 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:45  [ main:44563 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 0 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:45  [ main:44609 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Consumer test2_shusf.local-1553678521289-33e6ee6a selected partitions : test.waimai_lupin_parser:0: fetched offset = 25128692: consumed offset = 25128692,test.waimai_lupin_parser:1: fetched offset = 24911899: consumed offset = 24911899,test.waimai_lupin_parser:2: fetched offset = 24915611: consumed offset = 24915611
+  2019-03-27 17:22:45  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:44613 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Starting 
+  2019-03-27 17:22:45  [ main:44618 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #3
+  2019-03-27 17:22:45  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:44627 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45334 ] - [ INFO ]  Verifying properties
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45335 ] - [ INFO ]  Property client.id is overridden to test2
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45336 ] - [ INFO ]  Property metadata.broker.list is overridden to gh-data-rt-qa0001.corp.sankuai.com:9092,gh-data-rt-qa0002.corp.sankuai.com:9092,gh-data-rt-qa0003.corp.sankuai.com:9092,gh-data-rt-qa0004.corp.sankuai.com:9092,gh-data-rt-qa0005.corp.sankuai.com:9092,gh-data-rt-qa0006.corp.sankuai.com:9092,gh-data-rt-qa0007.corp.sankuai.com:9092,gh-data-rt-qa0008.corp.sankuai.com:9092,gh-data-rt-qa0009.corp.sankuai.com:9092,gh-data-rt-qa0010.corp.sankuai.com:9092,gh-data-rt-qa0030.corp.sankuai.com:9092,gh-data-rt-qa0031.corp.sankuai.com:9092,gh-data-rt-qa0032.corp.sankuai.com:9092,gh-data-rt-qa0033.corp.sankuai.com:9092,gh-data-rt-qa0034.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test55.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test56.corp.sankuai.com:9092
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45336 ] - [ INFO ]  Property request.timeout.ms is overridden to 30000
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45375 ] - [ INFO ]  Fetching metadata from broker id:1033,host:gh-data-rt-qa0033.corp.sankuai.com,port:9092 with correlation id 0 for 1 topic(s) Set(test.waimai_lupin_parser)
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45429 ] - [ INFO ]  Connected to gh-data-rt-qa0033.corp.sankuai.com:9092 for producing
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45507 ] - [ INFO ]  Disconnecting from gh-data-rt-qa0033.corp.sankuai.com:9092
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:45579 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Starting 
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:45592 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Starting 
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:45599 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Starting 
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45610 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Added fetcher for partitions ArrayBuffer([[test.waimai_lupin_parser,0], initOffset 25128692 to broker id:1003,host:gh-data-rt-qa0003.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,1], initOffset 24911899 to broker id:1010,host:gh-data-rt-qa0010.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,2], initOffset 24915611 to broker id:1001,host:gh-data-rt-qa0001.corp.sankuai.com,port:9092] )
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45987 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45988 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Shutting down
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:45989 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Stopped 
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45989 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Shutdown completed
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45990 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45990 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Shutting down
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:45995 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:45996 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Stopped 
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45996 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Shutdown completed
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45996 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Shutting down
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:45997 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:45998 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Stopped 
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45998 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Shutdown completed
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:45998 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Shutting down
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:45999 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:46  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:46000 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Stopped 
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46000 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Shutdown completed
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46000 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46000 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46001 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46001 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:46  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46001 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46303 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46304 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 0
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46304 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 1
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46305 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46448 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 2 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46485 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 1 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46522 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 0 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46525 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Consumer test2_shusf.local-1553678521289-33e6ee6a selected partitions : test.waimai_lupin_parser:0: fetched offset = 25128692: consumed offset = 25128692,test.waimai_lupin_parser:1: fetched offset = 24911899: consumed offset = 24911899,test.waimai_lupin_parser:2: fetched offset = 24915611: consumed offset = 24915611
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46525 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:46526 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Starting 
+  2019-03-27 17:22:47  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:46526 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], begin rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47180 ] - [ INFO ]  Verifying properties
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47181 ] - [ INFO ]  Property client.id is overridden to test2
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47182 ] - [ INFO ]  Property metadata.broker.list is overridden to gh-data-rt-qa0001.corp.sankuai.com:9092,gh-data-rt-qa0002.corp.sankuai.com:9092,gh-data-rt-qa0003.corp.sankuai.com:9092,gh-data-rt-qa0004.corp.sankuai.com:9092,gh-data-rt-qa0005.corp.sankuai.com:9092,gh-data-rt-qa0006.corp.sankuai.com:9092,gh-data-rt-qa0007.corp.sankuai.com:9092,gh-data-rt-qa0008.corp.sankuai.com:9092,gh-data-rt-qa0009.corp.sankuai.com:9092,gh-data-rt-qa0010.corp.sankuai.com:9092,gh-data-rt-qa0030.corp.sankuai.com:9092,gh-data-rt-qa0031.corp.sankuai.com:9092,gh-data-rt-qa0032.corp.sankuai.com:9092,gh-data-rt-qa0033.corp.sankuai.com:9092,gh-data-rt-qa0034.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test55.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test56.corp.sankuai.com:9092
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47182 ] - [ INFO ]  Property request.timeout.ms is overridden to 30000
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47183 ] - [ INFO ]  Fetching metadata from broker id:1010,host:gh-data-rt-qa0010.corp.sankuai.com,port:9092 with correlation id 1 for 1 topic(s) Set(test.waimai_lupin_parser)
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47217 ] - [ INFO ]  Connected to gh-data-rt-qa0010.corp.sankuai.com:9092 for producing
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47271 ] - [ INFO ]  Disconnecting from gh-data-rt-qa0010.corp.sankuai.com:9092
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47282 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Added fetcher for partitions ArrayBuffer([[test.waimai_lupin_parser,0], initOffset 25128692 to broker id:1003,host:gh-data-rt-qa0003.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,1], initOffset 24911899 to broker id:1010,host:gh-data-rt-qa0010.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,2], initOffset 24915611 to broker id:1001,host:gh-data-rt-qa0001.corp.sankuai.com,port:9092] )
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:47283 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Starting 
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:47283 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Starting 
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:47283 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Starting 
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47866 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping leader finder thread
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47867 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Shutting down
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:47867 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Stopped 
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47868 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Shutdown completed
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47870 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Stopping all fetchers
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47871 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Shutting down
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:47873 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:47876 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Stopped 
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47878 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Shutdown completed
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47878 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Shutting down
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:47879 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:47880 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Stopped 
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47881 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Shutdown completed
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47881 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Shutting down
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:47882 ] - [ INFO ]  Reconnect due to socket error: java.nio.channels.ClosedByInterruptException
+  2019-03-27 17:22:48  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:47883 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Stopped 
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47884 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Shutdown completed
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47884 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] All connections stopped
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47885 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared all relevant queues for this fetcher
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47885 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Cleared the data chunks in all the consumer message iterators
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47885 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Committing all offsets after clearing the fetcher queues
+  2019-03-27 17:22:48  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:47886 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Releasing partition ownership
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48172 ] - [ INFO ]  Consumer test2_shusf.local-1553678521289-33e6ee6a rebalancing the following partitions: ArrayBuffer(0, 1, 2) for topic test.waimai_lupin_parser with consumers: List(test2_shusf.local-1553678521289-33e6ee6a-0)
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48173 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 0
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48174 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 1
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48174 ] - [ INFO ]  test2_shusf.local-1553678521289-33e6ee6a-0 attempting to claim partition 2
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48314 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 2 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48352 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 1 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48390 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], test2_shusf.local-1553678521289-33e6ee6a-0 successfully owned partition 0 for topic test.waimai_lupin_parser
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48394 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], Consumer test2_shusf.local-1553678521289-33e6ee6a selected partitions : test.waimai_lupin_parser:0: fetched offset = 25128692: consumed offset = 25128692,test.waimai_lupin_parser:1: fetched offset = 24911899: consumed offset = 24911899,test.waimai_lupin_parser:2: fetched offset = 24915611: consumed offset = 24915611
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a_watcher_executor:48396 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a], end rebalancing consumer test2_shusf.local-1553678521289-33e6ee6a try #0
+  2019-03-27 17:22:49  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:48396 ] - [ INFO ]  [test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread], Starting 
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49057 ] - [ INFO ]  Verifying properties
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49058 ] - [ INFO ]  Property client.id is overridden to test2
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49058 ] - [ INFO ]  Property metadata.broker.list is overridden to gh-data-rt-qa0001.corp.sankuai.com:9092,gh-data-rt-qa0002.corp.sankuai.com:9092,gh-data-rt-qa0003.corp.sankuai.com:9092,gh-data-rt-qa0004.corp.sankuai.com:9092,gh-data-rt-qa0005.corp.sankuai.com:9092,gh-data-rt-qa0006.corp.sankuai.com:9092,gh-data-rt-qa0007.corp.sankuai.com:9092,gh-data-rt-qa0008.corp.sankuai.com:9092,gh-data-rt-qa0009.corp.sankuai.com:9092,gh-data-rt-qa0010.corp.sankuai.com:9092,gh-data-rt-qa0030.corp.sankuai.com:9092,gh-data-rt-qa0031.corp.sankuai.com:9092,gh-data-rt-qa0032.corp.sankuai.com:9092,gh-data-rt-qa0033.corp.sankuai.com:9092,gh-data-rt-qa0034.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test55.corp.sankuai.com:9092,gh-data-kafka-kafkalog-test56.corp.sankuai.com:9092
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49059 ] - [ INFO ]  Property request.timeout.ms is overridden to 30000
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49060 ] - [ INFO ]  Fetching metadata from broker id:1002,host:gh-data-rt-qa0002.corp.sankuai.com,port:9092 with correlation id 2 for 1 topic(s) Set(test.waimai_lupin_parser)
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49096 ] - [ INFO ]  Connected to gh-data-rt-qa0002.corp.sankuai.com:9092 for producing
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49130 ] - [ INFO ]  Disconnecting from gh-data-rt-qa0002.corp.sankuai.com:9092
+  2019-03-27 17:22:50  [ test2_shusf.local-1553678521289-33e6ee6a-leader-finder-thread:49139 ] - [ INFO ]  [ConsumerFetcherManager-1553678521637] Added fetcher for partitions ArrayBuffer([[test.waimai_lupin_parser,0], initOffset 25128692 to broker id:1003,host:gh-data-rt-qa0003.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,1], initOffset 24911899 to broker id:1010,host:gh-data-rt-qa0010.corp.sankuai.com,port:9092] , [[test.waimai_lupin_parser,2], initOffset 24915611 to broker id:1001,host:gh-data-rt-qa0001.corp.sankuai.com,port:9092] )
+  2019-03-27 17:22:50  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001:49139 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1001], Starting 
+  2019-03-27 17:22:50  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003:49139 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1003], Starting 
+  2019-03-27 17:22:50  [ ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010:49139 ] - [ INFO ]  [ConsumerFetcherThread-test2_shusf.local-1553678521289-33e6ee6a-0-1010], Starting 
+  2019-03-27 17:27:29  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:28:43  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:29:48  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:30:26  [ main:1 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:38:25  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:39:44  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:40:59  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:42:07  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:46:58  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 17:50:09  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 18:35:44  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 18:37:32  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 19:06:02  [ main:2 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-03-27 19:26:43  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gh-data-rt-qa0001.corp.sankuai.com:9092, gh-data-rt-qa0002.corp.sankuai.com:9092, gh-data-rt-qa0003.corp.sankuai.com:9092, gh-data-rt-qa0004.corp.sankuai.com:9092, gh-data-rt-qa0005.corp.sankuai.com:9092]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  

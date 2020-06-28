@@ -1,0 +1,556 @@
+2019-04-18 23:37:57  [ main:0 ] - [ INFO ]  ProducerConfig values: 
+	compression.type = gzip
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 163840
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [www.boboc.club:9093, www.boboc.club:9092, www.boboc.club:9094]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 10000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 3
+	max.request.size = 2097152
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 100
+	client.id = 
+
+  2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1350 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1450 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1569 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1669 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1781 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1888 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:1987 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:37:59  [ kafka-producer-network-thread | producer-1:2100 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2209 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2308 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2414 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2527 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2626 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2738 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2843 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:2939 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:00  [ kafka-producer-network-thread | producer-1:3053 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3155 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3259 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3363 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3475 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3574 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3680 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3792 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3899 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:01  [ kafka-producer-network-thread | producer-1:3998 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4111 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4212 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4308 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4420 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4527 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4628 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4733 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4846 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:4950 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:02  [ kafka-producer-network-thread | producer-1:5049 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5152 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5261 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5365 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5465 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5577 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5681 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5781 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5884 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:5996 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:03  [ kafka-producer-network-thread | producer-1:6100 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6204 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6301 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6408 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6512 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6617 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6728 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6831 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:6936 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:04  [ kafka-producer-network-thread | producer-1:7043 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:05  [ kafka-producer-network-thread | producer-1:7140 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:05  [ kafka-producer-network-thread | producer-1:7252 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:05  [ kafka-producer-network-thread | producer-1:7356 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)
+2019-04-18 23:38:05  [ kafka-producer-network-thread | producer-1:7461 ] - [ WARN ]  Error in I/O with www.boboc.club/47.94.245.160
+  java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:238)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:192)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:191)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:122)
+	at java.lang.Thread.run(Thread.java:748)

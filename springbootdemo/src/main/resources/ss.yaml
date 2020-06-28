@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springbootdemo
+spec:
+  type: NodePort
+  ports:
+  - name: "springboot-service"
+    port: 8080
+    targetPort: 8888
+    nodePort: 31001
+  selector:
+    app: latest

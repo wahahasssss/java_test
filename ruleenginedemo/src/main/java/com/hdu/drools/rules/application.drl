@@ -1,0 +1,19 @@
+package com.hdu.drools.rules;
+import com.hdu.drools.models.ApplicationModel;
+dialect  "mvel"
+
+rule "application"
+    when
+        $a : ApplicationModel(age<18)
+    then
+        $a.setValid(false);
+        System.out.println($a.toString());
+end
+
+
+rule "application2"
+    when
+
+    then
+
+end

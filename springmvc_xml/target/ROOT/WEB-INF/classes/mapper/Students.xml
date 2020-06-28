@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--namespace为指定的mapper接口-->
+<mapper namespace="com.hdu.mapper.StudentMapper">
+    <!--#id：SQL语句的唯一标识-->
+    <!--#parameter：指定传入的参数类型-->
+    <!--#resultType：返回结果集类型-->
+    <select id="listAllStudents"
+            resultType="com.hdu.model.po.StudentsPo">
+        SELECT * FROM test_tbl
+    </select>
+
+    <select id="getStudentByName"
+            resultType="com.hdu.model.po.StudentsPo">
+        SELECT id,name,age,p_word AS password FROM test_tbl
+    </select>
+</mapper>
