@@ -10,6 +10,8 @@ import org.apache.thrift.transport.TServerSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * DESCRIPTION:
  *

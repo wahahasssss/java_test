@@ -19,7 +19,7 @@ public class ThreadLocalMain {
 
         Thread thread1 = new Thread(new Runnable() {
             public void run() {
-//                local1.set("thread1 one");
+                local1.set("thread1 one");
 //                local2.set("thread1 two");
 
                 while (true){

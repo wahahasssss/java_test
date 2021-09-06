@@ -218,7 +218,7 @@ public class BinaryTree {
         return result;
     }
 
-    static class TreeNode {
+    public static class TreeNode {
       int val;
       TreeNode left;
       TreeNode right;

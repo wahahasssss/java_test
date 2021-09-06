@@ -31,6 +31,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -134,6 +135,7 @@ public class SampleConsulApplication /*implements ApplicationListener<SimpleRemo
 
 
 	public static void main(String[] args) {
+		ApplicationContext
 		SpringApplication.run(SampleConsulApplication.class, args);
 	}
 

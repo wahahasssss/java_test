@@ -1,6 +1,7 @@
 package com.hdu.springbootconsul.controller;
 
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/test")
 public class TestController {
+    private String ss = "";
 
+    @Bean
     @RequestMapping(value = "/test",method = {RequestMethod.POST,RequestMethod.GET})
     public String test(){
         return "test";

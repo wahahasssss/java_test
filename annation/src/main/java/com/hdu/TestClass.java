@@ -2,8 +2,6 @@ package com.hdu;
 
 import com.hdu.Annation.UserName;
 
-import java.lang.annotation.Annotation;
-
 /**
  * DESCRIPTION:
  *
@@ -14,8 +12,8 @@ import java.lang.annotation.Annotation;
 public class TestClass {
     private String name;
 
-    @UserName(name = "ssf",passWord = "123")
-    public void test(){
-
+    @UserName(name = "#name",passWord = "123")
+    public void test(String name){
+        System.out.println("name is " + name);
     }
 }

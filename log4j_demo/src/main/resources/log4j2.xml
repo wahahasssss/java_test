@@ -1,63 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<configuration status="error">
-
-    <!--先定义所有的appender-->
-
-    <appenders>
-
-        <!--这个输出控制台的配置-->
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <Properties>
+        <Property name="App">demo</Property>
+        <Property name="logDir">logs</Property>
+        <Property name="splitSize">30 MB</Property>
+    </Properties>
+    <Appenders>
 
         <Console name="Console" target="SYSTEM_OUT">
-
-            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
-
-            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
-
-            <!--这个都知道是输出日志的格式-->
-
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
-
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用-->
-
-        <File name="log" fileName="log/test.log" append="false">
-
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
-
-        </File>
-
-
-
-        <!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
-
-        <RollingFile name="RollingFile" fileName="logs/app.log"
-
-                     filePattern="log/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
-
-            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
-
-            <SizeBasedTriggeringPolicy size="50MB"/>
-
+        <!-- name可以自定义，作用是在Loggers中AppenderRef中使用 -->
+        <!-- fileName定义输出文件名称（当前文件） -->
+        <!-- filePattern定义输出文件名称（文件满足条件后自动截断，生成历史文件） -->
+        <RollingFile name="DEBUG_ROLLING_FILE"
+                     fileName="${logDir}/logs.log"
+                     filePattern="${logDir}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+            </PatternLayout>
+            <!-- 文件截断的条件，具体参考文档 -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24"/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
         </RollingFile>
 
-    </appenders>
+        <!-- 同一来源的Appender可以定义多个 -->
+        <RollingFile name="ERROR_ROLLING_FILE"
+                     fileName="${logDir}/error-logs.log"
+                     filePattern="${logDir}/%d{yyyy-MM-dd}-error.log">
+            <!-- 可以通过该参数来设置获取日志的权限 -->
+            <ThresholdFilter level="ERROR"/>
+            <PatternLayout>
+                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24"/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
 
-    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
-
-    <loggers>
-
-        <!--建立一个默认的root的logger-->
-
-        <root level="trace">
-
-            <appender-ref ref="RollingFile"/>
-
-            <appender-ref ref="Console"/>
-
-        </root>
-
-    </loggers>
-
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="DEBUG_ROLLING_FILE"/>
+            <AppenderRef ref="ERROR_ROLLING_FILE"/>
+        </Root>
+    </Loggers>
 </configuration>

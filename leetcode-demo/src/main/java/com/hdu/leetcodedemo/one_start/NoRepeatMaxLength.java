@@ -1,8 +1,6 @@
 package com.hdu.leetcodedemo.one_start;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * DESCRIPTION:
@@ -33,7 +31,6 @@ public class NoRepeatMaxLength {
         }
         return maxLength;
     }
-ClassLoader
     public static void main(String[] args){
         System.out.println(lengthOfLongestSubstring("aab"));
 

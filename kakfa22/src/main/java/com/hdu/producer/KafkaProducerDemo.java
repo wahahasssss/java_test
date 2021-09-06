@@ -12,7 +12,10 @@ public class KafkaProducerDemo {
     public static void main(String[] args) throws InterruptedException {
 
         KafkaProducerService producerService = new KafkaProducerService();
-        producerService.sendBatchMessage(1000);
-        Thread.sleep(10000);
-    }
+        producerService.sendBatchStudentActivityForever();
+//        while (true){
+//            producerService.(100);
+//            Thread.sleep(1000);
+        }
+
 }

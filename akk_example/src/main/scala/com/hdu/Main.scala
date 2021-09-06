@@ -15,6 +15,10 @@ import scala.concurrent.duration._
   */
 object Main{
   def main(args: Array[String]): Unit = {
+    for(a <- args){
+      print(a)
+    }
+
     implicit val timeout = Timeout(5 seconds)
     System.out.println("begin akka sssssss...")
     var actorSystem = ActorSystem("actorsystem")

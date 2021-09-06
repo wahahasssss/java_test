@@ -18,9 +18,9 @@ public class ProducerDemo {
     private volatile AtomicInteger count = new AtomicInteger(0);
 
     public ProducerDemo(){
-        topic = "test.waimai_lupin_parser";
+        topic = "TestComposeTopic";
         Properties kafkaProperties = new Properties();
-        kafkaProperties.put("bootstrap.servers","47.94.245.160:9093,47.94.245.160:9092,47.94.245.160:9094");
+        kafkaProperties.put("bootstrap.servers","172.31.196.246:9092,172.31.196.246:9093,172.31.196.246:9094");
         kafkaProperties.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
         kafkaProperties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
         kafkaProperties.put("compression.type","gzip");

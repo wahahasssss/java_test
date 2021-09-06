@@ -81,9 +81,47 @@ public class Sum {
         }
         return res;
     }
+
+    /**
+     * 416. 分割等和子集
+     * 给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
+     * @param nums
+     * @return
+     */
+    public static boolean canPartition(int[] nums) {
+        for (int i = 0; i < nums.length; i++){
+
+            for (int m = i ; m < nums.length; m ++){
+                if (nums[m] < nums[i]){
+                    int tmp = nums[i];
+                    nums[i] = nums[m];
+                    nums[m] = tmp;
+                }
+            }
+        }
+
+        for (int i = 0;i < nums.length; i++){
+            int sum1 = 0;
+            int sum2 = 0;
+            for (int n = 0; n < nums.length;n++){
+                if ( n <= i){
+                    sum1 += nums[n];
+                }else {
+                    sum2 += nums[n];
+                }
+            }
+            if (sum1 == sum2){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args){
         Sum sum = new Sum();
         int[] results = sum.twoSumSeven(new int[]{0,4,3,0},0);
+        System.out.println(canPartition(new int[]{1,5,11,5}));
         System.out.println("sum over");
     }
 }

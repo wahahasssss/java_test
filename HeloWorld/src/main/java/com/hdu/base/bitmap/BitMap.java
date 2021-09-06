@@ -29,7 +29,10 @@ public class BitMap {
     }
 
     public void printBitMap() {
-        System.out.println(bitArr);
+        System.out.println(bitArr.length);
+        for (int i = 0; i < bitArr.length;i++){
+            System.out.println(bitArr[i]);
+        }
     }
 
 
