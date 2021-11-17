@@ -10,7 +10,7 @@ import io.micronaut.runtime.Micronaut;
  * @Time 3:47 PM
  */
 public class Application {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Micronaut.run(Application.class);
     }
 }

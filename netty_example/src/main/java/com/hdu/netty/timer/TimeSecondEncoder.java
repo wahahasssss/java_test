@@ -11,7 +11,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @Date 2018/3/26
  * @Time 上午10:26
  */
-public class TimeSecondEncoder extends MessageToByteEncoder<UnixTime>{
+public class TimeSecondEncoder extends MessageToByteEncoder<UnixTime> {
     /**
      * Encode a message into a {@link ByteBuf}. This method will be called for each written message that can be handled
      * by this encoder.
@@ -23,6 +23,6 @@ public class TimeSecondEncoder extends MessageToByteEncoder<UnixTime>{
      */
     @Override
     protected void encode(ChannelHandlerContext ctx, UnixTime msg, ByteBuf out) throws Exception {
-        out.writeInt((int)msg.getValue());
+        out.writeInt((int) msg.getValue());
     }
 }

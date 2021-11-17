@@ -18,7 +18,7 @@ import java.util.Set;
  * @Date 2018/3/21
  * @Time 上午10:35
  */
-public class DeviceGroupActor extends AbstractActor{
+public class DeviceGroupActor extends AbstractActor {
 
     private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
@@ -28,11 +28,12 @@ public class DeviceGroupActor extends AbstractActor{
         this.groupId = groupId;
     }
 
-    public static Props props(String groupId){
-        return Props.create(DeviceGroupActor.class,()->new DeviceGroupActor(groupId));
+    public static Props props(String groupId) {
+        return Props.create(DeviceGroupActor.class, () -> new DeviceGroupActor(groupId));
     }
-    private final Map<String,ActorRef> deviceId2Actor =  new HashMap<>();
-    private final Map<ActorRef,String> actor2DeviceId = new HashMap<>();
+
+    private final Map<String, ActorRef> deviceId2Actor = new HashMap<>();
+    private final Map<ActorRef, String> actor2DeviceId = new HashMap<>();
 
     @Override
     public void preStart() {
@@ -53,7 +54,7 @@ public class DeviceGroupActor extends AbstractActor{
                 log.info("Creating device actor for {}", trackMsg.deviceId);
                 deviceActor = getContext().actorOf(DeviceActor.props(groupId, trackMsg.deviceId), "device-" + trackMsg.deviceId);
                 deviceId2Actor.put(trackMsg.deviceId, deviceActor);
-                actor2DeviceId.put(deviceActor,trackMsg.deviceId);
+                actor2DeviceId.put(deviceActor, trackMsg.deviceId);
                 deviceActor.forward(trackMsg, getContext());
             }
         } else {
@@ -72,14 +73,15 @@ public class DeviceGroupActor extends AbstractActor{
         deviceId2Actor.remove(deviceId);
     }
 
-    private void onDeviceList(RequestDeviceList r){
-        getSender().tell(new DeviceGroupActor.ReplyDeviceList(r.requestId,deviceId2Actor.keySet()),getSelf());
+    private void onDeviceList(RequestDeviceList r) {
+        getSender().tell(new DeviceGroupActor.ReplyDeviceList(r.requestId, deviceId2Actor.keySet()), getSelf());
     }
+
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(Device.RequestTrackDevice.class,this::onTrackDevice)
-                .match(Terminated.class,this::onTerminated)
+                .match(Device.RequestTrackDevice.class, this::onTrackDevice)
+                .match(Terminated.class, this::onTerminated)
                 .build();
     }
 

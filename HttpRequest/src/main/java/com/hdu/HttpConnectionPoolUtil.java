@@ -58,9 +58,10 @@ public class HttpConnectionPoolUtil {
 
     /**
      * 对http请求进行基本设置
+     *
      * @param httpRequestBase http请求
      */
-    private static void setRequestConfig(HttpRequestBase httpRequestBase){
+    private static void setRequestConfig(HttpRequestBase httpRequestBase) {
         RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
                 .setConnectTimeout(CONNECT_TIMEOUT)
                 .setSocketTimeout(SOCKET_TIMEOUT).build();
@@ -68,20 +69,20 @@ public class HttpConnectionPoolUtil {
         httpRequestBase.setConfig(requestConfig);
     }
 
-    public static CloseableHttpClient getHttpClient(String url){
+    public static CloseableHttpClient getHttpClient(String url) {
         String hostName = url.split("/")[2];
         System.out.println(hostName);
         int port = 80;
-        if (hostName.contains(":")){
+        if (hostName.contains(":")) {
             String[] args = hostName.split(":");
             hostName = args[0];
             port = Integer.parseInt(args[1]);
         }
 
-        if (httpClient == null){
+        if (httpClient == null) {
             //多线程下多个线程同时调用getHttpClient容易导致重复创建httpClient对象的问题,所以加上了同步锁
-            synchronized (syncLock){
-                if (httpClient == null){
+            synchronized (syncLock) {
+                if (httpClient == null) {
                     httpClient = createHttpClient(hostName, port);
                     //开启监控线程,对异常和空闲线程进行关闭
                     monitorExecutor = Executors.newScheduledThreadPool(1);
@@ -102,14 +103,15 @@ public class HttpConnectionPoolUtil {
 
     /**
      * 根据host和port构建httpclient实例
+     *
      * @param host 要访问的域名
      * @param port 要访问的端口
      * @return
      */
-    public static CloseableHttpClient createHttpClient(String host, int port){
+    public static CloseableHttpClient createHttpClient(String host, int port) {
         ConnectionSocketFactory plainSocketFactory = PlainConnectionSocketFactory.getSocketFactory();
         LayeredConnectionSocketFactory sslSocketFactory = SSLConnectionSocketFactory.getSocketFactory();
-        Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory> create().register("http", plainSocketFactory)
+        Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create().register("http", plainSocketFactory)
                 .register("https", sslSocketFactory).build();
 
         manager = new PoolingHttpClientConnectionManager(registry);
@@ -124,30 +126,30 @@ public class HttpConnectionPoolUtil {
         HttpRequestRetryHandler handler = new HttpRequestRetryHandler() {
 
             public boolean retryRequest(IOException e, int i, HttpContext httpContext) {
-                if (i > 3){
+                if (i > 3) {
                     //重试超过3次,放弃请求
                     return false;
                 }
-                if (e instanceof NoHttpResponseException){
+                if (e instanceof NoHttpResponseException) {
                     //服务器没有响应,可能是服务器断开了连接,应该重试
                     return true;
                 }
-                if (e instanceof SSLHandshakeException){
+                if (e instanceof SSLHandshakeException) {
                     // SSL握手异常
                     return false;
                 }
-                if (e instanceof InterruptedIOException){
+                if (e instanceof InterruptedIOException) {
                     //超时
                     return false;
                 }
-                if (e instanceof Exception){
+                if (e instanceof Exception) {
                     return false;
                 }
 
 
                 HttpClientContext context = HttpClientContext.adapt(httpContext);
                 HttpRequest request = context.getRequest();
-                if (!(request instanceof HttpEntityEnclosingRequest)){
+                if (!(request instanceof HttpEntityEnclosingRequest)) {
                     //如果请求不是关闭连接的请求
                     return true;
                 }
@@ -160,7 +162,7 @@ public class HttpConnectionPoolUtil {
     }
 
 
-    public static void post(String url, Map<String, String> params){
+    public static void post(String url, Map<String, String> params) {
         HttpPost httpPost = new HttpPost(url);
         setRequestConfig(httpPost);
         CloseableHttpResponse response = null;
@@ -170,13 +172,13 @@ public class HttpConnectionPoolUtil {
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 in = entity.getContent();
-                String result =  IOUtils.toString(in, "utf-8");
+                String result = IOUtils.toString(in, "utf-8");
                 System.out.println(result);
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try{
+            try {
                 if (in != null) in.close();
 //                if (response != null) response.close();
             } catch (IOException e) {
@@ -188,7 +190,7 @@ public class HttpConnectionPoolUtil {
     /**
      * 关闭连接池
      */
-    public static void closeConnectionPool(){
+    public static void closeConnectionPool() {
         try {
             httpClient.close();
             manager.close();

@@ -6,7 +6,7 @@ public class CommonResult {
     private String msg;
     private Object data;
 
-    public CommonResult(){
+    public CommonResult() {
 
     }
 

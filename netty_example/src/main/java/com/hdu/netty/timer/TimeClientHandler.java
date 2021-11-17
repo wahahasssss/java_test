@@ -52,7 +52,7 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
         long currentTimeMillis = (timestamp - 2208988800L) * 1000L;
         Date date = new Date(currentTimeMillis);
         System.out.println(date);
-        if (buf.refCnt()>0){
+        if (buf.refCnt() > 0) {
             buf.release();
         }
         ctx.channel().writeAndFlush(Unpooled.copiedBuffer(date.toString(), Charset.defaultCharset()));

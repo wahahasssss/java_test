@@ -15,9 +15,9 @@ public class EchoServerOutboundHandler extends ChannelOutboundHandlerAdapter {
         promise.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                if (!channelFuture.isSuccess()){
+                if (!channelFuture.isSuccess()) {
                     System.out.println("handle failed ...");
-                }else {
+                } else {
                     System.out.println("handle success...");
                 }
             }

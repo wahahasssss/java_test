@@ -7,7 +7,7 @@ package com.hdu.jdbc.servicloader;
  * @Date 2018/12/27
  * @Time 下午2:12
  */
-public class RawMessageService implements MessageService{
+public class RawMessageService implements MessageService {
     public String getMessage() {
         return "Raw Message";
     }

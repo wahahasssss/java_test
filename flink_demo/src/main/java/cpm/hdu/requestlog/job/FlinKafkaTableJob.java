@@ -8,7 +8,7 @@ package cpm.hdu.requestlog.job;
  * @Versiion：1.0
  */
 public class FlinKafkaTableJob {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        Table table = tableEnv.sqlQuery(sql);
 //        //打印查看数据
 //        DataStream<Tuple2<Boolean, Row>> wcDataStream = tableEnv.toRetractStream(table, Row.class);

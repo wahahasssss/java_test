@@ -12,7 +12,7 @@
 
     <context:property-placeholder location="hadoop.properties,hive.properties"/>
 
-    <context:component-scan base-package="com.hdu.springboothadoop.hive" />
+    <context:component-scan base-package="com.hdu.springboothadoop.hive"/>
 
     <hdp:configuration>
         fs.defaultFS=${hd.fs}

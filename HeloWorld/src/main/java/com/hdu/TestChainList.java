@@ -18,19 +18,19 @@ public class TestChainList<T extends Comparable> {
         this.value = value;
     }
 
-    public void add(T t){
-        TestChainList  tmpChainList = new TestChainList(t);
+    public void add(T t) {
+        TestChainList tmpChainList = new TestChainList(t);
         if (t.compareTo(value) == -1 && (t.compareTo(latest.value) == 1) || t.compareTo(latest.value) == 0) {
             tmpChainList.latest = this.latest;
             tmpChainList.next = this;
-        }else {
+        } else {
             next.add(t);
         }
     }
 
 
-    public void delete(T t){
-        if (t.equals(value)){
+    public void delete(T t) {
+        if (t.equals(value)) {
             latest.next = this.latest;
             latest.latest = this.next;
         }

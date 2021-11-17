@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Date 2018/3/19
  * @Time 下午8:58
  */
-public class Apple implements Serializable{
+public class Apple implements Serializable {
     private Double weight;
     private Color color;
 

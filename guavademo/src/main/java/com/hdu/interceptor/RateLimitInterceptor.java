@@ -15,11 +15,12 @@ import javax.servlet.http.HttpServletResponse;
  * @Time 11:26 AM
  */
 @Component
-public class RateLimitInterceptor extends HandlerInterceptorAdapter{
+public class RateLimitInterceptor extends HandlerInterceptorAdapter {
     private static final RateLimiter rateLimiter = RateLimiter.create(1);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (!rateLimiter.tryAcquire()){
+        if (!rateLimiter.tryAcquire()) {
             System.out.println("限流中......");
             return false;
         }

@@ -22,19 +22,19 @@ public class DistributeLockRedis {
         this.jedisPool = jedisPool;
     }
 
-    public String lockWithTimeout(String localName,Long acquireTimeout,long timeout){
+    public String lockWithTimeout(String localName, Long acquireTimeout, long timeout) {
         Jedis conn = null;
         String retIdentifier = null;
         try {
             conn = jedisPool.getResource();
             String identifier = UUID.randomUUID().toString();
             String lockKey = "lock:" + localName;
-            int lockExpire = (int)(timeout/1000);
+            int lockExpire = (int) (timeout / 1000);
             long end = System.currentTimeMillis() + acquireTimeout;
-            while (System.currentTimeMillis()<end){
+            while (System.currentTimeMillis() < end) {
                 //setnx(key,value) 只有在key不存在时设置超市时间 SET if Not eXists
-                if (conn.setnx(lockKey,identifier) == 1){
-                    conn.expire(lockKey,lockExpire);
+                if (conn.setnx(lockKey, identifier) == 1) {
+                    conn.expire(lockKey, lockExpire);
                     retIdentifier = identifier;
                     return retIdentifier;
                 }
@@ -42,38 +42,38 @@ public class DistributeLockRedis {
                 /**
                  * 如果Redis的key没有设置超时时间，conn.ttl(key)会返回-1，当key不存在时会返回-2
                  */
-                if (conn.ttl(lockKey) == -1){
-                    conn.expire(lockKey,lockExpire);
+                if (conn.ttl(lockKey) == -1) {
+                    conn.expire(lockKey, lockExpire);
                 }
                 try {
                     Thread.sleep(1000);
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     Thread.currentThread().interrupt();
                 }
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }finally {
-            if (conn!=null){
+        } finally {
+            if (conn != null) {
                 conn.close();
             }
         }
         return retIdentifier;
     }
 
-    public boolean releaseLock(String lockName,String identifier){
+    public boolean releaseLock(String lockName, String identifier) {
         Jedis conn = null;
-        String lockKey = "lock:"+lockName;
+        String lockKey = "lock:" + lockName;
         boolean retFlag = false;
         try {
             conn = jedisPool.getResource();
-            while (true){
+            while (true) {
                 conn.watch(lockKey);
-                if (identifier.equals(conn.get(lockKey))){
+                if (identifier.equals(conn.get(lockKey))) {
                     Transaction transaction = conn.multi();
                     transaction.del(lockKey);
                     List<Object> results = transaction.exec();
-                    if (results == null){
+                    if (results == null) {
                         continue;
                     }
                     retFlag = true;
@@ -81,10 +81,10 @@ public class DistributeLockRedis {
                 conn.unwatch();
                 break;
             }
-        }catch (JedisException ex){
+        } catch (JedisException ex) {
             ex.printStackTrace();
-        }finally {
-            if (conn != null){
+        } finally {
+            if (conn != null) {
                 conn.close();
             }
         }

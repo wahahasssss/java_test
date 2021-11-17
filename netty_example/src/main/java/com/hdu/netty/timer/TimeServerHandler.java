@@ -16,21 +16,21 @@ import java.util.Date;
  * @Date 2018/3/24
  * @Time 下午3:13
  */
-public class TimeServerHandler extends ChannelInboundHandlerAdapter{
+public class TimeServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(final ChannelHandlerContext ctx) throws Exception {
         System.out.println(String.format("channel is active...."));
         final ByteBuf time = ctx.alloc().buffer(4);
-        time.writeInt((int)(System.currentTimeMillis()/1000L-2208988800L));
+        time.writeInt((int) (System.currentTimeMillis() / 1000L - 2208988800L));
         ctx.writeAndFlush(time);
     }
 
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf)msg;
-        String receiveString =  buf.toString(Charset.defaultCharset());
+        ByteBuf buf = (ByteBuf) msg;
+        String receiveString = buf.toString(Charset.defaultCharset());
 
         System.out.println("received msg is " + receiveString);
         buf.release();

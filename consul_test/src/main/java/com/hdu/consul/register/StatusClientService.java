@@ -18,10 +18,10 @@ public class StatusClientService {
     private final static StatusClient STATUS_CLIENT;
 
     static {
-        STATUS_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(Constant.CONSUL_IP,Constant.CONSUL_PORT)).build().statusClient();
+        STATUS_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(Constant.CONSUL_IP, Constant.CONSUL_PORT)).build().statusClient();
     }
 
-    public static List<String> findRaftPeers(){
+    public static List<String> findRaftPeers() {
         return STATUS_CLIENT.getPeers();
     }
 }

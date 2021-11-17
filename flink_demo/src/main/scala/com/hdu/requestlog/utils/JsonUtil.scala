@@ -34,11 +34,12 @@ object JsonUtil {
 
   /**
    * 序列化
+   *
    * @param obj
    * @return
    */
   def toJsonString(obj: Any): String = {
-    try{
+    try {
       val jsonStr = objectMapper.writeValueAsString(obj)
       jsonStr
     } catch {
@@ -50,14 +51,15 @@ object JsonUtil {
 
   /**
    * 反序列化
+   *
    * @param str
    * @param clazz
    * @tparam T
    * @return
    */
-  def string2Obj[T](str: String, clazz:Class[T]): Option[T] = {
+  def string2Obj[T](str: String, clazz: Class[T]): Option[T] = {
 
-    try{
+    try {
       val obj = objectMapper.readValue(str, clazz)
       val result = Option.apply(obj)
       result
@@ -70,7 +72,7 @@ object JsonUtil {
 
 
   def string2Obj[T](str: String, typeReference: TypeReference[T]): Option[T] = {
-    if (StringUtils.isEmpty(str) || typeReference == null){
+    if (StringUtils.isEmpty(str) || typeReference == null) {
       return null
     }
     try {

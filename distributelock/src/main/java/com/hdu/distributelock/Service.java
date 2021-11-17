@@ -19,7 +19,7 @@ public class Service {
         config.setMaxIdle(1000);
         config.setMaxWaitMillis(100000);
         config.setTestOnBorrow(true);
-        pool = new JedisPool(config,"47.94.245.160",6379,3000);
+        pool = new JedisPool(config, "47.94.245.160", 6379, 3000);
     }
 
     DistributeLockRedis distributeLock = new DistributeLockRedis(pool);
@@ -28,16 +28,16 @@ public class Service {
 
     int n = 500;
 
-    public void secKill(){
-        String identifier = distributeLock.lockWithTimeout("resource",500000L,500000);
+    public void secKill() {
+        String identifier = distributeLock.lockWithTimeout("resource", 500000L, 500000);
         System.out.println(Thread.currentThread().getName() + ":get the lock");
         System.out.println(--n);
-        distributeLock.releaseLock("resource",identifier);
+        distributeLock.releaseLock("resource", identifier);
     }
 
     public void secKill2() throws InterruptedException {
         String id = lock.acquireLock();
-        if (n<=0){
+        if (n <= 0) {
             System.out.println("there is no kill");
             return;
         }

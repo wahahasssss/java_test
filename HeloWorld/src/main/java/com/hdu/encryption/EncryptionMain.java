@@ -52,11 +52,10 @@ public class EncryptionMain {
         System.out.println("Input des decrypt:" + decrypt(encryptString, password));
 
 
-
         String des3Key = "fajwiefjiwaehfiuwaehfuiwahefuiwaefohawhefuiwaehfuoawefwa";
         String en3EncryptString = encryptThreeDESECB(input, des3Key);
         System.out.println("Input 3des:" + en3EncryptString);
-        System.out.println("Input 3des decrypt:" +decryptThreeDESECB(en3EncryptString, des3Key) );
+        System.out.println("Input 3des decrypt:" + decryptThreeDESECB(en3EncryptString, des3Key));
 
 
         String aesKey = "afjawefawjefiawejf0aiwjef0iawf";
@@ -65,7 +64,7 @@ public class EncryptionMain {
         System.out.println("Input aes aesEncrypt:" + decryptAes(aesEncryptString, aesKey));
 
 
-        String rsaString = RsaUtil.encryptByPublicKey()
+//        String rsaString = RsaUtil.encryptByPublicKey();
     }
 
     public static String md5Encryption(String input) throws NoSuchAlgorithmException {
@@ -104,7 +103,7 @@ public class EncryptionMain {
     }
 
 
-    public static String encrypt(byte[] dataSource, String password){
+    public static String encrypt(byte[] dataSource, String password) {
         try {
             SecureRandom random = new SecureRandom();
             DESKeySpec desKeySpec = new DESKeySpec(password.getBytes());
@@ -119,10 +118,12 @@ public class EncryptionMain {
             return Base64.encodeBase64String(cipher.doFinal(dataSource));
         } catch (Throwable e) {
             e.printStackTrace();
-        } return null;
+        }
+        return null;
     }
+
     // 解密
-    public static String decrypt(String src, String password) throws Exception{
+    public static String decrypt(String src, String password) throws Exception {
         // DES算法要求有一个可信任的随机数源
         SecureRandom random = new SecureRandom();
         // 创建一个DESKeySpec对象
@@ -141,7 +142,7 @@ public class EncryptionMain {
     }
 
     public static String encryptThreeDESECB(String src, String key) {
-        try{
+        try {
             DESedeKeySpec dks = new DESedeKeySpec(key.getBytes("UTF-8"));
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");
             SecretKey securekey = keyFactory.generateSecret(dks);
@@ -154,14 +155,14 @@ public class EncryptionMain {
             ss = ss.replaceAll("\\+", "-");
             ss = ss.replaceAll("/", "_");
             return ss;
-        } catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return src;
         }
     }
 
     public static String decryptThreeDESECB(String src, String key) {
-        try{
+        try {
             src = src.replaceAll("-", "+");
             src = src.replaceAll("_", "/");
             byte[] bytesrc = Base64.decodeBase64(src.getBytes("UTF-8"));
@@ -176,7 +177,7 @@ public class EncryptionMain {
             byte[] retByte = cipher.doFinal(bytesrc);
 
             return new String(retByte, "UTF-8");
-        } catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return src;
         }

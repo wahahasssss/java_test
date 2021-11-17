@@ -8,11 +8,13 @@ import org.slf4j.{Logger, LoggerFactory}
  * @author shushoufu
  * @date 2020/08/14
  **/
-object MyAlertSink{
+object MyAlertSink {
 
 }
-class MyAlertSink extends SinkFunction[MyAlert]{
-  val LOG : Logger = LoggerFactory.getLogger(classOf[AlertSink])
+
+class MyAlertSink extends SinkFunction[MyAlert] {
+  val LOG: Logger = LoggerFactory.getLogger(classOf[AlertSink])
+
   override def invoke(value: MyAlert, context: SinkFunction.Context[_]): Unit = {
     LOG.info("this is my alert , {}", value)
   }

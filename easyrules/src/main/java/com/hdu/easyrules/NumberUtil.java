@@ -10,6 +10,7 @@ public class NumberUtil {
 
     /**
      * 匹配是否包含数字
+     *
      * @param str 可能为中文，也可能是-19162431.1254，不使用BigDecimal的话，变成-1.91624311254E7
      * @return
      */

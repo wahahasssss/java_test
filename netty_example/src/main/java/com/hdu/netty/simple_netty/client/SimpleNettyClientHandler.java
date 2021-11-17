@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date 2019/1/21
  * @Time 下午7:38
  */
-public class SimpleNettyClientHandler extends SimpleChannelInboundHandler<SimpleEntity>{
+public class SimpleNettyClientHandler extends SimpleChannelInboundHandler<SimpleEntity> {
     private static volatile AtomicInteger ATTEMPS = new AtomicInteger(0);
     private Bootstrap bootstrap;
 
@@ -42,16 +42,16 @@ public class SimpleNettyClientHandler extends SimpleChannelInboundHandler<Simple
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel in active");
-        if (ATTEMPS.get()<12){
+        if (ATTEMPS.get() < 12) {
             Thread.sleep(1000);
-            ChannelFuture future = bootstrap.connect("127.0.0.1",6787);
+            ChannelFuture future = bootstrap.connect("127.0.0.1", 6787);
             SimpleNettyClient.channel = future.channel();
             future.addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture future) throws Exception {
-                    if (future.isSuccess()){
+                    if (future.isSuccess()) {
                         System.out.println("reconnect success");
-                    }else {
+                    } else {
                         System.out.println("reconnect failed");
                         future.channel().pipeline().fireChannelInactive();
                     }

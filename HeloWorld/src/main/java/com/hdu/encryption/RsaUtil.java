@@ -29,6 +29,7 @@ public class RsaUtil {
     private static final String PUBLIC_KEY = "RSAPublicKey";
     //私钥
     private static final String PRIVATE_KEY = "RSAPrivateKey";
+
     /**
      * 初始化密钥对
      *
@@ -51,6 +52,7 @@ public class RsaUtil {
         keyMap.put(PRIVATE_KEY, privateKey);
         return keyMap;
     }
+
     /**
      * 私钥加密
      *

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Date 2018/9/19
  * @Time 下午5:31
  */
-public class Students implements Serializable{
+public class Students implements Serializable {
     private String name;
     private Integer age;
 

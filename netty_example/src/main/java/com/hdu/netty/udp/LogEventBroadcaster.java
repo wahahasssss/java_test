@@ -32,7 +32,7 @@ public class LogEventBroadcaster {
         workerGroup = new NioEventLoopGroup();
         bootstrap = new Bootstrap();
         bootstrap.group(workerGroup).channel(NioDatagramChannel.class)
-                .option(ChannelOption.SO_BROADCAST,true)
+                .option(ChannelOption.SO_BROADCAST, true)
                 .handler(new LogEventEncoder(address));
         this.file = file;
     }
@@ -40,17 +40,17 @@ public class LogEventBroadcaster {
     public void startBroadcaster() throws InterruptedException, IOException {
         Channel channel = bootstrap.bind(0).sync().channel();
         long pointer = 0;
-        for (;;){
+        for (; ; ) {
             long len = file.length();
-            if (len < pointer){
+            if (len < pointer) {
                 pointer = len;
-            }else if (len > pointer){
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file,"r");
+            } else if (len > pointer) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
                 randomAccessFile.seek(pointer);
                 String line;
-                while ((line = randomAccessFile.readLine())!=null){
+                while ((line = randomAccessFile.readLine()) != null) {
                     System.out.println(line);
-                    channel.writeAndFlush(new LogEvent(null,file.getAbsolutePath(),line,-1));
+                    channel.writeAndFlush(new LogEvent(null, file.getAbsolutePath(), line, -1));
                 }
                 pointer = randomAccessFile.getFilePointer();
                 randomAccessFile.close();
@@ -58,14 +58,14 @@ public class LogEventBroadcaster {
             }
             try {
                 Thread.sleep(1000);
-            }catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 Thread.interrupted();
                 break;
             }
         }
     }
 
-    public void stop(){
+    public void stop() {
         workerGroup.shutdownGracefully();
         bossGroup.shutdownGracefully();
     }
@@ -73,10 +73,10 @@ public class LogEventBroadcaster {
     public static void main(String[] args) throws URISyntaxException, FileNotFoundException {
         File file = new File(LogEventBroadcaster.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + "loc.csv");
         LogEventBroadcaster logEventBroadcaster = new LogEventBroadcaster(
-                new InetSocketAddress("255.255.255.255",9999),file);
+                new InetSocketAddress("255.255.255.255", 9999), file);
         try {
             logEventBroadcaster.startBroadcaster();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             logEventBroadcaster.stop();
         }

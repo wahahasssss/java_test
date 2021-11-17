@@ -21,14 +21,14 @@
             <version>2.3.2</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.scala-lang.modules</groupId>-->
-            <!--<artifactId>scala-java8-compat_2.12</artifactId>-->
-            <!--<version>RELEASE</version>-->
+        <!--<groupId>org.scala-lang.modules</groupId>-->
+        <!--<artifactId>scala-java8-compat_2.12</artifactId>-->
+        <!--<version>RELEASE</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.scala-lang.modules</groupId>-->
-            <!--<artifactId>scala-java8-compat_2.12</artifactId>-->
-            <!--<version>RELEASE</version>-->
+        <!--<groupId>org.scala-lang.modules</groupId>-->
+        <!--<artifactId>scala-java8-compat_2.12</artifactId>-->
+        <!--<version>RELEASE</version>-->
         <!--</dependency>-->
     </dependencies>
     <build>

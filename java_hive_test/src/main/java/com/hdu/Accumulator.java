@@ -9,6 +9,7 @@ package com.hdu;
  */
 public class Accumulator {
     private Long sum = 0L;
+
     public Accumulator() {
     }
 
@@ -16,7 +17,7 @@ public class Accumulator {
         return sum;
     }
 
-    public Long add(Long a){
+    public Long add(Long a) {
         sum = sum + a;
         return sum;
     }

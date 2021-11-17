@@ -21,17 +21,17 @@ public class TopologyApplication {
     public static void main(String[] args) throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
 
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("spout",new RandomSpout());
-        builder.setBolt("bolt",new Bolt()).shuffleGrouping("spout");
-        builder.setBolt("secondBolt",new SecondBolt()).shuffleGrouping("spout");
-        Config config  = new Config();
+        builder.setSpout("spout", new RandomSpout());
+        builder.setBolt("bolt", new Bolt()).shuffleGrouping("spout");
+        builder.setBolt("secondBolt", new SecondBolt()).shuffleGrouping("spout");
+        Config config = new Config();
         config.setDebug(true);
-        if (args!=null&&args.length>0){
+        if (args != null && args.length > 0) {
             config.setNumWorkers(3);
-            StormSubmitter.submitTopology(args[0],config,builder.createTopology());
-        }else {
+            StormSubmitter.submitTopology(args[0], config, builder.createTopology());
+        } else {
             LocalCluster cluster = new LocalCluster();
-            cluster.submitTopology("firstTopo",config,builder.createTopology());
+            cluster.submitTopology("firstTopo", config, builder.createTopology());
             Utils.sleep(20000);
             cluster.killTopology("firstTopo");
             cluster.shutdown();

@@ -17,12 +17,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Main {
     private static ApplicationContext context;
+
     public static void main(String[] args) throws InterruptedException {
         initSpring();
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
         KieSession kieSession = kieContainer.newKieSession("my-ssesion");
-        ApplicationModel applicationModel=  new ApplicationModel();
+        ApplicationModel applicationModel = new ApplicationModel();
         applicationModel.setAge(17);
         applicationModel.setName("st");
         applicationModel.setValid(true);
@@ -36,7 +37,8 @@ public class Main {
         kieSession.fireAllRules();
         System.out.println(applicationModel.toString());
     }
-    private static void initSpring(){
+
+    private static void initSpring() {
         context = new AnnotationConfigApplicationContext("com.hdu.drools");
 
     }

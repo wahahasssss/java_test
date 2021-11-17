@@ -17,7 +17,7 @@ public class ForkJoinPoolDemo {
         ForkJoinPool pool = new ForkJoinPool();
 
 
-        for (int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             pool.execute(new Runnable() {
                 @Override
                 public void run() {

@@ -16,12 +16,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HiveBeans {
     @Bean
-    public MapJobRepositoryFactoryBean repositoryFactoryBean(){
+    public MapJobRepositoryFactoryBean repositoryFactoryBean() {
         return new MapJobRepositoryFactoryBean();
     }
 
     @Bean
-    public ResourcelessTransactionManager transactionManager(){
+    public ResourcelessTransactionManager transactionManager() {
         return new ResourcelessTransactionManager();
     }
 

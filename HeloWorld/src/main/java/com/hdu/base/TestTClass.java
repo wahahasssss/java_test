@@ -5,7 +5,7 @@ package com.hdu.base;
  * @Date: 2020/2/7 12:20 下午
  */
 public class TestTClass {
-    public <ABC> ABC test(ABC data){
+    public <ABC> ABC test(ABC data) {
         return data;
     }
 }

@@ -10,8 +10,8 @@ import java.util.LinkedHashMap;
  * @Time 下午9:04
  */
 public class HashMpaExample {
-    public static void main(String[] args){
-        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+    public static void main(String[] args) {
+        LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
 
     }
 }

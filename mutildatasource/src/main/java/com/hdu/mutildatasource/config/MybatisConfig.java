@@ -58,6 +58,7 @@ public class MybatisConfig {
 
     @Value("${db2.datasource.password}")
     private String db2Password;
+
     @Bean(value = "db1databaseSource")
     public DataSource db1databaseSource() throws Exception {
         Properties properties = new Properties();
@@ -82,10 +83,10 @@ public class MybatisConfig {
     @Bean
     @Primary
     public DynamicDataSourceConfig dynamicDataSourceConfig(@Qualifier("db1databaseSource") DataSource db1DataSource,
-                                                     @Qualifier("db2databaseSource") DataSource db2DataSource) throws Exception {
-        Map<Object,Object> dataSources = new HashMap<>();
-        dataSources.put(DatabaseType.db1,db1DataSource);
-        dataSources.put(DatabaseType.db2,db2DataSource);
+                                                           @Qualifier("db2databaseSource") DataSource db2DataSource) throws Exception {
+        Map<Object, Object> dataSources = new HashMap<>();
+        dataSources.put(DatabaseType.db1, db1DataSource);
+        dataSources.put(DatabaseType.db2, db2DataSource);
         DynamicDataSourceConfig dynamicDataSource = new DynamicDataSourceConfig();
         dynamicDataSource.setTargetDataSources(dataSources);
         dynamicDataSource.setDefaultTargetDataSource(db1DataSource);

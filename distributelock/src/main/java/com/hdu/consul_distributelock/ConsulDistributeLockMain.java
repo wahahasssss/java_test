@@ -1,7 +1,6 @@
 package com.hdu.consul_distributelock;
 
 
-
 import com.google.common.net.HostAndPort;
 import com.orbitz.consul.Consul;
 
@@ -22,32 +21,32 @@ import java.util.stream.Collectors;
 public class ConsulDistributeLockMain {
 
 
-
-    public static volatile ConcurrentHashMap<String,ArrayBlockingQueue<Long>> ipLoginDetails = new ConcurrentHashMap<>();
+    public static volatile ConcurrentHashMap<String, ArrayBlockingQueue<Long>> ipLoginDetails = new ConcurrentHashMap<>();
     private static Integer number = 500;
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         ArrayBlockingQueue<Long> queue = new ArrayBlockingQueue<Long>(30);
         List<Integer> s = new ArrayList<>();
-       queue.offer(1L);
-       String s = "fafwefwa";
+        queue.offer(1L);
+        String s = "fafwefwa";
         HashSet<String> set = new HashSet<>();
         set.parallelStream().sorted().collect(Collectors.toList())
         Long currentTime = System.currentTimeMillis();
-        for (int i = 0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Consul consul = Consul.builder().withHostAndPort(HostAndPort.fromParts("127.0.0.1",8414))
+                    Consul consul = Consul.builder().withHostAndPort(HostAndPort.fromParts("127.0.0.1", 8414))
                             .build();
-                    DistributeLockConsul lock = new DistributeLockConsul(consul,"lock-session","lock-key");
+                    DistributeLockConsul lock = new DistributeLockConsul(consul, "lock-session", "lock-key");
                     try {
-                        if (lock.lock(true)){
+                        if (lock.lock(true)) {
                             --number;
-                            System.out.println(String.format("thread name:%s get lock,number is %d",Thread.currentThread().getName(),number));
+                            System.out.println(String.format("thread name:%s get lock,number is %d", Thread.currentThread().getName(), number));
                         }
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
-                    }finally {
+                    } finally {
                         lock.releaseLock();
                     }
 

@@ -19,17 +19,16 @@ import java.util.List;
 @RequestMapping(value = "/stat")
 public class SwaggerController {
     @ResponseBody
-    @RequestMapping(value = "/helloword",method = RequestMethod.GET)
-    @ApiOperation(nickname = "swagger-helloworld",value = "swagger world",notes = "cesh wefwefewf")
-    public String HelloWorld(@ApiParam(value = "nickename") @RequestParam String nickname)
-    {
-        return "Hello World,"+nickname;
+    @RequestMapping(value = "/helloword", method = RequestMethod.GET)
+    @ApiOperation(nickname = "swagger-helloworld", value = "swagger world", notes = "cesh wefwefewf")
+    public String HelloWorld(@ApiParam(value = "nickename") @RequestParam String nickname) {
+        return "Hello World," + nickname;
     }
+
     @ResponseBody
-    @RequestMapping(value = "/students",method = RequestMethod.POST)
-    @ApiOperation(nickname = "swagger-students",value = "swager-studentsss",notes = "object")
-    public List<Students> AllStudents(@ApiParam(value = "input") @RequestBody Param p)
-    {
+    @RequestMapping(value = "/students", method = RequestMethod.POST)
+    @ApiOperation(nickname = "swagger-students", value = "swager-studentsss", notes = "object")
+    public List<Students> AllStudents(@ApiParam(value = "input") @RequestBody Param p) {
         Students s = new Students();
         s.setAge(22);
         s.setGrade(99.9);

@@ -20,7 +20,7 @@ import java.util.Optional;
  * @Date 2018/12/3
  * @Time 下午6:56
  */
-public class CustomBlackListingConsulFailoverStrategy implements ConsulFailoverStrategy{
+public class CustomBlackListingConsulFailoverStrategy implements ConsulFailoverStrategy {
     private Map<HostAndPort, Instant> blacklist = new HashMap();
     private Collection<HostAndPort> targets;
     private long timeout;
@@ -32,17 +32,17 @@ public class CustomBlackListingConsulFailoverStrategy implements ConsulFailoverS
 
     public Optional<Request> computeNextStage(Request previousRequest, Response previousResponse) {
         HostAndPort initialTarget = this.fromRequest(previousRequest);
-        if (previousResponse != null && (previousResponse.code()<200 && previousResponse.code()>=500 )) {
+        if (previousResponse != null && (previousResponse.code() < 200 && previousResponse.code() >= 500)) {
             this.blacklist.put(initialTarget, Instant.now());
         }
-        if(previousResponse!=null && (previousResponse.code() >= 400 && previousResponse.code()<500)){
+        if (previousResponse != null && (previousResponse.code() >= 400 && previousResponse.code() < 500)) {
             return Optional.empty();
         }
 
         if (this.blacklist.containsKey(initialTarget)) {
-            HostAndPort next = (HostAndPort)this.targets.stream().filter((target) -> {
+            HostAndPort next = (HostAndPort) this.targets.stream().filter((target) -> {
                 if (this.blacklist.containsKey(target)) {
-                    Instant blacklistWhen = (Instant)this.blacklist.get(target);
+                    Instant blacklistWhen = (Instant) this.blacklist.get(target);
                     if (!Duration.between(blacklistWhen, Instant.now()).minusMillis(this.timeout).isNegative()) {
                         this.blacklist.remove(target);
                         return true;

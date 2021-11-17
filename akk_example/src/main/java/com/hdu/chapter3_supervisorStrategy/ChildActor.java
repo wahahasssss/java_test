@@ -11,7 +11,7 @@ import sun.jvm.hotspot.debugger.win32.coff.MachineTypes;
  * @Date 2018/6/20
  * @Time 上午11:16
  */
-public class ChildActor extends AbstractActor{
+public class ChildActor extends AbstractActor {
     int state = 0;
 
 //    @Override
@@ -20,7 +20,7 @@ public class ChildActor extends AbstractActor{
 //    }
 
     @Override
-    public void postStop(){
+    public void postStop() {
         System.out.println("child actor post stop");
     }
 
@@ -34,10 +34,14 @@ public class ChildActor extends AbstractActor{
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(Exception.class,e->{throw  e;})
-                .match(Integer.class,i->state = i)
-                .matchEquals("get",s->getSender().tell(state,getSelf()))
-                .matchEquals("throw",s -> {throw new MyException("child get the myexception sssss");})
+                .match(Exception.class, e -> {
+                    throw e;
+                })
+                .match(Integer.class, i -> state = i)
+                .matchEquals("get", s -> getSender().tell(state, getSelf()))
+                .matchEquals("throw", s -> {
+                    throw new MyException("child get the myexception sssss");
+                })
                 .build();
     }
 }

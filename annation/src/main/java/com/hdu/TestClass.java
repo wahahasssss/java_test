@@ -12,8 +12,8 @@ import com.hdu.Annation.UserName;
 public class TestClass {
     private String name;
 
-    @UserName(name = "#name",passWord = "123")
-    public void test(String name){
+    @UserName(name = "#name", passWord = "123")
+    public void test(String name) {
         System.out.println("name is " + name);
     }
 }

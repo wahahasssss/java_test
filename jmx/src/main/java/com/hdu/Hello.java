@@ -10,6 +10,7 @@ package com.hdu;
 public class Hello implements HelloMBean {
     private String name;
     private String age;
+
     public String getName() {
         System.out.println("get name " + name);
         return this.name;
@@ -31,7 +32,7 @@ public class Hello implements HelloMBean {
     }
 
     public void helloWorld() {
-        System.out.println("hello world ,name is "+name+" age is " + age);
+        System.out.println("hello world ,name is " + name + " age is " + age);
     }
 
     public void helloWorld(String str) {

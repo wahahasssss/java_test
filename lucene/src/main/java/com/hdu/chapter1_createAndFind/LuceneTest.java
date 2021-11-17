@@ -16,22 +16,22 @@ import java.io.IOException;
  * @Time 上午11:09
  */
 public class LuceneTest {
-//    String indexDir = "/Users/shushoufu/iCloud 云盘（归档） - 1/Desktop/document/java_test/lucene/lucene/index";
+    //    String indexDir = "/Users/shushoufu/iCloud 云盘（归档） - 1/Desktop/document/java_test/lucene/lucene/index";
 //    String dataDir = "/Users/shushoufu/iCloud 云盘（归档） - 1/Desktop/document/java_test/lucene/lucene/data";
     String indexDir = "/Users/shushoufu/Desktop/document/java_test/lucene/lucene/index";
     String dataDir = "/Users/shushoufu/Desktop/document/java_test/lucene/lucene/data";
     Indexer indexer;
     Searcher searcher;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         LuceneTest test;
         try {
             test = new LuceneTest();
             test.createIndex();
             test.search("INFO");
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println(ExceptionUtils.getFullStackTrace(e));
-        }catch (ParseException e){
+        } catch (ParseException e) {
             System.out.println(ExceptionUtils.getFullStackTrace(e));
         }
     }
@@ -40,11 +40,11 @@ public class LuceneTest {
         indexer = new Indexer(indexDir);
         int numIndexed;
         long startTime = System.currentTimeMillis();
-        numIndexed = indexer.createIndex(dataDir,new FilterToText());
-        Long  endTime = System.currentTimeMillis();
+        numIndexed = indexer.createIndex(dataDir, new FilterToText());
+        Long endTime = System.currentTimeMillis();
         indexer.close();
-        System.out.println(numIndexed+" File indexed, time taken: "
-                +(endTime-startTime)+" ms");
+        System.out.println(numIndexed + " File indexed, time taken: "
+                + (endTime - startTime) + " ms");
     }
 
     private void search(String searchQuery) throws IOException, ParseException {
@@ -55,7 +55,7 @@ public class LuceneTest {
 
         System.out.println(hits.totalHits +
                 " documents found. Time :" + (endTime - startTime));
-        for (ScoreDoc scoreDoc:hits.scoreDocs){
+        for (ScoreDoc scoreDoc : hits.scoreDocs) {
             Document document = searcher.getDocument(scoreDoc);
             System.out.println("File:" + document.get(LuceneConstant.FILE_PATH));
         }

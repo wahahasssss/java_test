@@ -17,17 +17,17 @@ import java.util.Map;
  * @Date 2018/3/21
  * @Time 上午11:00
  */
-public class DeviceManagerActor extends AbstractActor{
+public class DeviceManagerActor extends AbstractActor {
 
     private long requestId;
     private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
 
-    private final Map<String,ActorRef> groupId2Actor = new HashMap<>();
-    private final Map<ActorRef,String> actor2GroupId = new HashMap<>();
+    private final Map<String, ActorRef> groupId2Actor = new HashMap<>();
+    private final Map<ActorRef, String> actor2GroupId = new HashMap<>();
 
-    public static Props props(long requestId){
-        return Props.create(DeviceManagerActor.class,()->new DeviceManagerActor(requestId));
+    public static Props props(long requestId) {
+        return Props.create(DeviceManagerActor.class, () -> new DeviceManagerActor(requestId));
     }
 
     public DeviceManagerActor(long requestId) {
@@ -58,6 +58,7 @@ public class DeviceManagerActor extends AbstractActor{
             actor2GroupId.put(groupActor, groupId);
         }
     }
+
     private void onTerminated(Terminated t) {
         ActorRef groupActor = t.getActor();
         String groupId = actor2GroupId.get(groupActor);
@@ -69,12 +70,12 @@ public class DeviceManagerActor extends AbstractActor{
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(RequestTrackDevice.class,this::onTrackDevice)
-                .match(Terminated.class,this::onTerminated)
+                .match(RequestTrackDevice.class, this::onTrackDevice)
+                .match(Terminated.class, this::onTerminated)
                 .build();
     }
 
-       public static final class RequestTrackDevice {
+    public static final class RequestTrackDevice {
         public final String groupId;
         public final String deviceId;
 

@@ -31,9 +31,9 @@ public class Start {
 //        System.out.println(String.format("the bitmap size is {}",bitmap.getSizeInBytes()));
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(
-                new AuthScope("47.94.245.160",5647),
-                new UsernamePasswordCredentials("ssf","12345678'"));
-        HttpHost proxy = new HttpHost("47.94.245.160",5647,"http");
+                new AuthScope("47.94.245.160", 5647),
+                new UsernamePasswordCredentials("ssf", "12345678'"));
+        HttpHost proxy = new HttpHost("47.94.245.160", 5647, "http");
         CloseableHttpClient httpClient = HttpClients.custom().setDefaultCredentialsProvider(credentialsProvider).build();
         HttpGet get = new HttpGet("https://www.baidu.com");
         RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
@@ -58,5 +58,5 @@ public class Start {
 //        System.out.println(String.format("the cost time is %d",System.currentTimeMillis() - start));
 //
 //        System.out.println(String.format("thread count is %d",threads.size()));
-}
+    }
 }

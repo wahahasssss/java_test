@@ -43,20 +43,20 @@ public class ActorSourceDemo {
         }
     }
 
-    public static void main(String[] args){
-        final JavaPartialFunction<Protocol,Throwable> failureMatcher = new JavaPartialFunction<Protocol, Throwable>() {
+    public static void main(String[] args) {
+        final JavaPartialFunction<Protocol, Throwable> failureMatcher = new JavaPartialFunction<Protocol, Throwable>() {
             @Override
             public Throwable apply(Protocol x, boolean isCheck) throws Exception {
                 if (x instanceof Fail)
-                    return ((Fail)x).ex;
+                    return ((Fail) x).ex;
                 else
                     throw noMatch();
             }
         };
 
 
-        final Source<Protocol,ActorRef<Protocol>> source = ActorSource.actorRef(
-                (m)-> m instanceof Complete,
+        final Source<Protocol, ActorRef<Protocol>> source = ActorSource.actorRef(
+                (m) -> m instanceof Complete,
                 failureMatcher,
                 8,
                 OverflowStrategy.fail()
@@ -65,9 +65,9 @@ public class ActorSourceDemo {
         final ActorRef<Protocol> ref = source.collect(new JavaPartialFunction<Protocol, String>() {
             @Override
             public String apply(Protocol x, boolean isCheck) throws Exception {
-                if (x instanceof Message){
-                    return ((Message)x).msg;
-                }else {
+                if (x instanceof Message) {
+                    return ((Message) x).msg;
+                } else {
                     throw noMatch();
                 }
             }

@@ -10,6 +10,6 @@ public class MainThread {
         int priority = Thread.currentThread().getPriority();
         Thread.State state = Thread.currentThread().getState();
         String threadGroupName = Thread.currentThread().getThreadGroup().getName();
-        System.out.println("id="+id+"; name="+name+"; priority="+priority+"; state="+state+"; threadGroupName="+threadGroupName);
-        }
+        System.out.println("id=" + id + "; name=" + name + "; priority=" + priority + "; state=" + state + "; threadGroupName=" + threadGroupName);
+    }
 }

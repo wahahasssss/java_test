@@ -19,25 +19,26 @@ import java.nio.charset.Charset;
 public class TimeClient {
     private static Channel channel;
 
-    public static void run(){
+    public static void run() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
-                if (channel!=null&& channel.isActive()){
-                    channel.writeAndFlush(Unpooled.copiedBuffer("netty client send msg", Charset.defaultCharset()));
+                while (true) {
+                    if (channel != null && channel.isActive()) {
+                        channel.writeAndFlush(Unpooled.copiedBuffer("netty client send msg", Charset.defaultCharset()));
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
             }
         });
         thread.start();
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         run();
         int port = 8080;
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -45,20 +46,19 @@ public class TimeClient {
             Bootstrap b = new Bootstrap();
             b.group(workerGroup);
             b.channel(NioSocketChannel.class);
-            b.option(ChannelOption.SO_KEEPALIVE,true);
+            b.option(ChannelOption.SO_KEEPALIVE, true);
             b.handler(new ChannelInitializer<SocketChannel>() {
 
                 protected void initChannel(SocketChannel ch) throws Exception {
                     ch.pipeline().addLast(new TimeClientHandler());
                 }
             });
-            ChannelFuture future = b.connect("127.0.0.1",port).sync();
+            ChannelFuture future = b.connect("127.0.0.1", port).sync();
             channel = future.channel();
             channel.closeFuture().syncUninterruptibly();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }
-        finally {
+        } finally {
             workerGroup.shutdownGracefully();
         }
     }

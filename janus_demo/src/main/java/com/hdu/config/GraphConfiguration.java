@@ -29,8 +29,9 @@ public class GraphConfiguration {
     private Cluster cluster;
     private Client client;
     private static final String CONFIG_FILE = "conf/janusgraph-cql-es-server.properties";
-    private  JanusGraph graph;
-    private  JanusGraphManagement mgt;
+    private JanusGraph graph;
+    private JanusGraphManagement mgt;
+
     @Bean
     public GraphTraversalSource graphTraversalSource() throws ConfigurationException {
         conf = new PropertiesConfiguration(propFileName);
@@ -47,7 +48,7 @@ public class GraphConfiguration {
     }
 
     @Bean(name = "graphTraversalSourceWithRemoteFIle")
-    public GraphTraversalSource graphTraversalSource1(){
+    public GraphTraversalSource graphTraversalSource1() {
         Graph graph = EmptyGraph.instance();
         try {
             GraphTraversalSource g = graph.traversal().withRemote("conf/remote-graph.properties");

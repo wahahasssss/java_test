@@ -6,7 +6,7 @@ import java.util.List;
  * Created by CTWLPC on 2017/4/24.
  */
 public class MyMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        MyImplement myImplement = new MyImplement();
 //        myImplement.hello();
 //        int num = 123;
@@ -26,11 +26,11 @@ public class MyMain {
         Car car = Car.create(Car::new);
         List<Car> cars = Arrays.asList(car);
         System.out.println(cars.toString());
-        cars.forEach((c)->{
+        cars.forEach((c) -> {
             Car.collide(c);
         });
-       cars.forEach(Car::repair);
-       final Car police = Car.create(Car::new);
-       cars.forEach(police::follow);
+        cars.forEach(Car::repair);
+        final Car police = Car.create(Car::new);
+        cars.forEach(police::follow);
     }
 }

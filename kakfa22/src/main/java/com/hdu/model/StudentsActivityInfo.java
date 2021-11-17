@@ -23,9 +23,9 @@ public class StudentsActivityInfo {
 
     private static List<String> names = Arrays.asList("shu", "chen", "zhang", "wang");
 
-    private static List<Integer> ages = Arrays.asList(18,32,49,39,324);
+    private static List<Integer> ages = Arrays.asList(18, 32, 49, 39, 324);
 
-    public static StudentsActivityInfo randomInit(){
+    public static StudentsActivityInfo randomInit() {
         StudentsActivityInfo student = new StudentsActivityInfo();
         student.setActivity(activities.get(new Random().nextInt(activities.size())));
         student.setName(names.get(new Random().nextInt(names.size())));

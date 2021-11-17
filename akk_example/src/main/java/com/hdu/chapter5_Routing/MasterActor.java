@@ -20,26 +20,27 @@ import java.util.List;
  * @Date 2018/6/21
  * @Time 下午7:14
  */
-public class MasterActor extends AbstractActor{
+public class MasterActor extends AbstractActor {
     Router router;
+
     {
         List<Routee> routees = new ArrayList<>();
-        for (int i = 0; i < 5;i++){
+        for (int i = 0; i < 5; i++) {
             ActorRef r = getContext().actorOf(Props.create(Work.class));
             getContext().watch(r);
             routees.add(new ActorRefRoutee(r));
 
         }
-        router = new Router(new RoundRobinRoutingLogic(),routees);
+        router = new Router(new RoundRobinRoutingLogic(), routees);
     }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(Work.class,msg->{
-                    router.route(msg,getSender());
+                .match(Work.class, msg -> {
+                    router.route(msg, getSender());
                 })
-                .match(Terminated.class,msg->{
+                .match(Terminated.class, msg -> {
                     router = router.removeRoutee(msg.actor());
                     ActorRef r = getContext().actorOf(Props.create(Work.class));
                     getContext().watch(r);

@@ -9,8 +9,8 @@ case class StudentsActivityInfo(var name: String,
                                 var birthday: String,
                                 var activityTime: String,
                                 var activity: String,
-                                var activityTimestamp: Long) extends Serializable{
+                                var activityTimestamp: Long) extends Serializable {
   def this() {
-    this("",0,"","","",0L)
+    this("", 0, "", "", "", 0L)
   }
 }

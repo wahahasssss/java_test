@@ -18,18 +18,18 @@ import io.netty.handler.timeout.IdleStateHandler;
  * @Time 下午7:07
  */
 public class SimpleNettyServer {
-    public ServerBootstrap buildBootstrap(){
+    public ServerBootstrap buildBootstrap() {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
-        bootstrap.group(bossGroup,workerGroup)
+        bootstrap.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .childOption(ChannelOption.SO_KEEPALIVE,true)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new ChannelInitializer<Channel>() {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new IdleStateHandler(10,10,60));
+                        pipeline.addLast(new IdleStateHandler(10, 10, 60));
                         pipeline.addLast(new HeartBeatServerHandler());
                         pipeline.addLast(new SimpleEntityToByteEncoder());
                         pipeline.addLast(new ByteToSimpleEntityDecoder());
@@ -40,14 +40,13 @@ public class SimpleNettyServer {
         return bootstrap;
     }
 
-    public Channel startServer(ServerBootstrap bootstrap){
+    public Channel startServer(ServerBootstrap bootstrap) {
         ChannelFuture future = bootstrap.bind(6787).syncUninterruptibly();
         return future.channel();
     }
 
 
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SimpleNettyServer simpleNettyServer = new SimpleNettyServer();
         ServerBootstrap bootstrap = simpleNettyServer.buildBootstrap();
         Channel channel = simpleNettyServer.startServer(bootstrap);

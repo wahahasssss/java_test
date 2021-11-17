@@ -12,7 +12,7 @@
 
     <bean class="com.hdu.controller.HomeController" name="homeController"></bean>
 
-    
+
     <bean class="com.hdu.service.StudentService" name="studentService">
         <property name="studentMapper" ref="studentMapper"></property>
     </bean>

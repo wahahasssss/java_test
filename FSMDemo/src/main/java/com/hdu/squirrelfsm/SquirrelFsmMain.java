@@ -11,17 +11,18 @@ import org.squirrelframework.foundation.fsm.*;
  * @Time 上午11:26
  */
 public class SquirrelFsmMain {
-    public static void main(String[] args){
-        StateMachineBuilder builder = StateMachineBuilderFactory.create(MyStateMachine.class,FSMStateEnum.class,FSMEventEnum.class,FSMContext.class);
+    public static void main(String[] args) {
+        StateMachineBuilder builder = StateMachineBuilderFactory.create(MyStateMachine.class, FSMStateEnum.class, FSMEventEnum.class, FSMContext.class);
         builder.externalTransition()
                 .from(FSMStateEnum.Normal)
                 .to(FSMStateEnum.Abnormal)
                 .on(FSMEventEnum.ToAbnormal)
                 .when(new Condition() {
                     public boolean isSatisfied(Object context) {
-                        FSMContext context1 = (FSMContext)context;
-                        return context1.getContext().getAge()>3;
+                        FSMContext context1 = (FSMContext) context;
+                        return context1.getContext().getAge() > 3;
                     }
+
                     public String name() {
                         return "condition";
                     }
@@ -33,8 +34,8 @@ public class SquirrelFsmMain {
                 .on(FSMEventEnum.ToOverload)
                 .when(new Condition() {
                     public boolean isSatisfied(Object context) {
-                        FSMContext context1 = (FSMContext)context;
-                        return context1.getContext().getAge()>3;
+                        FSMContext context1 = (FSMContext) context;
+                        return context1.getContext().getAge() > 3;
                     }
 
                     public String name() {
@@ -49,15 +50,15 @@ public class SquirrelFsmMain {
                 .on(FSMEventEnum.ToNormal)
                 .when(new Condition() {
                     public boolean isSatisfied(Object context) {
-                        FSMContext context1 = (FSMContext)context;
-                        return context1.getContext().getAge()>3;
+                        FSMContext context1 = (FSMContext) context;
+                        return context1.getContext().getAge() > 3;
                     }
 
                     public String name() {
                         return "condition normal...";
                     }
                 })
-        .callMethod("fromAbnormalToNormal");
+                .callMethod("fromAbnormalToNormal");
         builder.onEntry(FSMStateEnum.Abnormal).callMethod("ontoAbnormal");
         builder.onEntry(FSMStateEnum.Overload).callMethod("ontoOverload");
         builder.onEntry(FSMStateEnum.Normal).callMethod("ontoNormal");
@@ -65,9 +66,9 @@ public class SquirrelFsmMain {
 
         StateMachine fsm = builder.newStateMachine(FSMStateEnum.Normal);
         FSMContext context = new FSMContext();
-        context.setContext(new ContextData(5,"zfw"));
+        context.setContext(new ContextData(5, "zfw"));
         context.setState(FSMStateEnum.Normal);
-        fsm.fire(FSMEventEnum.ToAbnormal,context);
+        fsm.fire(FSMEventEnum.ToAbnormal, context);
 
 //        fsm.fire(FSMEventEnum.ToNormal,context);
 //        fsm.fire(FSMEventEnum.ToOverload,context);

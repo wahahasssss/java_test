@@ -15,7 +15,7 @@ import io.netty.handler.codec.http.HttpResponseEncoder;
  * @Time 上午11:11
  */
 
-public class HttpPipelineInitializer extends ChannelInitializer<Channel>{
+public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
     private final Boolean IS_CLIENT;
 
     public HttpPipelineInitializer(Boolean isClient) {
@@ -24,12 +24,12 @@ public class HttpPipelineInitializer extends ChannelInitializer<Channel>{
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        if (IS_CLIENT){
-            ch.pipeline().addLast("decoder",new HttpResponseDecoder());
-            ch.pipeline().addLast("encoder",new HttpRequestEncoder());
-        }else {
-            ch.pipeline().addLast("decoder",new HttpRequestDecoder());
-            ch.pipeline().addLast("encoder",new HttpResponseEncoder());
+        if (IS_CLIENT) {
+            ch.pipeline().addLast("decoder", new HttpResponseDecoder());
+            ch.pipeline().addLast("encoder", new HttpRequestEncoder());
+        } else {
+            ch.pipeline().addLast("decoder", new HttpRequestDecoder());
+            ch.pipeline().addLast("encoder", new HttpResponseEncoder());
         }
     }
 }

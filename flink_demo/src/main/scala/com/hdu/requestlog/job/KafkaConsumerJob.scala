@@ -21,13 +21,13 @@ import org.apache.http.HttpHost
  * @author shushoufu
  * @date 2020/10/19
  **/
-case class KafkaConsumerJob(private val esNode:String,
-                            private val esPort:Int){
+case class KafkaConsumerJob(private val esNode: String,
+                            private val esPort: Int) {
 
-  def startJob:Unit={
+  def startJob: Unit = {
     print("begin FraudDetectionJob")
 
-    val env:StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     env.getConfig.setAutoWatermarkInterval(100L)
     env.enableCheckpointing(10000L)
@@ -39,37 +39,37 @@ case class KafkaConsumerJob(private val esNode:String,
     env.getCheckpointConfig.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION)
     env.setParallelism(1)
 
-    val stream : DataStream[StudentsActivityInfo] = env.addSource(KafkaSource.getKafkaConsumer)
+    val stream: DataStream[StudentsActivityInfo] = env.addSource(KafkaSource.getKafkaConsumer)
       .assignTimestampsAndWatermarks(CustomWaterStrategy.initWaterStrategy())
       .name("kafka_source")
 
-//
-//    val detectorStream = stream
-//      .keyBy((k) => k.name)
-//      .process(new KafkaDetector)
-//      .setParallelism(3)
-//      .name("flinProcess")
-//
-////    val hosts = buildEsNodes
-////    val builder = new ElasticsearchSink.Builder(hosts,Kafka2EsSink.initToEsSink)
-////
-////    val sinFunction = builder.build
-//
-//    val printSink = new PrintSink
-//
-//    detectorStream.addSink(printSink).name("kafka_print_sink")
+    //
+    //    val detectorStream = stream
+    //      .keyBy((k) => k.name)
+    //      .process(new KafkaDetector)
+    //      .setParallelism(3)
+    //      .name("flinProcess")
+    //
+    ////    val hosts = buildEsNodes
+    ////    val builder = new ElasticsearchSink.Builder(hosts,Kafka2EsSink.initToEsSink)
+    ////
+    ////    val sinFunction = builder.build
+    //
+    //    val printSink = new PrintSink
+    //
+    //    detectorStream.addSink(printSink).name("kafka_print_sink")
 
 
-    val windowsStream = stream.keyBy(s=>s.name)
+    val windowsStream = stream.keyBy(s => s.name)
       .window(SlidingEventTimeWindows.of(Time.seconds(5), Time.seconds(3)))
-      .reduce((s1,s2)=>StudentsActivityInfo(s1.name,s1.age + s2.age,"",s1.activityTime, s1.activity,s1.activityTimestamp))
+      .reduce((s1, s2) => StudentsActivityInfo(s1.name, s1.age + s2.age, "", s1.activityTime, s1.activity, s1.activityTimestamp))
 
 
     windowsStream.addSink(new PrintSinkWithType[StudentsActivityInfo]("sliding windows")).name("print_sink")
 
-    val tStream = stream.keyBy(s=>s.name)
+    val tStream = stream.keyBy(s => s.name)
       .window(TumblingEventTimeWindows.of(Time.seconds(10), Time.seconds(3)))
-      .reduce((s1,s2)=>StudentsActivityInfo(s1.name,s1.age + s2.age,"",s1.activityTime, s1.activity,s1.activityTimestamp))
+      .reduce((s1, s2) => StudentsActivityInfo(s1.name, s1.age + s2.age, "", s1.activityTime, s1.activity, s1.activityTimestamp))
 
     tStream.addSink(new PrintSinkWithType[StudentsActivityInfo]("tumbling windows")).name("print_t_windows_sink")
     env.execute("kafka_stream_job")
@@ -86,11 +86,12 @@ case class KafkaConsumerJob(private val esNode:String,
   }
 }
 
-object KafkaConsumerJob{
+object KafkaConsumerJob {
   private val esNode = "127.0.0.1"
   private val esPort = 9200
   private val consumerJob = KafkaConsumerJob(esNode, esPort)
-  def start:Unit={
+
+  def start: Unit = {
     consumerJob.startJob
   }
 

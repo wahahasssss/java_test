@@ -10,31 +10,32 @@ package com.hdu;
 public class ThreadLocalTest {
     ThreadLocal<MyStatusEntity> threadLocal;
 
-    ThreadLocal<String> stringLocal = new ThreadLocal<String>(){
+    ThreadLocal<String> stringLocal = new ThreadLocal<String>() {
         @Override
         protected String initialValue() {
             return Thread.currentThread().getName();
         }
     };
-    ThreadLocal<Long> longLocal = new ThreadLocal<Long>(){
+    ThreadLocal<Long> longLocal = new ThreadLocal<Long>() {
         @Override
         protected Long initialValue() {
             return Thread.currentThread().getId();
         }
     };
 
-    public void set(){
+    public void set() {
         longLocal.set(Thread.currentThread().getId());
         stringLocal.set(Thread.currentThread().getName());
     }
 
-    public long getLong(){
+    public long getLong() {
         return longLocal.get();
     }
 
-    public String getString(){
+    public String getString() {
         return stringLocal.get();
     }
+
     public static void main(String[] args) throws InterruptedException {
         final ThreadLocalTest threadLocalTest = new ThreadLocalTest();
         threadLocalTest.set();

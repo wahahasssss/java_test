@@ -18,19 +18,21 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.hdu")
-public class WebConfig extends WebMvcConfigurerAdapter{
+public class WebConfig extends WebMvcConfigurerAdapter {
     /**
      * 配置视图解析器
+     *
      * @return
      */
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver() {
         InternalResourceViewResolver resourceViewResolver = new InternalResourceViewResolver();
         resourceViewResolver.setPrefix("/");
         resourceViewResolver.setSuffix(".jsp");
         resourceViewResolver.setViewClass(JstlView.class);
         return resourceViewResolver;
     }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home.html").setViewName("home");
@@ -38,6 +40,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 
     /**
      * 启用servlet对静态资源的处理
+     *
      * @param configurer
      */
     @Override

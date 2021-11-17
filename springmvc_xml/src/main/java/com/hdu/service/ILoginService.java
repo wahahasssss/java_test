@@ -8,5 +8,5 @@ package com.hdu.service;
  * @Time 下午5:41
  */
 public interface ILoginService {
-    boolean login(String userName,String password);
+    boolean login(String userName, String password);
 }

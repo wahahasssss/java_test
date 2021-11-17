@@ -7,7 +7,7 @@ import java.util.Properties
  * @date 2020/08/27
  **/
 object PropertiesUtils {
-  def loadProperties():Properties={
+  def loadProperties(): Properties = {
     val properties = new Properties();
     val in = this.getClass.getClassLoader.getResourceAsStream("application.properties")
     if (null == in) {

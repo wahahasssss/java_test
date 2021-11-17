@@ -11,8 +11,9 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @Date 2019/1/21
  * @Time 下午5:52
  */
-public class SimpleEntityToByteEncoder extends MessageToByteEncoder<SimpleEntity>{
+public class SimpleEntityToByteEncoder extends MessageToByteEncoder<SimpleEntity> {
     private static final SerializeUtil SERIALIZE_UTIL;
+
     static {
         SERIALIZE_UTIL = new SerializeUtil();
     }
@@ -35,7 +36,8 @@ public class SimpleEntityToByteEncoder extends MessageToByteEncoder<SimpleEntity
 
 
     /**
-     *通过 kyro压缩
+     * 通过 kyro压缩
+     *
      * @param ctx
      * @param msg
      * @param out

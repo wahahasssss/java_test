@@ -3,7 +3,7 @@
 // use the shell (made available under variable fsh)
 println "RESULTS from " + outputDir
 old = new File('results.txt')
-if( old.exists() ) {
+if (old.exists()) {
     old.delete()
 }
 fsh.get(outputDir + '/*', 'results.txt');

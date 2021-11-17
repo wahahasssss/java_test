@@ -11,9 +11,9 @@ import com.hdu.action.DecisionAction;
  * @Date 2018/4/10
  * @Time 下午3:16
  */
-public class NormalDecisionAction implements DecisionAction{
+public class NormalDecisionAction implements DecisionAction {
     public int doDecisionAction(ContextBase context) {
-        if (isSatisfied(context)){
+        if (isSatisfied(context)) {
             //TODO do something
             context.getContextData().setCode(1);
             return context.getContextData().getCode();
@@ -28,7 +28,7 @@ public class NormalDecisionAction implements DecisionAction{
      * @return
      */
     public boolean isSatisfied(ContextBase context) {
-        if (context.getContextData().getCode()==1){
+        if (context.getContextData().getCode() == 1) {
             return true;
         }
         return false;
@@ -40,7 +40,7 @@ public class NormalDecisionAction implements DecisionAction{
      * @param context
      */
     public void beforeStateChange(ContextBase context) {
-        System.out.println(String.format("the state is %d",context.getContextData().getCode()));
+        System.out.println(String.format("the state is %d", context.getContextData().getCode()));
     }
 
     /**

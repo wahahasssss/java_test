@@ -19,8 +19,8 @@ public class TestController {
     private String ss = "";
 
     @Bean
-    @RequestMapping(value = "/test",method = {RequestMethod.POST,RequestMethod.GET})
-    public String test(){
+    @RequestMapping(value = "/test", method = {RequestMethod.POST, RequestMethod.GET})
+    public String test() {
         return "test";
     }
 }

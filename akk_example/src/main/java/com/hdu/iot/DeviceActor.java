@@ -16,9 +16,9 @@ import java.util.Optional;
  * @Date 2018/3/21
  * @Time 上午10:00
  */
-public class DeviceActor extends AbstractActor{
+public class DeviceActor extends AbstractActor {
 
-    private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(),this);
+    private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
     private final String groupId;
     private final String deviceId;
@@ -28,11 +28,11 @@ public class DeviceActor extends AbstractActor{
         this.deviceId = deviceId;
     }
 
-    public static Props props(String groupId,String deviceId){
-        return Props.create(DeviceActor.class,()->new DeviceActor(groupId,deviceId));
+    public static Props props(String groupId, String deviceId) {
+        return Props.create(DeviceActor.class, () -> new DeviceActor(groupId, deviceId));
     }
 
-    public static final class ReadTemperature{
+    public static final class ReadTemperature {
         long requestId;
 
         public ReadTemperature(long requestId) {
@@ -40,7 +40,7 @@ public class DeviceActor extends AbstractActor{
         }
     }
 
-    public static final class RespondTemperature{
+    public static final class RespondTemperature {
         long requestId;
         Optional<Double> value;
 
@@ -67,11 +67,12 @@ public class DeviceActor extends AbstractActor{
             this.requestId = requestId;
         }
     }
+
     Optional<Double> lastTemperatureReading = Optional.empty();
 
     @Override
     public void preStart() {
-        log.info("Device actor {}-{} started,actor path is {}", groupId, deviceId,getSelf().path().toString());
+        log.info("Device actor {}-{} started,actor path is {}", groupId, deviceId, getSelf().path().toString());
     }
 
     @Override
@@ -82,16 +83,16 @@ public class DeviceActor extends AbstractActor{
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(ReadTemperature.class,(r)->{
+                .match(ReadTemperature.class, (r) -> {
                     log.info(String.format("device temp is read going..."));
-                    getSender().tell(new RespondTemperature(r.requestId,lastTemperatureReading),getSelf());
+                    getSender().tell(new RespondTemperature(r.requestId, lastTemperatureReading), getSelf());
                 })
-                .match(RecordTemperature.class,r -> {
+                .match(RecordTemperature.class, r -> {
                     log.info("Recorded temperature reading {} with {}", r.value, r.requestId);
                     lastTemperatureReading = Optional.of(r.value);
                     getSender().tell(new TemperatureRecorded(r.requestId), getSelf());
                 })
-                .matchEquals("test",r-> {
+                .matchEquals("test", r -> {
                     log.info("this is just for testing ,sender is " + getSender().path().toString());
                     getSender().tell("machinezz", ActorRef.noSender());
                 })
@@ -105,8 +106,8 @@ public class DeviceActor extends AbstractActor{
                         );
                     }
                 })
-                .match(Students.class,s->{
-                    log.info("receive message students {}",s.toString());
+                .match(Students.class, s -> {
+                    log.info("receive message students {}", s.toString());
                 })
                 .build();
     }

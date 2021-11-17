@@ -17,11 +17,12 @@ import java.nio.charset.Charset;
  * @Date 2018/8/10
  * @Time 下午5:10
  */
-public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter{
+public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(DiscardOutboundHandler.class);
+
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-        ByteBuf buf = (ByteBuf)msg;
+        ByteBuf buf = (ByteBuf) msg;
         LOGGER.info(String.format("write message : %s", buf.toString(Charset.defaultCharset())));
         ReferenceCountUtil.release(msg);
         promise.setSuccess();

@@ -26,7 +26,7 @@ public class LogEventMonitor {
         this.bootstrap = new Bootstrap();
         bootstrap.group(group)
                 .channel(NioDatagramChannel.class)
-                .option(ChannelOption.SO_BROADCAST,true)
+                .option(ChannelOption.SO_BROADCAST, true)
                 .handler(new ChannelInitializer<Channel>() {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
@@ -37,21 +37,21 @@ public class LogEventMonitor {
     }
 
 
-    public Channel bind(){
+    public Channel bind() {
         return bootstrap.bind().syncUninterruptibly().channel();
     }
 
-    public void stop(){
+    public void stop() {
         group.shutdownGracefully();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         LogEventMonitor monitor = new LogEventMonitor(new InetSocketAddress(9999));
         try {
             Channel channel = monitor.bind();
             System.out.println("monitor running");
             channel.closeFuture().syncUninterruptibly();
-        }finally {
+        } finally {
             monitor.stop();
         }
     }

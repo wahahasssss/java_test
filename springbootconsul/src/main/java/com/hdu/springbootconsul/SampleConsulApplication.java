@@ -56,98 +56,98 @@ import javax.annotation.Resource;
 @Slf4j
 public class SampleConsulApplication /*implements ApplicationListener<SimpleRemoteEvent>*/ {
 
-	@Autowired
-	private LoadBalancerClient loadBalancer;
+    @Autowired
+    private LoadBalancerClient loadBalancer;
 
-	@Autowired
-	private DiscoveryClient discoveryClient;
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
-	@Autowired
-	private Environment env;
+    @Autowired
+    private Environment env;
 
-	@Resource
-	private SampleClient sampleClient;
+    @Resource
+    private SampleClient sampleClient;
 
-	@Autowired
-	private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
 
-	@Autowired
-	private Registration registration;
+    @Autowired
+    private Registration registration;
 
-	@Value("${spring.application.name:testConsulApp}")
-	private String appName;
+    @Value("${spring.application.name:testConsulApp}")
+    private String appName;
 
-	@RequestMapping("/me")
-	public ServiceInstance me() {
-		return this.registration;
-	}
+    @RequestMapping("/me")
+    public ServiceInstance me() {
+        return this.registration;
+    }
 
-	@RequestMapping("/")
-	public ServiceInstance lb() {
-		return loadBalancer.choose(appName);
-	}
+    @RequestMapping("/")
+    public ServiceInstance lb() {
+        return loadBalancer.choose(appName);
+    }
 
-	@RequestMapping("/rest")
-	public String rest() {
-		return this.restTemplate.getForObject("http://"+appName+"/me", String.class);
-	}
+    @RequestMapping("/rest")
+    public String rest() {
+        return this.restTemplate.getForObject("http://" + appName + "/me", String.class);
+    }
 
-	@RequestMapping("/choose")
-	public String choose() {
-		return loadBalancer.choose(appName).getUri().toString();
-	}
+    @RequestMapping("/choose")
+    public String choose() {
+        return loadBalancer.choose(appName).getUri().toString();
+    }
 
-	@RequestMapping("/myenv")
-	public String env(@RequestParam("prop") String prop) {
-		return env.getProperty(prop, "Not Found");
-	}
+    @RequestMapping("/myenv")
+    public String env(@RequestParam("prop") String prop) {
+        return env.getProperty(prop, "Not Found");
+    }
 
-	@RequestMapping("/prop")
-	public String prop() {
-		return sampleProperties().getProp();
-	}
+    @RequestMapping("/prop")
+    public String prop() {
+        return sampleProperties().getProp();
+    }
 
-	@RequestMapping("/instances")
-	public List<ServiceInstance> instances() {
-		return discoveryClient.getInstances(appName);
-	}
+    @RequestMapping("/instances")
+    public List<ServiceInstance> instances() {
+        return discoveryClient.getInstances(appName);
+    }
 
-	@RequestMapping("/feign")
-	public String feign() {
-		return sampleClient.choose();
-	}
+    @RequestMapping("/feign")
+    public String feign() {
+        return sampleClient.choose();
+    }
 
 	/*@Bean
 	public SubtypeModule sampleSubtypeModule() {
 		return new SubtypeModule(SimpleRemoteEvent.class);
 	}*/
 
-	@Bean
-	public SampleProperties sampleProperties() {
-		return new SampleProperties();
-	}
+    @Bean
+    public SampleProperties sampleProperties() {
+        return new SampleProperties();
+    }
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
 
-	public static void main(String[] args) {
-		ApplicationContext
-		SpringApplication.run(SampleConsulApplication.class, args);
-	}
+    public static void main(String[] args) {
+        ApplicationContext
+        SpringApplication.run(SampleConsulApplication.class, args);
+    }
 
 	/*@Override
 	public void onApplicationEvent(SimpleRemoteEvent event) {
 		log.info("Received event: {}", event);
 	}*/
 
-	@FeignClient("testConsulApp")
-	public interface SampleClient {
+    @FeignClient("testConsulApp")
+    public interface SampleClient {
 
-		@RequestMapping(value = "/choose", method = RequestMethod.GET)
-		String choose();
-	}
+        @RequestMapping(value = "/choose", method = RequestMethod.GET)
+        String choose();
+    }
 }

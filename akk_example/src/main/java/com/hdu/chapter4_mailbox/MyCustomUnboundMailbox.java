@@ -19,34 +19,35 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  * @Date 2018/6/21
  * @Time 上午10:41
  */
-public class MyCustomUnboundMailbox implements MailboxType,ProducesMessageQueue<MyCustomUnboundMailbox.MyMessageQueue>{
-    public static class MyMessageQueue implements MessageQueue,MyUnboundedMessageQueueSemantics{
+public class MyCustomUnboundMailbox implements MailboxType, ProducesMessageQueue<MyCustomUnboundMailbox.MyMessageQueue> {
+    public static class MyMessageQueue implements MessageQueue, MyUnboundedMessageQueueSemantics {
         private final Queue<Envelope> queue = new ConcurrentLinkedDeque<Envelope>();
 
-        public void enqueue(ActorRef receiver,Envelope handle){
+        public void enqueue(ActorRef receiver, Envelope handle) {
             queue.offer(handle);
         }
 
-        public Envelope dequeue(){
+        public Envelope dequeue() {
             return queue.poll();
         }
 
 
-        public int numberOfMessages(){
+        public int numberOfMessages() {
             return queue.size();
         }
 
-        public boolean hasMessages(){
+        public boolean hasMessages() {
             return !queue.isEmpty();
         }
 
-        public void cleanUp(ActorRef owner,MessageQueue deadLetters){
-            for (Envelope handle:queue){
-                deadLetters.enqueue(owner,handle);
+        public void cleanUp(ActorRef owner, MessageQueue deadLetters) {
+            for (Envelope handle : queue) {
+                deadLetters.enqueue(owner, handle);
             }
         }
     }
-    public MyCustomUnboundMailbox(ActorSystem.Settings settings, Config config){
+
+    public MyCustomUnboundMailbox(ActorSystem.Settings settings, Config config) {
 
     }
 

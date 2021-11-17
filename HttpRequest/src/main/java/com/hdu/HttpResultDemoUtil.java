@@ -48,24 +48,24 @@ public class HttpResultDemoUtil {
         try {
             response = closeableHttpClient.execute(post);
             HttpEntity entity = response.getEntity();
-            if (entity!=null){
+            if (entity != null) {
                 inputStream = entity.getContent();
                 result = IOUtils.toString(inputStream);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (inputStream != null){
+        } finally {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (response != null){
+            if (response != null) {
                 try {
                     response.close();
-                }catch (Exception E){
+                } catch (Exception E) {
                     E.printStackTrace();
                 }
 
@@ -90,23 +90,23 @@ public class HttpResultDemoUtil {
                 return new X509Certificate[0];
             }
         };
-        sc.init(null,new TrustManager[]{manager},null);
+        sc.init(null, new TrustManager[]{manager}, null);
 
         String result = "";
         Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", PlainConnectionSocketFactory.INSTANCE)
-                .register("https",new SSLConnectionSocketFactory(sc))
+                .register("https", new SSLConnectionSocketFactory(sc))
                 .build();
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
 
         CloseableHttpClient closeableHttpClient = HttpClients.custom().setConnectionManager(connectionManager).build();
 //        CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
         HttpPost post = new HttpPost(url);
-        post.setHeader("Content-Type","application/x-www-form-urlencoded");
-        post.setHeader("User-Agent","Firefox");
+        post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+        post.setHeader("User-Agent", "Firefox");
         CloseableHttpResponse response = closeableHttpClient.execute(post);
         HttpEntity entity = response.getEntity();
-        if (entity!=null){
+        if (entity != null) {
             result = EntityUtils.toString(entity);
         }
         System.out.println(result);
@@ -120,12 +120,12 @@ public class HttpResultDemoUtil {
         KeyStore trueStore = KeyStore.getInstance(KeyStore.getDefaultType());
         FileInputStream inputStream = new FileInputStream(new File("/Users/shushoufu/Desktop/java_test/HttpRequest/src/main/resources/keystore.jks"));
         try {
-            trueStore.load(inputStream,"123456".toCharArray());
+            trueStore.load(inputStream, "123456".toCharArray());
         } finally {
             inputStream.close();
         }
         SSLContext sslContext = SSLContexts.custom()
-                .loadTrustMaterial(trueStore,new TrustSelfSignedStrategy())
+                .loadTrustMaterial(trueStore, new TrustSelfSignedStrategy())
                 .build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(
                 sslContext,
@@ -138,24 +138,24 @@ public class HttpResultDemoUtil {
                 .build();
 //        CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
         HttpPost post = new HttpPost(url);
-        post.setHeader("Content-Type","application/x-www-form-urlencoded");
-        post.setHeader("User-Agent","Firefox");
+        post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+        post.setHeader("User-Agent", "Firefox");
         CloseableHttpResponse response = closeableHttpClient.execute(post);
         HttpEntity entity = response.getEntity();
-        if (entity!=null){
+        if (entity != null) {
             result = EntityUtils.toString(entity);
         }
         System.out.println(result);
         return result;
     }
 
-    public void doHttpsPostWithTrueAllCer(String url){
+    public void doHttpsPostWithTrueAllCer(String url) {
         TrustManager[] trustAllCerts = new TrustManager[1];
         TrustManager tm = new CustomTrustManager();
     }
 
 
-    static class CustomTrustManager implements TrustManager,X509TrustManager{
+    static class CustomTrustManager implements TrustManager, X509TrustManager {
         public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
             return;
         }
@@ -163,6 +163,7 @@ public class HttpResultDemoUtil {
         public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
             return;
         }
+
         public boolean isServerTrusted(X509Certificate[] certs) {
             return true;
         }
@@ -170,6 +171,7 @@ public class HttpResultDemoUtil {
         public boolean isClientTrusted(X509Certificate[] certs) {
             return true;
         }
+
         public X509Certificate[] getAcceptedIssuers() {
             return null;
         }

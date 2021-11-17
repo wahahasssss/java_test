@@ -21,51 +21,51 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserUtils implements InitializingBean {
 
-	private String tableName = "users";
-	private byte[] tableNameAsBytes = Bytes.toBytes("users");
+    private String tableName = "users";
+    private byte[] tableNameAsBytes = Bytes.toBytes("users");
 
 
-	@Autowired
-	private Configuration configuration;
+    @Autowired
+    private Configuration configuration;
 
-	@Autowired
-	private HbaseTemplate hbaseTemplate;
+    @Autowired
+    private HbaseTemplate hbaseTemplate;
 
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	private HBaseAdmin admin;
+    private HBaseAdmin admin;
 
-	public void initialize() throws IOException {
+    public void initialize() throws IOException {
 
-		hbaseTemplate.setConfiguration(configuration);
-		if (admin.tableExists(tableNameAsBytes)) {
-			if (!admin.isTableDisabled(tableNameAsBytes)) {
-				System.out.printf("Disabling %s\n", tableName);
-				admin.disableTable(tableNameAsBytes);
-			}
-			System.out.printf("Deleting %s\n", tableName);
-			admin.deleteTable(tableNameAsBytes);
-		}
+        hbaseTemplate.setConfiguration(configuration);
+        if (admin.tableExists(tableNameAsBytes)) {
+            if (!admin.isTableDisabled(tableNameAsBytes)) {
+                System.out.printf("Disabling %s\n", tableName);
+                admin.disableTable(tableNameAsBytes);
+            }
+            System.out.printf("Deleting %s\n", tableName);
+            admin.deleteTable(tableNameAsBytes);
+        }
 
-		HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
-		HColumnDescriptor columnDescriptor = new HColumnDescriptor(
-				UserRepository.CF_INFO);
-		tableDescriptor.addFamily(columnDescriptor);
+        HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
+        HColumnDescriptor columnDescriptor = new HColumnDescriptor(
+                UserRepository.CF_INFO);
+        tableDescriptor.addFamily(columnDescriptor);
 
-		admin.createTable(tableDescriptor);
+        admin.createTable(tableDescriptor);
 
-	}
+    }
 
-	public void addUsers() {
-		for (int i = 0; i < 10; i++) {
-			userRepository.save("user" + i,"user" + i + "@yahoo.com", "password" + i);
-		}		
-	}
+    public void addUsers() {
+        for (int i = 0; i < 10; i++) {
+            userRepository.save("user" + i, "user" + i + "@yahoo.com", "password" + i);
+        }
+    }
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		admin = new HBaseAdmin(configuration);
-	}
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        admin = new HBaseAdmin(configuration);
+    }
 
 }

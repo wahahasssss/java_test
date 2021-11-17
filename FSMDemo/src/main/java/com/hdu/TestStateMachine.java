@@ -9,7 +9,7 @@ import com.hdu.action.DecisionAction;
  * @Date 2018/4/10
  * @Time 下午3:11
  */
-public class TestStateMachine implements State{
+public class TestStateMachine implements State {
     private int state;
 
 

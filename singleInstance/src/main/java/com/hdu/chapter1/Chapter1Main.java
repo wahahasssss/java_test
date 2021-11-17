@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
  * @Time 下午7:12
  */
 public class Chapter1Main {
-        public static void main(String[] args){
+    public static void main(String[] args) {
         BlockingQueue queue = new ArrayBlockingQueue(1000);
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(10,10,1000, TimeUnit.SECONDS,queue);
-        for (int i = 0;i < 1000;i++){
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 1000, TimeUnit.SECONDS, queue);
+        for (int i = 0; i < 1000; i++) {
             pool.execute(new Runnable() {
                 public void run() {
                     Singleton singleton = Singleton.newInstance();

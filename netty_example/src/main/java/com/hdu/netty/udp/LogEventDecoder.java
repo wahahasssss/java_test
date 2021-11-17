@@ -17,14 +17,14 @@ import java.util.List;
  * @Date 2019/1/14
  * @Time 下午7:59
  */
-public class LogEventDecoder extends MessageToMessageDecoder<DatagramPacket>{
+public class LogEventDecoder extends MessageToMessageDecoder<DatagramPacket> {
     @Override
     protected void decode(ChannelHandlerContext ctx, DatagramPacket msg, List<Object> out) throws Exception {
         ByteBuf buf = msg.content();
-        int idx = buf.indexOf(0,buf.readableBytes(),LogEvent.SEPARATOR);
-        String fileName = buf.slice(0,idx).toString(CharsetUtil.UTF_8);
-        String logMsg = buf.slice(idx + 1,buf.readableBytes()-idx-1).toString(CharsetUtil.UTF_8);
-        LogEvent event = new LogEvent(msg.sender(),fileName,logMsg,System.currentTimeMillis());
+        int idx = buf.indexOf(0, buf.readableBytes(), LogEvent.SEPARATOR);
+        String fileName = buf.slice(0, idx).toString(CharsetUtil.UTF_8);
+        String logMsg = buf.slice(idx + 1, buf.readableBytes() - idx - 1).toString(CharsetUtil.UTF_8);
+        LogEvent event = new LogEvent(msg.sender(), fileName, logMsg, System.currentTimeMillis());
         out.add(event);
     }
 }

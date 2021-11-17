@@ -8,7 +8,7 @@ import org.apache.flink.api.common.eventtime.{TimestampAssigner, TimestampAssign
  * @author shushoufu
  * @date 2020/11/04
  **/
-class CustomTimestampAssignerSupplierTable extends TimestampAssignerSupplier[StudentsActivity]{
+class CustomTimestampAssignerSupplierTable extends TimestampAssignerSupplier[StudentsActivity] {
   override def createTimestampAssigner(context: TimestampAssignerSupplier.Context): TimestampAssigner[StudentsActivity] = {
     return new TimestampAssigner[StudentsActivity] {
       override def extractTimestamp(t: StudentsActivity, l: Long): Long = {

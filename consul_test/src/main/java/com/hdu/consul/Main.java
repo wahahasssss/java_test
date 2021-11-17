@@ -21,7 +21,8 @@ import com.orbitz.consul.StatusClient;
 public class Main {
     public static final String CONSUL_IP = "10.69.216.88";
     public static final Integer CONSUL_PORT = 8080;
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
 //        try {
 //            Boolean result =  KeyValueService.exits("flux/fluxapplication/test_parser");
 //            System.out.println(result);
@@ -33,12 +34,11 @@ public class Main {
         String str = "";
         String jsonStr = JSONObject.toJSONString(str);
         long end = System.currentTimeMillis();
-        System.out.println(end - begin );
-
+        System.out.println(end - begin);
 
 
         Byte b = 1;
-        if (null == b){
+        if (null == b) {
 
         }
 //        ServiceRegister.unRegisterService();
@@ -60,7 +60,7 @@ public class Main {
 //            System.out.println(p);
 //        });
 
-        AgentClient agentClient = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP,CONSUL_PORT)).build().agentClient();
+        AgentClient agentClient = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP, CONSUL_PORT)).build().agentClient();
         agentClient.deregisterCheck("dispatcher&rz-waimai-d-clouddispatcher-staging03.rz.sankuai.com");
     }
 }

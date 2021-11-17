@@ -7,8 +7,8 @@ import com.hdu.clean_code.chapter2.exception.InvalidEmployeeType;
  * @Date: 2020/3/26 3:43 下午
  */
 public class CalculatePayDemo {
-    public Money calculatePay(Employee e){
-        switch(e.getType()){
+    public Money calculatePay(Employee e) {
+        switch (e.getType()) {
             case COMMISSIONED:
                 return calculateCommissionedPay(e);
             case HOURLY:
@@ -21,17 +21,17 @@ public class CalculatePayDemo {
     }
 
 
-    public Money calculateCommissionedPay(Employee e){
+    public Money calculateCommissionedPay(Employee e) {
         //todo
         return null;
     }
 
 
-    public Money calculateHourlyPay(Employee e){
+    public Money calculateHourlyPay(Employee e) {
         return null;
     }
 
-    public Money calculateSalariedPay(Employee e){
+    public Money calculateSalariedPay(Employee e) {
         return null;
     }
 }

@@ -20,7 +20,7 @@ public class ScheduleThreadPool {
                         System.out.println(e.getCause());
                     }
                 }).build();
-        ScheduledThreadPoolExecutor scheduledPool = new ScheduledThreadPoolExecutor(100,threadFactory);
+        ScheduledThreadPoolExecutor scheduledPool = new ScheduledThreadPoolExecutor(100, threadFactory);
         ScheduledFuture future = scheduledPool.scheduleAtFixedRate(new Runnable() {
             public void run() {
                 System.out.println("begin");
@@ -29,9 +29,9 @@ public class ScheduleThreadPool {
 //                }catch (Exception e){
 //                    e.printStackTrace();
 //                }
-                System.out.println(1/0);
+                System.out.println(1 / 0);
             }
-        },1,10, TimeUnit.SECONDS);
+        }, 1, 10, TimeUnit.SECONDS);
         System.out.println(future.get());
         future.cancel(true);
     }

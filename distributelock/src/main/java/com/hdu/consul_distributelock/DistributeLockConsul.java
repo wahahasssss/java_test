@@ -46,27 +46,27 @@ public class DistributeLockConsul {
     public Boolean lock(boolean block) throws InterruptedException {
         KeyValueClient client = consul.keyValueClient();
         this.sessionId = createSession(sessionName);
-        System.out.println(String.format("Thread %s SessionId is %s",Thread.currentThread().getName(),sessionId));
+        System.out.println(String.format("Thread %s SessionId is %s", Thread.currentThread().getName(), sessionId));
         String uuid = UUID.randomUUID().toString();
-        while (true){
-            if (client.acquireLock(String.format("%s%s",prefix,lockKey),uuid,this.sessionId)){
+        while (true) {
+            if (client.acquireLock(String.format("%s%s", prefix, lockKey), uuid, this.sessionId)) {
                 return true;
-            }else {
+            } else {
                 Thread.sleep(1000);
             }
 
         }
     }
 
-    public Boolean releaseLock(){
+    public Boolean releaseLock() {
         KeyValueClient client = consul.keyValueClient();
-        Boolean result = client.releaseLock(String.format("%s%s",prefix,lockKey),this.sessionId);
+        Boolean result = client.releaseLock(String.format("%s%s", prefix, lockKey), this.sessionId);
         destroySession();
         return result;
     }
 
 
-    private void destroySession(){
+    private void destroySession() {
 //        CloseableHttpClient client = HttpClients.createDefault();
 //        String url = String.format("http://127.0.0.1:8414/session/destory/%s",this.sessionId);
 //        HttpPut put = new HttpPut(url);
@@ -80,7 +80,7 @@ public class DistributeLockConsul {
         client.destroySession(this.sessionId);
     }
 
-    private String createSession(String sessionName){
+    private String createSession(String sessionName) {
 
         SessionClient sessionClient = consul.sessionClient();
         Session session = ImmutableSession.builder()

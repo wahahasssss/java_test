@@ -9,5 +9,5 @@ import akka.dispatch.ControlMessage;
  * @Date 2018/6/21
  * @Time 上午10:20
  */
-public class CustomControlMessage implements ControlMessage{
+public class CustomControlMessage implements ControlMessage {
 }

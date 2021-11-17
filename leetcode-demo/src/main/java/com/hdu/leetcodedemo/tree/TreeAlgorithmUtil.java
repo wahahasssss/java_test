@@ -15,53 +15,56 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class TreeAlgorithmUtil {
     /**
      * 二叉树翻转
+     *
      * @param tree
      * @return
      */
-    public static void swapTree(TreeNode tree){
-        if (tree != null){
+    public static void swapTree(TreeNode tree) {
+        if (tree != null) {
             TreeNode tmp = tree.getLeft();
             tree.setLeft(tree.getRight());
             tree.setRight(tmp);
         }
-        if (tree.getLeft()!=null){
+        if (tree.getLeft() != null) {
             swapTree(tree.getLeft());
         }
-        if (tree.getRight()!=null){
+        if (tree.getRight() != null) {
             swapTree(tree.getRight());
         }
     }
 
     /**
      * 前序遍历
+     *
      * @param tree
      * @return
      */
-    public static void preOrder(TreeNode tree, List<Integer> treeList){
+    public static void preOrder(TreeNode tree, List<Integer> treeList) {
         treeList.add(tree.getValue());
 
-        if (tree.getLeft()!=null){
+        if (tree.getLeft() != null) {
             preOrder(tree.getLeft(), treeList);
 
         }
-        if (tree.getRight()!=null){
+        if (tree.getRight() != null) {
             preOrder(tree.getRight(), treeList);
         }
     }
 
     /**
      * 中序遍历
+     *
      * @param tree
      * @return
      */
-    public static void midOrder(TreeNode tree, List<Integer> treeList){
+    public static void midOrder(TreeNode tree, List<Integer> treeList) {
 
-        if (tree.getLeft()!=null){
+        if (tree.getLeft() != null) {
             midOrder(tree.getLeft(), treeList);
 
         }
         treeList.add(tree.getValue());
-        if (tree.getRight()!=null){
+        if (tree.getRight() != null) {
             midOrder(tree.getRight(), treeList);
         }
     }
@@ -69,71 +72,71 @@ public class TreeAlgorithmUtil {
 
     /**
      * 后续遍历
+     *
      * @param tree
      * @return
      */
-    public static void postOrder(TreeNode tree, List<Integer> treeList){
+    public static void postOrder(TreeNode tree, List<Integer> treeList) {
 
-        if (tree.getLeft()!=null){
+        if (tree.getLeft() != null) {
             postOrder(tree.getLeft(), treeList);
 
         }
-        if (tree.getRight()!=null){
+        if (tree.getRight() != null) {
             postOrder(tree.getRight(), treeList);
         }
         treeList.add(tree.getValue());
     }
 
 
-    public static boolean isBalanced(TreeNode root){
-        if (root != null){
+    public static boolean isBalanced(TreeNode root) {
+        if (root != null) {
 
         }
         return true;
     }
 
 
-
-    public static Integer depth(TreeNode root,Integer depth){
-        if (root.left == null && root.right == null){
+    public static Integer depth(TreeNode root, Integer depth) {
+        if (root.left == null && root.right == null) {
             return depth;
-        }else {
+        } else {
             depth++;
         }
         Integer leftDepth = 0;
-        if (root.left != null){
+        if (root.left != null) {
             leftDepth = depth(root.left, depth);
         }
         Integer rightDepth = 0;
-        if (root.right != null){
+        if (root.right != null) {
             rightDepth = depth(root.right, depth);
         }
         return Math.max(leftDepth.intValue(), rightDepth.intValue());
 
     }
 
-    public static Boolean secure(TreeNode root){
+    public static Boolean secure(TreeNode root) {
 
         Integer leftDepth = 0;
-        if (root.left != null){
+        if (root.left != null) {
             leftDepth = depth(root.left, 0);
         }
         Integer rightDepth = 0;
-        if (root.right != null){
+        if (root.right != null) {
             rightDepth = depth(root.right, 0);
         }
-        int depthSub = Math.abs(leftDepth.intValue()-rightDepth.intValue());
+        int depthSub = Math.abs(leftDepth.intValue() - rightDepth.intValue());
 
-        if(depthSub > 1){
+        if (depthSub > 1) {
             return false;
         }
 
-        if (root.left!=null){
+        if (root.left != null) {
             return secure(root.left);
         }
 
-        if (root.right != null){
-           return secure(root.right);
+        if (root.right != null) {
+            return secure(root.right);
         }
         return true;
     }
@@ -141,15 +144,17 @@ public class TreeAlgorithmUtil {
 
     /**
      * 平衡二叉树
+     *
      * @param n
      * @return
      */
     public static List<TreeNode> generateTrees(int n) {
-        if (n == 0){
+        if (n == 0) {
             return new ArrayList<>();
         }
-       return generateTrees(1, n);
+        return generateTrees(1, n);
     }
+
     public static List<TreeNode> generateTrees(int start, int end) {
         List<TreeNode> allTrees = new LinkedList<TreeNode>();
         if (start > end) {
@@ -181,6 +186,7 @@ public class TreeAlgorithmUtil {
 
     /**
      * 所有路径
+     *
      * @param root
      * @return
      */
@@ -191,18 +197,18 @@ public class TreeAlgorithmUtil {
         return paths;
     }
 
-    private static void binaryTreePaths(TreeNode root, List<String> paths, String path){
-        if (root.left == null && root.right == null){
+    private static void binaryTreePaths(TreeNode root, List<String> paths, String path) {
+        if (root.left == null && root.right == null) {
             path = path + root.value;
             paths.add(path);
             return;
-        }else {
+        } else {
             path = path + root.value + "->";
         }
-        if (root.left != null){
+        if (root.left != null) {
             binaryTreePaths(root.getLeft(), paths, path);
         }
-        if (root.right != null){
+        if (root.right != null) {
             binaryTreePaths(root.getRight(), paths, path);
         }
     }
@@ -210,6 +216,7 @@ public class TreeAlgorithmUtil {
 
     /**
      * 路径和
+     *
      * @param root
      * @return
      */
@@ -217,7 +224,7 @@ public class TreeAlgorithmUtil {
         return 0;
     }
 
-    private static void sumRootToLeft(TreeNode root, Integer sum){
+    private static void sumRootToLeft(TreeNode root, Integer sum) {
 
     }
 
@@ -227,14 +234,14 @@ public class TreeAlgorithmUtil {
         return sumLeftLeaves(root, 0, false);
     }
 
-    private static int sumLeftLeaves(TreeNode root, int sum, boolean flag){
+    private static int sumLeftLeaves(TreeNode root, int sum, boolean flag) {
         if (flag && root.left == null && root.right == null) {
             sum = sum + root.value;
         }
-        if (root.left != null){
+        if (root.left != null) {
             sum = sumLeftLeaves(root.left, sum, true);
         }
-        if(root.right != null){
+        if (root.right != null) {
             sum = sumLeftLeaves(root.right, sum, false);
         }
         return sum;
@@ -243,6 +250,7 @@ public class TreeAlgorithmUtil {
 
     /**
      * 最小深度 - bfs 宽度优先搜索
+     *
      * @param root
      * @return
      */
@@ -250,38 +258,39 @@ public class TreeAlgorithmUtil {
         Queue<TreeNode> treeQueue = new LinkedBlockingDeque<>();
         treeQueue.offer(root);
         int depth = 0;
-        while (!treeQueue.isEmpty()){
+        while (!treeQueue.isEmpty()) {
             int size = treeQueue.size();
-            for (int i = 0 ; i < size; i ++){
+            for (int i = 0; i < size; i++) {
                 TreeNode node = treeQueue.poll();
-                if (node.right == null && node.left==null){
+                if (node.right == null && node.left == null) {
                     return depth;
                 }
-                if (node.getLeft()!=null){
+                if (node.getLeft() != null) {
                     treeQueue.offer(node.getLeft());
                 }
-                if (node.getRight()!=null) {
+                if (node.getRight() != null) {
                     treeQueue.offer(node.getRight());
                 }
             }
-            depth ++;
+            depth++;
         }
         return depth;
     }
+
     public static List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> treeQueue = new LinkedBlockingDeque<>();
         treeQueue.offer(root);
         List<List<Integer>> results = new ArrayList<>();
-        if (root == null){
+        if (root == null) {
             return results;
         }
-        while (!treeQueue.isEmpty()){
+        while (!treeQueue.isEmpty()) {
             int size = treeQueue.size();
             List<Integer> levelResult = new ArrayList<>();
-            for (int i = 0 ; i < size;i++) {
+            for (int i = 0; i < size; i++) {
                 TreeNode node = treeQueue.poll();
                 levelResult.add(node.getValue());
-                if (node.left!=null){
+                if (node.left != null) {
                     treeQueue.offer(node.left);
                 }
                 if (node.right != null) {
@@ -292,6 +301,7 @@ public class TreeAlgorithmUtil {
         }
         return results;
     }
+
     public static List<List<Integer>> levelOrderTwo(TreeNode root) {
         List<List<Integer>> levels = new ArrayList<>();
         int depth = 0;
@@ -299,18 +309,18 @@ public class TreeAlgorithmUtil {
         return levels;
     }
 
-    private static void levelOrderTwo(TreeNode root,List<List<Integer>> levels, int depth){
-        if (root == null){
+    private static void levelOrderTwo(TreeNode root, List<List<Integer>> levels, int depth) {
+        if (root == null) {
             return;
         }
         if (levels.get(depth) == null) {
             levels.add(new ArrayList<>());
         }
         levels.get(depth).add(root.value);
-        if (root.left != null){
+        if (root.left != null) {
             levelOrderTwo(root.left, levels, depth + 1);
         }
-        if (root.right != null){
+        if (root.right != null) {
             levelOrderTwo(root.right, levels, depth + 1);
         }
     }
@@ -319,17 +329,18 @@ public class TreeAlgorithmUtil {
     /**
      * 不同的二叉搜索树给你一个整数 n ，请你生成并返回所有由 n 个节点组成且节点值从 1 到 n 互不相同的不同 二叉搜索树 。可以按 任意顺序 返回答案。， 二叉搜索树， 左根右 递增
      * todo:优化方向一，缓存
+     *
      * @param
      * @return
      */
     public static List<TreeNode> generateTreesSearch(int n) {
         List<TreeNode> nodes = new ArrayList<>();
-        for (int i = 1;i <= n; i++){
+        for (int i = 1; i <= n; i++) {
 
             TreeNode[] leftNodes = generateChildTreeSearch(1, i - 1);
-            for (TreeNode treeNode:leftNodes){
+            for (TreeNode treeNode : leftNodes) {
                 TreeNode[] rightNodes = generateChildTreeSearch(i + 1, n);
-                for (TreeNode rt:rightNodes){
+                for (TreeNode rt : rightNodes) {
                     TreeNode root = new TreeNode();
                     root.left = treeNode;
                     root.value = i;
@@ -341,16 +352,16 @@ public class TreeAlgorithmUtil {
         return nodes;
     }
 
-    private static TreeNode[] generateChildTreeSearch(int begin, int end){
-        if ( end < begin){
+    private static TreeNode[] generateChildTreeSearch(int begin, int end) {
+        if (end < begin) {
             return new TreeNode[]{null};
         }
         List<TreeNode> nodes = new ArrayList<>();
-        for (int i = begin; i <= end; i++){
-            TreeNode[] leftNodes = generateChildTreeSearch(begin, i -1);
-            TreeNode[] rightNodes  = generateChildTreeSearch(i + 1, end);
-            for (TreeNode lt:leftNodes){
-                for (TreeNode rt:rightNodes){
+        for (int i = begin; i <= end; i++) {
+            TreeNode[] leftNodes = generateChildTreeSearch(begin, i - 1);
+            TreeNode[] rightNodes = generateChildTreeSearch(i + 1, end);
+            for (TreeNode lt : leftNodes) {
+                for (TreeNode rt : rightNodes) {
                     TreeNode root = new TreeNode();
                     root.setValue(i);
                     root.setLeft(lt);
@@ -368,21 +379,22 @@ public class TreeAlgorithmUtil {
     /**
      * 96. 不同的二叉搜索树
      * 给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。
+     *
      * @param n
      * @return
      */
     public static int numTrees(int n) {
         int sum = 0;
         Map<String, Integer> numMap = new HashMap<>();
-        for (int i = 1;i <= n; i++){
+        for (int i = 1; i <= n; i++) {
             int l = generateChildTreeSearchNums(1, i - 1, numMap);
             int r = generateChildTreeSearchNums(i + 1, n, numMap);
-            String leftKey = String.format("%s_%s", 1, i-1);
+            String leftKey = String.format("%s_%s", 1, i - 1);
             String rightKey = String.format("%s_%s", i + 1, n);
-            if (!numMap.containsKey(leftKey)){
+            if (!numMap.containsKey(leftKey)) {
                 numMap.put(leftKey, l);
             }
-            if (!numMap.containsKey(rightKey)){
+            if (!numMap.containsKey(rightKey)) {
                 numMap.put(rightKey, r);
             }
             sum = sum + l * r;
@@ -390,29 +402,28 @@ public class TreeAlgorithmUtil {
         return sum;
     }
 
-    private static int generateChildTreeSearchNums(int begin, int end, Map<String, Integer> numMap){
-        if ( end < begin){
+    private static int generateChildTreeSearchNums(int begin, int end, Map<String, Integer> numMap) {
+        if (end < begin) {
             return 1;
         }
         int sum = 0;
-        for (int i = begin; i <= end; i++){
-            String leftKey = String.format("%s_%s", begin, i-1);
+        for (int i = begin; i <= end; i++) {
+            String leftKey = String.format("%s_%s", begin, i - 1);
             String rightKey = String.format("%s_%s", i + 1, end);
-            int l ;
-            if (numMap.containsKey(leftKey)){
+            int l;
+            if (numMap.containsKey(leftKey)) {
                 l = numMap.get(leftKey);
-            }else {
-                l = generateChildTreeSearchNums(begin, i -1, numMap);
+            } else {
+                l = generateChildTreeSearchNums(begin, i - 1, numMap);
                 numMap.put(leftKey, l);
             }
-            int r ;
-            if (numMap.containsKey(rightKey)){
+            int r;
+            if (numMap.containsKey(rightKey)) {
                 r = numMap.get(rightKey);
-            }else {
+            } else {
                 r = generateChildTreeSearchNums(i + 1, end, numMap);
                 numMap.put(rightKey, r);
             }
-
 
 
             sum = sum + l * r;
@@ -424,13 +435,14 @@ public class TreeAlgorithmUtil {
 
     /**
      * Leecode 戳气球-回溯算法
+     *
      * @param nums
      * @return
      */
     public static int maxCoins(int[] nums) {
         int max = 0;
         int deep = 0;
-        for (int i = 0; i < nums.length; i ++){
+        for (int i = 0; i < nums.length; i++) {
             int left = i - 1 < 0 ? 1 : nums[i - 1];
             int mid = nums[i];
             int right = i + 1 >= nums.length ? 1 : nums[i + 1];
@@ -443,38 +455,36 @@ public class TreeAlgorithmUtil {
         return max;
     }
 
-    private static int[] removeElement(int[] nums, int index){
+    private static int[] removeElement(int[] nums, int index) {
         int[] b = new int[nums.length - 1];
         int bIndex = 0;
-        for (int i = 0; i < nums.length;i++){
-            if (index == i){
+        for (int i = 0; i < nums.length; i++) {
+            if (index == i) {
                 continue;
             }
             b[bIndex] = nums[i];
-            bIndex ++;
+            bIndex++;
         }
         return b;
     }
 
-    private static int calMaxCoins(int[] childNums, Integer max, int sum, String path){
+    private static int calMaxCoins(int[] childNums, Integer max, int sum, String path) {
         int[] nums = Arrays.copyOf(childNums, childNums.length);
-        if (nums.length == 0){
+        if (nums.length == 0) {
             max = Math.max(max, sum);
             System.out.println(path);
             return max;
         }
-        for (int i = 0; i < nums.length; i ++){
+        for (int i = 0; i < nums.length; i++) {
             int left = i - 1 < 0 ? 1 : nums[i - 1];
             int mid = nums[i];
             int right = i + 1 >= nums.length ? 1 : nums[i + 1];
             int s = left * mid * right;
             int[] subNums = removeElement(nums, i);
-            max = Math.max(max, calMaxCoins(subNums, max,  s + sum,  path + ">" + mid));
+            max = Math.max(max, calMaxCoins(subNums, max, s + sum, path + ">" + mid));
         }
         return max;
     }
-
-
 
 
 }

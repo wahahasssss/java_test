@@ -12,10 +12,10 @@ import java.util.concurrent.CompletionStage;
  * @Date 2018/4/20
  * @Time 下午4:51
  */
-public class DBIml implements StashDemo.DB{
+public class DBIml implements StashDemo.DB {
     @Override
     public CompletionStage<Done> save(String id, String value) {
-        System.out.println(String.format("id %s,value %s",id,value));
+        System.out.println(String.format("id %s,value %s", id, value));
         CompletableFuture future = new CompletableFuture();
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -36,7 +36,7 @@ public class DBIml implements StashDemo.DB{
     @Override
     public CompletionStage<String> load(String id) {
 
-        System.out.println(String.format("db is loading,%s",id));
+        System.out.println(String.format("db is loading,%s", id));
         CompletableFuture future = new CompletableFuture();
         future.completeExceptionally(new InterruptedException(""));
         return future;

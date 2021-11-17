@@ -25,7 +25,7 @@ import org.janusgraph.graphdb.idmanagement.IDManager;
 @Slf4j
 public class JanusGraphConfig {
     private static final String CONFIG_FILE = "conf/janusgraph-hbase-server.properties";
-//    private static final String CONFIG_FILE = "conf/janusgraph-hbase-stage-server.properties";
+    //    private static final String CONFIG_FILE = "conf/janusgraph-hbase-stage-server.properties";
     public final JanusGraph graph;
     public final JanusGraphManagement mgt;
 
@@ -63,7 +63,7 @@ public class JanusGraphConfig {
         configuration.setProperty("cache.db-cache-size", 0.5);
         graph = JanusGraphFactory.open(configuration);
 
-         System.out.println("Getting management");
+        System.out.println("Getting management");
         mgt = graph.openManagement();
 //        mgt.printEdgeLabels();
 //        mgt.printIndexes();
@@ -94,7 +94,7 @@ public class JanusGraphConfig {
         tx.rollback();
     }
 
-    public void testAddVertex(){
+    public void testAddVertex() {
         //Create Schema
         JanusGraphManagement management = graph.openManagement();
         final PropertyKey name = management.makePropertyKey("name").dataType(String.class).make();
@@ -132,17 +132,20 @@ public class JanusGraphConfig {
 
         management.commit();
         JanusGraphTransaction tx = graph.newTransaction();
-         Vertex saturn = tx.addVertex(T.label, "titan", "name", "saturn111", "age", 10000);
-         Vertex saturn1 = tx.addVertex(T.label, "titan", "name", "saturn222", "age", 1232);
-         saturn.addEdge("brother",saturn1,"edgeId", "123413232");
-         saturn.addEdge("brother",saturn1,"edgeId", "123413232");
-         System.out.println(saturn.id());
-         System.out.println(saturn.toString());
-         System.out.println(saturn.property("name"));
-         tx.commit();
+        Vertex saturn = tx.addVertex(T.label, "titan", "name", "saturn111", "age", 10000);
+        Vertex saturn1 = tx.addVertex(T.label, "titan", "name", "saturn222", "age", 1232);
+        saturn.addEdge("brother", saturn1, "edgeId", "123413232");
+        saturn.addEdge("brother", saturn1, "edgeId", "123413232");
+        System.out.println(saturn.id());
+        System.out.println(saturn.toString());
+        System.out.println(saturn.property("name"));
+        tx.commit();
 
     }
-/**此方法也可以获取**/
+
+    /**
+     * 此方法也可以获取
+     **/
 //    public JanusGraph getJanusGraph1() {
 //        JanusGraphFactory.Builder build = JanusGraphFactory.build()
 //                .set("storage.backend", "cql")
@@ -162,84 +165,82 @@ public class JanusGraphConfig {
 //        }
 //        return null;
 //    }
-
-public void initBatchVertexByTx(){
-
-    int batch = 1000;
-    long begin = System.currentTimeMillis();
-    IDManager idManager = new IDManager();
-    if (!((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting()){
-//        System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
-        return;
-    }else {
-//        System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
-    }
-    for (int i = 1; i<=1; i ++){
-//        JanusGraphTransaction tx = graph.buildTransaction().customOption("graph.set-vertex-id", true).enableBatchLoading().start();
-        JanusGraphTransaction tx = graph.newTransaction();
-
-
-
-        try {
-            for (int m = 0; m < batch; m++){
-                 long id = idManager.toVertexId(i * batch + m);
-//                Vertex companyVertex = tx.addVertex(T.label, "company_id", "companyName",
-//                        String.format("company_id_%s", i * 1000 + m), "companyManageName", String.format("companyManageName_%s", i * 1000 + m),
-//                        "entityValue", String.format("10%s", i * 1000 + m));
-                VertexLabel companyIdLabel = tx.getVertexLabel("company_id");
-                Vertex companyVertex = tx.addVertex(id, companyIdLabel);
-                companyVertex.property("companyName",String.format("company_id_%s", i * batch + m));
-                companyVertex.property("companyManageName", String.format("companyManageName_%s", i * batch + m));
-                companyVertex.property("entityValue",  String.format("%s", i * batch + m));
-                companyVertex.property("uniqueId",String.format("company_id_%s", i * batch + m));
-//                System.out.println(("i is {}, param is {},cac is is {} vertexId is {}" , i,i * batch + m,id, companyVertex.id());
-            }
-
-            tx.commit();
-//            System.out.println(("插入节点信息 {}，数量 {}", i, batch);
-        }catch (Exception e){
-//            System.out.println(("插入节点信息失败，i is {}，数量1000 {}", i, e);
-            tx.rollback();
-        }finally {
-            if (tx.isOpen()){
-                tx.close();
-            }
-        }
-
-    }
-    long end = System.currentTimeMillis();
-//    System.out.println(("耗时：{}", (end - begin) / 1000);
-}
-
-
-    public void initBatchVertexPhoneByTx(){
+    public void initBatchVertexByTx() {
 
         int batch = 1000;
         long begin = System.currentTimeMillis();
         IDManager idManager = new IDManager();
-        if (!((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting()){
+        if (!((StandardJanusGraph) graph).getConfiguration().allowVertexIdSetting()) {
+//        System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
+            return;
+        } else {
+//        System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
+        }
+        for (int i = 1; i <= 1; i++) {
+//        JanusGraphTransaction tx = graph.buildTransaction().customOption("graph.set-vertex-id", true).enableBatchLoading().start();
+            JanusGraphTransaction tx = graph.newTransaction();
+
+
+            try {
+                for (int m = 0; m < batch; m++) {
+                    long id = idManager.toVertexId(i * batch + m);
+//                Vertex companyVertex = tx.addVertex(T.label, "company_id", "companyName",
+//                        String.format("company_id_%s", i * 1000 + m), "companyManageName", String.format("companyManageName_%s", i * 1000 + m),
+//                        "entityValue", String.format("10%s", i * 1000 + m));
+                    VertexLabel companyIdLabel = tx.getVertexLabel("company_id");
+                    Vertex companyVertex = tx.addVertex(id, companyIdLabel);
+                    companyVertex.property("companyName", String.format("company_id_%s", i * batch + m));
+                    companyVertex.property("companyManageName", String.format("companyManageName_%s", i * batch + m));
+                    companyVertex.property("entityValue", String.format("%s", i * batch + m));
+                    companyVertex.property("uniqueId", String.format("company_id_%s", i * batch + m));
+//                System.out.println(("i is {}, param is {},cac is is {} vertexId is {}" , i,i * batch + m,id, companyVertex.id());
+                }
+
+                tx.commit();
+//            System.out.println(("插入节点信息 {}，数量 {}", i, batch);
+            } catch (Exception e) {
+//            System.out.println(("插入节点信息失败，i is {}，数量1000 {}", i, e);
+                tx.rollback();
+            } finally {
+                if (tx.isOpen()) {
+                    tx.close();
+                }
+            }
+
+        }
+        long end = System.currentTimeMillis();
+//    System.out.println(("耗时：{}", (end - begin) / 1000);
+    }
+
+
+    public void initBatchVertexPhoneByTx() {
+
+        int batch = 1000;
+        long begin = System.currentTimeMillis();
+        IDManager idManager = new IDManager();
+        if (!((StandardJanusGraph) graph).getConfiguration().allowVertexIdSetting()) {
 //            System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
             return;
-        }else {
+        } else {
 //            System.out.println(("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
         }
-        for (int i = 10; i<=11; i ++){
+        for (int i = 10; i <= 11; i++) {
             JanusGraphTransaction tx = graph.newTransaction();
             try {
-                for (int m = 0; m < batch; m++){
+                for (int m = 0; m < batch; m++) {
                     long id = idManager.toVertexId(i * batch + m);
                     VertexLabel phoneIdLabel = tx.getVertexLabel("phone");
                     Vertex phoneVertex = tx.addVertex(id, phoneIdLabel);
-                    phoneVertex.property("entityValue",  String.format("%s", i * batch + m));
-                    phoneVertex.property("uniqueId",String.format("phone_%s", i * batch + m));
+                    phoneVertex.property("entityValue", String.format("%s", i * batch + m));
+                    phoneVertex.property("uniqueId", String.format("phone_%s", i * batch + m));
 //                    System.out.println(("i is {}, param is {},cac is is {} vertexId is {}" , i,i * batch + m,id, phoneVertex.id());
                 }
                 tx.commit();
-            }catch (Exception e){
+            } catch (Exception e) {
 
                 tx.rollback();
-            }finally {
-                if (tx.isOpen()){
+            } finally {
+                if (tx.isOpen()) {
                     tx.close();
                 }
             }
@@ -249,24 +250,23 @@ public void initBatchVertexByTx(){
 //        System.out.println("耗时：{}", (end - begin) / 1000);
     }
 
-    public void initEdgeCompanyWithPhone(){
+    public void initEdgeCompanyWithPhone() {
         int batch = 1000;
         long begin = System.currentTimeMillis();
         IDManager idManager = new IDManager();
-        if (!((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting()){
+        if (!((StandardJanusGraph) graph).getConfiguration().allowVertexIdSetting()) {
 //            log.error("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
             return;
-        }else {
+        } else {
 //            log.info("allowVertexIdSetting is {}",((StandardJanusGraph)graph).getConfiguration().allowVertexIdSetting());
         }
-        for (int i = 1; i<=1; i ++){
+        for (int i = 1; i <= 1; i++) {
 //        JanusGraphTransaction tx = graph.buildTransaction().customOption("graph.set-vertex-id", true).enableBatchLoading().start();
             JanusGraphTransaction tx = graph.newTransaction();
 
 
-
             try {
-                for (int m = 0; m < batch; m++){
+                for (int m = 0; m < batch; m++) {
                     long fromId = idManager.toVertexId(i * batch + m);
                     long toId = idManager.toVertexId(10 * batch * i + m);
 //                Vertex companyVertex = tx.addVertex(T.label, "company_id", "companyName",
@@ -280,11 +280,11 @@ public void initBatchVertexByTx(){
 
                 tx.commit();
 //                log.info("插入节点信息 {}，数量 {}", i, batch);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                log.info("插入节点信息失败，i is {}，数量1000 {}", i, e);
                 tx.rollback();
-            }finally {
-                if (tx.isOpen()){
+            } finally {
+                if (tx.isOpen()) {
                     tx.close();
                 }
             }
@@ -293,30 +293,33 @@ public void initBatchVertexByTx(){
         long end = System.currentTimeMillis();
 //        log.info("耗时：{}", (end - begin) / 1000);
     }
-public static void dropHbaseTable(String tableName){
-    try {
-        org.apache.hadoop.conf.Configuration conf = HBaseConfiguration.create();
-        conf.set("hbase.zookeeper.property.clientPort", "2181");
-        conf.set("hbase.zookeeper.quorum", "10.2.5.104,10.2.3.175,10.2.4.166");
-        conf.set("zookeeper.znode.parent", "/hbase-cluster/hbase");
-        HBaseAdmin admin = new HBaseAdmin(conf);
-        admin.disableTable(tableName);order_pay_sop_profit
-        admin.deleteTable(tableName);
-    } catch (Exception e) {
-        e.printStackTrace();
+
+    public static void dropHbaseTable(String tableName) {
+        try {
+            org.apache.hadoop.conf.Configuration conf = HBaseConfiguration.create();
+            conf.set("hbase.zookeeper.property.clientPort", "2181");
+            conf.set("hbase.zookeeper.quorum", "10.2.5.104,10.2.3.175,10.2.4.166");
+            conf.set("zookeeper.znode.parent", "/hbase-cluster/hbase");
+            HBaseAdmin admin = new HBaseAdmin(conf);
+            admin.disableTable(tableName);
+            order_pay_sop_profit
+            admin.deleteTable(tableName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-}
-
-public void updatePro(long vertexId){
-    IDManager idManager = new IDManager();
-    long managerVertexId = idManager.toVertexId(vertexId);
+    public void updatePro(long vertexId) {
+        IDManager idManager = new IDManager();
+        long managerVertexId = idManager.toVertexId(vertexId);
 //    log.info("managerid is " + managerVertexId);
-    JanusGraphTransaction tx = graph.newTransaction();
-    tx.getVertex(managerVertexId);
-    tx.commit();
-}
-    public static void main(String[] args){
+        JanusGraphTransaction tx = graph.newTransaction();
+        tx.getVertex(managerVertexId);
+        tx.commit();
+    }
+
+    public static void main(String[] args) {
         JanusGraphConfig config = new JanusGraphConfig();
         config.initBatchVertexByTx();
         config.initBatchVertexPhoneByTx();

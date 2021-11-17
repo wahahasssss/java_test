@@ -7,12 +7,12 @@ package com.hdu.squirrelfsm;
  * @Date 2018/4/11
  * @Time 上午11:19
  */
-public enum  FSMStateEnum {
-    Normal("normal",1),
-    Abnormal("abnormal",2),
-    Setting("setting",3),
-    Overload("overload",4),
-    Banned("banned",5);
+public enum FSMStateEnum {
+    Normal("normal", 1),
+    Abnormal("abnormal", 2),
+    Setting("setting", 3),
+    Overload("overload", 4),
+    Banned("banned", 5);
     private Integer index;
 
     private String description;
@@ -39,8 +39,8 @@ public enum  FSMStateEnum {
     }
 
 
-    public static int valueOf(FSMStateEnum state){
-        switch (state){
+    public static int valueOf(FSMStateEnum state) {
+        switch (state) {
             case Normal:
                 return Normal.index;
             case Abnormal:
@@ -55,8 +55,9 @@ public enum  FSMStateEnum {
                 return Normal.index;
         }
     }
-    public static String descriptionOf(FSMStateEnum state){
-        switch (state){
+
+    public static String descriptionOf(FSMStateEnum state) {
+        switch (state) {
             case Normal:
                 return Normal.description;
             case Abnormal:

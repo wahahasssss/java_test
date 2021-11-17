@@ -1,3 +1,5 @@
-package com.hdu.chapter11_package{
+package com.hdu.chapter11_package {
+
   class Navigator
+
 }

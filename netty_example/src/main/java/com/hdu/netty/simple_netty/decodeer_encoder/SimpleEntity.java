@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Date 2019/1/21
  * @Time 下午5:52
  */
-public class SimpleEntity implements Serializable{
+public class SimpleEntity implements Serializable {
     private String date;
     private String time;
 

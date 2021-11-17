@@ -15,8 +15,8 @@ public class HelloAgent {
     public static void main(String[] args) throws MalformedObjectNameException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException, InterruptedException {
         MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
         ObjectName helloName = new ObjectName("jmxBean:name=hello");
-        ByteBuffer buffer = ByteBuffer.allocateDirect(2000*1024*1024);
-        while (true){
+        ByteBuffer buffer = ByteBuffer.allocateDirect(2000 * 1024 * 1024);
+        while (true) {
 
             buffer.put("hahfawfaweff".getBytes());
 

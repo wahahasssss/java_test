@@ -10,7 +10,7 @@ import java.io.FileFilter;
  * @Date 2018/4/27
  * @Time 下午3:13
  */
-public class FilterToText implements FileFilter{
+public class FilterToText implements FileFilter {
     /**
      * Tests whether or not the specified abstract pathname should be
      * included in a pathname list.

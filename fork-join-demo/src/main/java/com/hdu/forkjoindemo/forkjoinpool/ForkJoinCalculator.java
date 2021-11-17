@@ -10,8 +10,9 @@ import java.util.concurrent.RecursiveTask;
  * @Date 2018/8/28
  * @Time 下午5:30
  */
-public class ForkJoinCalculator implements Calculator{
+public class ForkJoinCalculator implements Calculator {
     private ForkJoinPool pool;
+
     private static class SumTask extends RecursiveTask<Long> {
         private long[] numbers;
         private int from;
@@ -36,7 +37,7 @@ public class ForkJoinCalculator implements Calculator{
             } else {
                 int middle = (from + to) / 2;
                 SumTask taskLeft = new SumTask(numbers, from, middle);
-                SumTask taskRight = new SumTask(numbers, middle+1, to);
+                SumTask taskRight = new SumTask(numbers, middle + 1, to);
                 taskLeft.fork();
                 taskRight.fork();
                 return taskLeft.join() + taskRight.join();
@@ -44,19 +45,19 @@ public class ForkJoinCalculator implements Calculator{
         }
     }
 
-    public ForkJoinCalculator(){
+    public ForkJoinCalculator() {
         pool = new ForkJoinPool();
     }
 
     @Override
     public long sumUp(long[] numbers) {
-        return pool.invoke(new SumTask(numbers,0,numbers.length - 1));
+        return pool.invoke(new SumTask(numbers, 0, numbers.length - 1));
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ForkJoinCalculator calculator = new ForkJoinCalculator();
-        long result = calculator.sumUp(new long[]{1,2,3,4,5,6,7,8,9});
+        long result = calculator.sumUp(new long[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
         System.out.println(result);
     }
 }

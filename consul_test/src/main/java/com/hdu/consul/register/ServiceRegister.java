@@ -18,11 +18,13 @@ public class ServiceRegister {
     public static final String CONSUL_IP = "10.69.216.88";
     public static final Integer CONSUL_PORT = 8080;
     private static final AgentClient agentClient;
+
     static {
 //        agentClient = Consul.builder().withHostAndPort(HostAndPort.fromParts(Constant.CONSUL_IP,Constant.CONSUL_PORT)).build().agentClient();
-        agentClient = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP,CONSUL_PORT)).build().agentClient();
+        agentClient = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP, CONSUL_PORT)).build().agentClient();
     }
-    public static void registerService(String serviceName,Integer serviceId) throws NotRegisteredException {
+
+    public static void registerService(String serviceName, Integer serviceId) throws NotRegisteredException {
         //agentClient.register(8080,3L,serviceName,serviceId.toString());
 //        agentClient.register(8080,HostAndPort.fromParts(Constant.CONSUL_IP,Constant.CONSUL_PORT),3,serviceName,serviceId.toString(),"one","two");
 //        agentClient.pass(serviceId.toString());
@@ -33,12 +35,12 @@ public class ServiceRegister {
     }
 
 
-    public static void unRegisterService(){
+    public static void unRegisterService() {
         agentClient.deregister("dispatcher&rz-waimai-d-clouddispatcher-staging03.rz.sankuai.com");
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         unRegisterService();
     }
 }

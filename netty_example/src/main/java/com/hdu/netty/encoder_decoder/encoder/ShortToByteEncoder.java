@@ -11,7 +11,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @Date 2019/1/9
  * @Time 下午7:35
  */
-public class ShortToByteEncoder extends MessageToByteEncoder<Short>{
+public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Short msg, ByteBuf out) throws Exception {
         out.writeShort(msg);

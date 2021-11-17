@@ -13,10 +13,10 @@ import java.util.List;
  * @Date 2019/1/8
  * @Time 下午8:48
  */
-public class ToIntegerDecoder extends ByteToMessageDecoder{
+public class ToIntegerDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        if (byteBuf.readableBytes()>=4){
+        if (byteBuf.readableBytes() >= 4) {
             list.add(byteBuf.readInt());
         }
     }

@@ -17,7 +17,7 @@ import java.util.Set;
  * @Date 2018/3/21
  * @Time 上午11:19
  */
-public class DeviceGroupQueryActor extends AbstractActor{
+public class DeviceGroupQueryActor extends AbstractActor {
     public static final class CollectionTimeout {
     }
 
@@ -55,6 +55,7 @@ public class DeviceGroupQueryActor extends AbstractActor{
     public void postStop() {
         queryTimeoutTimer.cancel();
     }
+
     @Override
     public Receive createReceive() {
         return waitingForReplies(new HashMap<>(), actorToDeviceId.keySet());

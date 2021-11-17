@@ -18,7 +18,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
  * @Date 2019/1/10
  * @Time 下午2:18
  */
-public class WebSocketServerInitializer extends ChannelInitializer<Channel>{
+public class WebSocketServerInitializer extends ChannelInitializer<Channel> {
     @Override
     protected void initChannel(Channel ch) throws Exception {
         ch.pipeline().addLast(
@@ -31,21 +31,21 @@ public class WebSocketServerInitializer extends ChannelInitializer<Channel>{
         );
     }
 
-    public static final class TextFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>{
+    public static final class TextFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
             System.out.println(msg);
         }
     }
 
-    public static final class BinaryFrameHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame>{
+    public static final class BinaryFrameHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {
             System.out.println(msg);
         }
     }
 
-    public static final class ContinuationFrameHandler extends SimpleChannelInboundHandler<ContinuationWebSocketFrame>{
+    public static final class ContinuationFrameHandler extends SimpleChannelInboundHandler<ContinuationWebSocketFrame> {
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, ContinuationWebSocketFrame msg) throws Exception {
             System.out.println(msg);

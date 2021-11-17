@@ -44,13 +44,13 @@ public class HttpConnectPoolUtil {
     public static volatile CloseableHttpClient client = null;
 
 
-    public static CloseableHttpClient getClient(String url){
-        if (client == null){
-            synchronized (lock){
-                if (client == null){
+    public static CloseableHttpClient getClient(String url) {
+        if (client == null) {
+            synchronized (lock) {
+                if (client == null) {
                     ConnectionSocketFactory plainSocketFactory = PlainConnectionSocketFactory.getSocketFactory();
                     LayeredConnectionSocketFactory sslSocketFactory = SSLConnectionSocketFactory.getSocketFactory();
-                    Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory> create().register("http", plainSocketFactory)
+                    Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create().register("http", plainSocketFactory)
                             .register("https", sslSocketFactory).build();
                     manager = new PoolingHttpClientConnectionManager(registry);
                     manager.setMaxTotal(MAX_CONN); // 最大连接数
@@ -65,7 +65,7 @@ public class HttpConnectPoolUtil {
                             manager.closeIdleConnections(30, TimeUnit.SECONDS);
                             System.out.println("close expire tcp connect...");
                         }
-                    },0,2,TimeUnit.SECONDS);
+                    }, 0, 2, TimeUnit.SECONDS);
                 }
             }
         }
@@ -94,23 +94,22 @@ public class HttpConnectPoolUtil {
         setRequestConfig(post);
         CloseableHttpResponse response = null;
         try {
-            response  = client.execute(post);
+            response = client.execute(post);
             HttpEntity entity = response.getEntity();
 
-            if (entity != null){
+            if (entity != null) {
                 result = EntityUtils.toString(entity);
                 System.out.println("result is:" + result);
             }
-        }catch (Exception e ){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
-                if (response != null){
+                if (response != null) {
                     response.close();
                 }
                 client.close();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -118,7 +117,7 @@ public class HttpConnectPoolUtil {
 
     }
 
-    private static void setRequestConfig(HttpRequestBase httpRequestBase){
+    private static void setRequestConfig(HttpRequestBase httpRequestBase) {
         RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
                 .setConnectTimeout(CONNECT_TIMEOUT)
                 .setSocketTimeout(SOCKET_TIMEOUT).build();

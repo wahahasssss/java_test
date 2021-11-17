@@ -13,7 +13,7 @@ import java.util.List;
  * @Time 下午7:20
  */
 public class Test {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        ByteBuf buf = Unpooled.copiedBuffer("this is a test", Charset.forName("UTF-8"));
 //        ByteBuf sliced = buf.slice(0,4);
 //        System.out.println(sliced.toString(Charset.forName("utf-8")));
@@ -39,17 +39,17 @@ public class Test {
 
 
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 1000;i++){
+        for (int i = 0; i < 1000; i++) {
             list.add(i);
         }
-        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","10");
-        list.parallelStream().forEach((i)->{
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "10");
+        list.parallelStream().forEach((i) -> {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(String.format("thread is is %s,%d",Thread.currentThread().getName(),i));
+            System.out.println(String.format("thread is is %s,%d", Thread.currentThread().getName(), i));
         });
     }
 

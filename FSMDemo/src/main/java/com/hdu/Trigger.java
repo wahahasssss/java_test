@@ -15,12 +15,14 @@ public interface Trigger {
 
     /**
      * 事件码
+     *
      * @return
      */
     String getCode();
 
     /**
      * 是否自动触发
+     *
      * @return
      */
     boolean isAutoTrigger();

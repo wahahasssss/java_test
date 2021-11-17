@@ -16,17 +16,17 @@ import java.nio.charset.Charset;
  * @Date 2019/1/22
  * @Time 下午3:56
  */
-public class HeartBeatServerHandler extends ChannelInboundHandlerAdapter{
+public class HeartBeatServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if (evt instanceof IdleStateEvent){
+        if (evt instanceof IdleStateEvent) {
             System.out.println("user event triggered happen....");
 //            ctx.writeAndFlush(new SimpleEntity(
 ////                    String.valueOf(System.currentTimeMillis()),
 ////                    String.valueOf(System.currentTimeMillis())));
-            ctx.writeAndFlush(Unpooled.copiedBuffer("HEARTBEAT",Charset.defaultCharset()));
-        }else {
-            super.userEventTriggered(ctx,evt);
+            ctx.writeAndFlush(Unpooled.copiedBuffer("HEARTBEAT", Charset.defaultCharset()));
+        } else {
+            super.userEventTriggered(ctx, evt);
         }
     }
 }

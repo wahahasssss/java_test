@@ -18,11 +18,11 @@ import org.slf4j.LoggerFactory
  * @author shushoufu
  * @date 2020/08/27
  **/
-case class FlinToEsSink(private val indexName:String, private val flatIndexName:String, private val indexType:String) extends ElasticsearchSinkFunction[RcsRequestLogTo]{
+case class FlinToEsSink(private val indexName: String, private val flatIndexName: String, private val indexType: String) extends ElasticsearchSinkFunction[RcsRequestLogTo] {
   private final val simpleDateFormat = new SimpleDateFormat("yyyyMMdd")
   private final val logger = LoggerFactory.getLogger(this.getClass)
 
-  private[this] def createIndex(element:RcsRequestLogTo):Array[IndexRequest]={
+  private[this] def createIndex(element: RcsRequestLogTo): Array[IndexRequest] = {
     val json = JsonUtil.toJsonString(element)
     val indexRequests: List[IndexRequest] = new ArrayList[IndexRequest]
     indexRequests.add(Requests.indexRequest.index(indexName).`type`(indexType).id(element.requestId).source(json, XContentType.JSON))
@@ -67,7 +67,7 @@ case class FlinToEsSink(private val indexName:String, private val flatIndexName:
         var baseId: String = element.requestId
         if (StringUtils.isNotEmpty(body.identification)) {
           baseId = baseId + body.identification
-        } else if (StringUtils.isNotEmpty(body.disposalFirst)){
+        } else if (StringUtils.isNotEmpty(body.disposalFirst)) {
           baseId = baseId + body.disposalFirst
         }
         indexRequests.add(Requests.indexRequest.index(flatIndexName).`type`(indexType).id(baseId).source(copyMap))
@@ -90,24 +90,25 @@ case class FlinToEsSink(private val indexName:String, private val flatIndexName:
   }
 
   override def process(t: RcsRequestLogTo, runtimeContext: RuntimeContext, requestIndexer: RequestIndexer): Unit = {
-    requestIndexer.add(createIndex(t):_*)
-//    logger.info("flin to es , index is {}, base id is {}", indexName, t.requestId)
+    requestIndexer.add(createIndex(t): _*)
+    //    logger.info("flin to es , index is {}, base id is {}", indexName, t.requestId)
   }
 
 }
 
-object FlinToEsSink{
-  private val properties:Properties = PropertiesUtils.loadProperties()
+object FlinToEsSink {
+  private val properties: Properties = PropertiesUtils.loadProperties()
   private val indexName = properties.getProperty("es.request.log.index")
   private val flatIndexName = properties.getProperty("es.request.flat.log.index")
   private val indexType = properties.getProperty("es.request.log.index.type")
-  private val flinToEsSink =  FlinToEsSink(indexName, flatIndexName, indexType)
+  private val flinToEsSink = FlinToEsSink(indexName, flatIndexName, indexType)
 
   /**
    * 获取es sink
+   *
    * @return
    */
-  def getEsSinkInstance(): FlinToEsSink ={
+  def getEsSinkInstance(): FlinToEsSink = {
     flinToEsSink
   }
 }

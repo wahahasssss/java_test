@@ -26,11 +26,11 @@ public class ChatRoomServer {
     protected final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
     protected Channel channel;
 
-    public ChannelFuture startChatRoomServer(){
+    public ChannelFuture startChatRoomServer() {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
-        bootstrap.group(bossGroup,workerGroup)
+        bootstrap.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
@@ -38,7 +38,7 @@ public class ChatRoomServer {
                         ChannelPipeline pipeline = ch.pipeline();
                         pipeline.addLast(new HttpServerCodec());
                         pipeline.addLast(new ChunkedWriteHandler());
-                        pipeline.addLast(new HttpObjectAggregator(64*1024));
+                        pipeline.addLast(new HttpObjectAggregator(64 * 1024));
                         pipeline.addLast(new HttpRequestHandler("/ws"));
                         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
                         pipeline.addLast(new TextWebSocketFrameHandler(channelGroup));
@@ -51,8 +51,8 @@ public class ChatRoomServer {
     }
 
 
-    public void destroy(){
-        if (channel != null){
+    public void destroy() {
+        if (channel != null) {
             channel.close();
         }
         channelGroup.close();

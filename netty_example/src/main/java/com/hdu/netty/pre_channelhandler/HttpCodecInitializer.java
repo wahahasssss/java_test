@@ -16,7 +16,7 @@ import javax.net.ssl.SSLEngine;
  * @Date 2019/1/10
  * @Time 上午11:42
  */
-public class HttpCodecInitializer extends ChannelInitializer<Channel>{
+public class HttpCodecInitializer extends ChannelInitializer<Channel> {
     private final Boolean isClient;
     private final SslContext sslContext;
 
@@ -28,11 +28,11 @@ public class HttpCodecInitializer extends ChannelInitializer<Channel>{
     @Override
     protected void initChannel(Channel ch) throws Exception {
         SSLEngine sslEngine = sslContext.newEngine(ch.alloc());
-        ch.pipeline().addFirst("ssl",new SslHandler(sslEngine));
-        if (isClient){
-            ch.pipeline().addLast("codec",new HttpClientCodec());
-        }else {
-            ch.pipeline().addLast("codec",new HttpServerCodec());
+        ch.pipeline().addFirst("ssl", new SslHandler(sslEngine));
+        if (isClient) {
+            ch.pipeline().addLast("codec", new HttpClientCodec());
+        } else {
+            ch.pipeline().addLast("codec", new HttpServerCodec());
         }
     }
 }

@@ -14,11 +14,11 @@ import java.util.List;
  * @Date 2019/1/9
  * @Time 下午7:19
  */
-public class MyMessageToMessageDecoder extends MessageToMessageDecoder<TestEntity>{
+public class MyMessageToMessageDecoder extends MessageToMessageDecoder<TestEntity> {
     @Override
     protected void decode(ChannelHandlerContext ctx, TestEntity msg, List<Object> out) throws Exception {
         TestEntity2 entity2 = new TestEntity2();
         entity2.setAge(msg.getAge());
-        entity2.setName(String.format("%s %s",msg.getFirstName(),msg.getLastName()));
+        entity2.setName(String.format("%s %s", msg.getFirstName(), msg.getLastName()));
     }
 }

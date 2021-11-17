@@ -24,36 +24,36 @@ public class SerializeUtil {
     private static final Integer MAX_BUFFER_SIZE = 10485760;
 
 
-    public <T extends Serializable> byte[] serialization(T obj){
+    public <T extends Serializable> byte[] serialization(T obj) {
         Kryo kryo = new Kryo();
         kryo.setReferences(false);
-        kryo.register(obj.getClass(),new BeanSerializer(kryo,obj.getClass()));
+        kryo.register(obj.getClass(), new BeanSerializer(kryo, obj.getClass()));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Output output = new Output(baos);
-        kryo.writeClassAndObject(output,obj);
+        kryo.writeClassAndObject(output, obj);
         output.flush();
         output.close();
         byte[] bytes = baos.toByteArray();
         try {
             baos.flush();
             baos.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return bytes;
     }
 
 
-    public <T extends Serializable> T deserialization(byte[] bytes,Class clazz){
+    public <T extends Serializable> T deserialization(byte[] bytes, Class clazz) {
         try {
             Kryo kryo = new Kryo();
             kryo.setReferences(false);
-            kryo.register(clazz,new BeanSerializer(kryo,clazz));
+            kryo.register(clazz, new BeanSerializer(kryo, clazz));
             ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
             Input input = new Input(bais);
-            T instance = (T)kryo.readClassAndObject(input);
+            T instance = (T) kryo.readClassAndObject(input);
             return instance;
-        }catch (Exception e){
+        } catch (Exception e) {
 //            e.printStackTrace();
             System.out.println("decode is null");
             return null;

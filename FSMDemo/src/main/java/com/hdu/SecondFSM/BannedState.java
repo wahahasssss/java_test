@@ -10,9 +10,10 @@ import com.hdu.action.StateEnum;
  * @Date 2018/4/10
  * @Time 下午4:14
  */
-public class BannedState extends AbstractFsmState{
+public class BannedState extends AbstractFsmState {
 
     private static final StateEnum STATE_ENUM = StateEnum.BANNED;
+
     public BannedState(SecondMachine machine) {
         super(machine);
     }

@@ -14,9 +14,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Time 11:49 AM
  */
 @Configuration
-public class WebConfig implements WebMvcConfigurer{
+public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private RateLimitInterceptor rateLimitInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(rateLimitInterceptor);

@@ -10,14 +10,14 @@ import java.net.InetSocketAddress;
  * @Time 下午7:00
  */
 public class LogEvent {
-    public static final byte SEPARATOR = (byte)':';
+    public static final byte SEPARATOR = (byte) ':';
     private final InetSocketAddress source;
     private final String logfile;
     private final String msg;
     private final long received;
 
     public LogEvent(String logfile, String msg) {
-        this(null,logfile,msg,-1);
+        this(null, logfile, msg, -1);
     }
 
     public LogEvent(InetSocketAddress source, String logfile, String msg, long received) {

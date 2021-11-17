@@ -15,11 +15,11 @@ import java.util.function.Consumer;
  * @Time 2:14 PM
  */
 public class ConcurrentModifyExceptionMain {
-    public static void main(String[] args){
-        while (true){
-            HashMap<Student,Object> maps = new HashMap<Student, Object>();
-            for (int i = 0;i < 1000;i++){
-                maps.put(new Student(i),i);
+    public static void main(String[] args) {
+        while (true) {
+            HashMap<Student, Object> maps = new HashMap<Student, Object>();
+            for (int i = 0; i < 1000; i++) {
+                maps.put(new Student(i), i);
             }
 
             new Thread(new Runnable() {
@@ -30,8 +30,8 @@ public class ConcurrentModifyExceptionMain {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    for (int i = 0;i<10000;i++){
-                        maps.put(new Student(1000+i),1000+i);
+                    for (int i = 0; i < 10000; i++) {
+                        maps.put(new Student(1000 + i), 1000 + i);
                     }
                     System.out.println("add maps end...");
                 }
@@ -50,8 +50,7 @@ public class ConcurrentModifyExceptionMain {
     }
 
 
-
-    static class Student{
+    static class Student {
         private Integer age;
 
         public Student(Integer age) {

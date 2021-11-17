@@ -24,30 +24,33 @@ public class KeyValueService {
 
     private static Integer number = 500;
     private static final KeyValueClient KEY_VALUE_CLIENT;
+
     static {
 
-        KEY_VALUE_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(Constant.CONSUL_IP,Constant.CONSUL_PORT)).build().keyValueClient();
+        KEY_VALUE_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(Constant.CONSUL_IP, Constant.CONSUL_PORT)).build().keyValueClient();
     }
-    public static boolean putKv(String path,String value){
-        return KEY_VALUE_CLIENT.putValue(path,value);
+
+    public static boolean putKv(String path, String value) {
+        return KEY_VALUE_CLIENT.putValue(path, value);
     }
-    public static void delKv(String path){
+
+    public static void delKv(String path) {
         KEY_VALUE_CLIENT.deleteKey(path);
     }
 
-    public static boolean exits(String path){
+    public static boolean exits(String path) {
         Optional<Value> res = KEY_VALUE_CLIENT.getValue(path);
         return res.isPresent();
     }
 
-    public static String getKv(String path){
+    public static String getKv(String path) {
         Optional<String> res = KEY_VALUE_CLIENT.getValueAsString(path);
-        return res.isPresent()?res.get():"";
+        return res.isPresent() ? res.get() : "";
     }
 
 
-    public static Boolean acquire(String key,String value,String sessionId) throws InterruptedException {
-        while (true){
+    public static Boolean acquire(String key, String value, String sessionId) throws InterruptedException {
+        while (true) {
             Boolean result = KEY_VALUE_CLIENT.acquireLock(key, value, sessionId);
             if (result) {
                 System.out.println("acquire success");
@@ -60,8 +63,8 @@ public class KeyValueService {
 
     }
 
-    public static Boolean release(String key,String sessionId){
-        Boolean result = KEY_VALUE_CLIENT.releaseLock(key,sessionId);
+    public static Boolean release(String key, String sessionId) {
+        Boolean result = KEY_VALUE_CLIENT.releaseLock(key, sessionId);
         if (result) {
             System.out.println("release success");
         } else {
@@ -72,8 +75,8 @@ public class KeyValueService {
 
 
     public static void main(String[] args) throws InterruptedException {
-        KEY_VALUE_CLIENT.putValue("node/master/one","one");
-        KEY_VALUE_CLIENT.putValue("node/master/two","two");
+        KEY_VALUE_CLIENT.putValue("node/master/one", "one");
+        KEY_VALUE_CLIENT.putValue("node/master/two", "two");
         List<String> keys = KEY_VALUE_CLIENT.getKeys("node/master");
         System.out.println(keys);
 //        String sessionId = SessionService.acquireLock("mysession");

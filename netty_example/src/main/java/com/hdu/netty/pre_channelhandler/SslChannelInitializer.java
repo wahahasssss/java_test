@@ -26,6 +26,6 @@ public class SslChannelInitializer extends ChannelInitializer<Channel> {
     @Override
     protected void initChannel(Channel ch) throws Exception {
         SSLEngine engine = context.newEngine(ch.alloc());
-        ch.pipeline().addFirst("ssl",new SslHandler(engine,startTls));
+        ch.pipeline().addFirst("ssl", new SslHandler(engine, startTls));
     }
 }

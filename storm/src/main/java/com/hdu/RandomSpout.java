@@ -18,10 +18,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date 2018/7/17
  * @Time 上午10:14
  */
-public class RandomSpout extends BaseRichSpout{
-    private SpoutOutputCollector collector ;
+public class RandomSpout extends BaseRichSpout {
+    private SpoutOutputCollector collector;
     private static final AtomicInteger number = new AtomicInteger(0);
-    private static String[] words = {"happy","excited","angry"};
+    private static String[] words = {"happy", "excited", "angry"};
+
     public void open(Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         this.collector = spoutOutputCollector;
     }
@@ -29,7 +30,7 @@ public class RandomSpout extends BaseRichSpout{
     public void nextTuple() {
         String word = words[new Random().nextInt(words.length)];
         int count = number.incrementAndGet();
-        collector.emit(new Values(word),count);
+        collector.emit(new Values(word), count);
     }
 
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {

@@ -26,12 +26,12 @@ public class MyNettyServer {
     }
 
 
-    public void run(){
+    public void run() {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
-            bootstrap.group(bossGroup,workGroup)
+            bootstrap.group(bossGroup, workGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
@@ -40,14 +40,14 @@ public class MyNettyServer {
                             ch.pipeline().addLast(new ConnectHandler());
                         }
                     })
-                    .option(ChannelOption.SO_BACKLOG,123)
-                    .childOption(ChannelOption.SO_KEEPALIVE,true);
+                    .option(ChannelOption.SO_BACKLOG, 123)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture future = bootstrap.bind(port).sync();
             future.channel().closeFuture().sync();
             logger.info(future.toString());
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             bossGroup.shutdownGracefully();
             workGroup.shutdownGracefully();
         }
@@ -64,7 +64,7 @@ public class MyNettyServer {
         });
         thread.start();
 
-        while (true){
+        while (true) {
 //            logger.info("循环遍历中。。。");
             Thread.sleep(1000);
         }

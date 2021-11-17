@@ -18,19 +18,20 @@ import org.slf4j.LoggerFactory;
  */
 public class ClientMain {
     public static final Logger LOGGER = LoggerFactory.getLogger(ClientMain.class);
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         TTransport tTransport = null;
         try {
-            tTransport = new TSocket("127.0.0.1",8989);
+            tTransport = new TSocket("127.0.0.1", 8989);
             TProtocol protocol = new TBinaryProtocol(tTransport);
             MutService.Client client = new MutService.Client(protocol);
             tTransport.open();
             String result = client.execute("thrift client send...");
-            LOGGER.info("client get answer  {} from server",result);
-        }catch (Exception e){
+            LOGGER.info("client get answer  {} from server", result);
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if(tTransport!=null&&tTransport.isOpen()){
+        } finally {
+            if (tTransport != null && tTransport.isOpen()) {
                 tTransport.close();
             }
         }

@@ -13,10 +13,11 @@ import java.util.Properties;
  */
 public class KafkaTableSource {
     private static String kafkaHost = "172.31.196.186";
-    public static FlinkKafkaConsumer kafkaTableSource(){
+
+    public static FlinkKafkaConsumer kafkaTableSource() {
 
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers",kafkaHost + ":9092," + kafkaHost + ":9093," + kafkaHost + ":9094");
+        properties.setProperty("bootstrap.servers", kafkaHost + ":9092," + kafkaHost + ":9093," + kafkaHost + ":9094");
         //  properties.setProperty("bootstrap.servers", "192.168.31.203:9092,192.168.31.203:9093,192.168.31.203:9094")
         properties.setProperty("group.id", "test");
         //  properties.setProperty("enable.auto.commit","false")

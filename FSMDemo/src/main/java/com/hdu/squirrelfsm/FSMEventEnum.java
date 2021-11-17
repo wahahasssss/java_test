@@ -8,11 +8,11 @@ package com.hdu.squirrelfsm;
  * @Time 上午11:04
  */
 public enum FSMEventEnum {
-    ToNormal("event Normal",1),
-    ToAbnormal("event abnormal",2),
-    ToSetting("event setting",3),
-    ToOverload("event overload",4),
-    ToBanned("event banned",5);
+    ToNormal("event Normal", 1),
+    ToAbnormal("event abnormal", 2),
+    ToSetting("event setting", 3),
+    ToOverload("event overload", 4),
+    ToBanned("event banned", 5);
     private String description;
     private Integer index;
 
@@ -37,8 +37,8 @@ public enum FSMEventEnum {
         this.index = index;
     }
 
-    public static int valueOf(FSMEventEnum event){
-        switch (event){
+    public static int valueOf(FSMEventEnum event) {
+        switch (event) {
             case ToNormal:
                 return ToNormal.index;
             case ToAbnormal:
@@ -49,13 +49,13 @@ public enum FSMEventEnum {
                 return ToOverload.index;
             case ToSetting:
                 return ToSetting.index;
-                default:
-                    return 1;
+            default:
+                return 1;
         }
     }
 
-    public static String description(FSMEventEnum event){
-        switch (event){
+    public static String description(FSMEventEnum event) {
+        switch (event) {
             case ToNormal:
                 return ToNormal.description;
             case ToAbnormal:

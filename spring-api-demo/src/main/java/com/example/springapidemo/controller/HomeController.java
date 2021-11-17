@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
     @RequestMapping(value = "")
-    public String home(){
+    public String home() {
         return "success";
     }
 
 
-    @RequestMapping(value = "/metadata/reportIncrement",produces = "application/json;charset=utf-8")
-    public CommonResult test(@RequestBody String object){
+    @RequestMapping(value = "/metadata/reportIncrement", produces = "application/json;charset=utf-8")
+    public CommonResult test(@RequestBody String object) {
         System.out.println(object);
         return CommonResult.success();
     }

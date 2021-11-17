@@ -17,20 +17,20 @@ import io.netty.handler.codec.http.HttpServerCodec;
  * @Time 下午2:38
  */
 public class SimpleHttpServer {
-    public ServerBootstrap buildServerBootstrap(){
+    public ServerBootstrap buildServerBootstrap() {
         EventLoopGroup bossGroup = new NioEventLoopGroup(100);
         EventLoopGroup workerGroup = new NioEventLoopGroup(1000);
         ServerBootstrap bootstrap = new ServerBootstrap();
-        bootstrap.group(bossGroup,workerGroup)
+        bootstrap.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .option(ChannelOption.SO_REUSEADDR,true)
-                .childOption(ChannelOption.SO_KEEPALIVE,true)
+                .option(ChannelOption.SO_REUSEADDR, true)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new ChannelInitializer<Channel>() {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
                         pipeline.addLast(new HttpServerCodec());
-                        pipeline.addLast(new HttpObjectAggregator(8*1024*1024));
+                        pipeline.addLast(new HttpObjectAggregator(8 * 1024 * 1024));
                         pipeline.addLast(new SimpleHttpRequestHandler());
                     }
                 });
@@ -38,14 +38,14 @@ public class SimpleHttpServer {
     }
 
 
-    public Channel startHttpServer(ServerBootstrap bootstrap){
+    public Channel startHttpServer(ServerBootstrap bootstrap) {
         ChannelFuture future = bootstrap.bind(8080).syncUninterruptibly();
         Channel channel = future.channel();
         return channel;
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SimpleHttpServer httpServer = new SimpleHttpServer();
 
         ServerBootstrap bootstrap = httpServer.buildServerBootstrap();

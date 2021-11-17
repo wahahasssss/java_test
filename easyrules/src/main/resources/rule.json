@@ -1,10 +1,11 @@
 [
   {
-  "name":"3",
-  "description":"3",
-  "condition":"(age<50 || name == \"zzd\") && grade >= 60",
-  "priority":3,
-  "actions":[
-    "System.out.println(\"default rule3 \")"
-  ]}
+    "name": "3",
+    "description": "3",
+    "condition": "(age<50 || name == \"zzd\") && grade >= 60",
+    "priority": 3,
+    "actions": [
+      "System.out.println(\"default rule3 \")"
+    ]
+  }
 ]

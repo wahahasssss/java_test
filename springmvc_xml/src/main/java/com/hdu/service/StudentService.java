@@ -21,7 +21,7 @@ public class StudentService {
         this.studentMapper = studentMapper;
     }
 
-    public List<StudentsPo> listAllStudents(){
+    public List<StudentsPo> listAllStudents() {
         return studentMapper.listAllStudents();
     }
 }

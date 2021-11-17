@@ -2,11 +2,12 @@ package com.hdu.models;
 
 import java.io.Serializable;
 
-public class StudentInfo implements Serializable{
+public class StudentInfo implements Serializable {
     private Integer age;
     private String name;
 
     private Entiry entiry;
+
     public Integer getAge() {
         return age;
     }

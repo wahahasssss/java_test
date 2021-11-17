@@ -1,12 +1,12 @@
 package com.hdu.chapter6_control
 
 /**
-  * DESCRIPTION:
-  *
-  * @author shushoufu
-  * @Date 2018/7/15
-  * @Time 下午4:46
-  */
+ * DESCRIPTION:
+ *
+ * @author shushoufu
+ * @Date 2018/7/15
+ * @Time 下午4:46
+ */
 object MatchTest extends App {
   val value = "hello"
 
@@ -17,7 +17,7 @@ object MatchTest extends App {
   }
 
 
-  for(i <- 1 to 100){
+  for (i <- 1 to 100) {
     println("this is " + i)
   }
 }

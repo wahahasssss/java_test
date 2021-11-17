@@ -32,15 +32,15 @@ public class LoginController {
         this.studentService = studentService;
     }
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ResultDto login(@RequestBody UserDto params){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResultDto login(@RequestBody UserDto params) {
         ResultDto result = new ResultDto();
-        if (loginService.login(params.getName(),params.getPassword())){
+        if (loginService.login(params.getName(), params.getPassword())) {
             result.setData(null);
             result.setMsg("success");
             result.setStatus(true);
             return result;
-        }else {
+        } else {
             result.setData(null);
             result.setMsg("failed");
             result.setStatus(false);
@@ -48,9 +48,9 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/listAllStudents",method = RequestMethod.GET)
+    @RequestMapping(value = "/listAllStudents", method = RequestMethod.GET)
     @ResponseBody
-    public ResultDto listAllStudents(@RequestBody UserDto params){
+    public ResultDto listAllStudents(@RequestBody UserDto params) {
         ResultDto result = new ResultDto();
         result.setCode(200);
         result.setStatus(true);

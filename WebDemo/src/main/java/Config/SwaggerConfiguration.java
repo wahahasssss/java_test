@@ -21,32 +21,31 @@ import java.util.Set;
 @EnableSwagger2
 public class SwaggerConfiguration {
     @Bean
-    public Docket api()
-   {
-       return new Docket(DocumentationType.SWAGGER_2)
-               .pathMapping("/api/")
-               .useDefaultResponseMessages(false)
-               .forCodeGeneration(true)
-               .produces(produces())
-               .apiInfo(apiInfo())
-               .enableUrlTemplating(true);
-   }
-   private Set<String> produces()
-   {
-       Set<String> produces = new HashSet<String>();
-       produces.add("application/json");
-       return produces;
-   }
-   private ApiInfo apiInfo()
-   {
-       return new ApiInfo(
-               "MySwagger",
-               "FAEWFWEFAWE",
-               "V.3.3",
-               null,
-               new Contact("shusf",null,"fefwefew"),
-               null,
-               null
-       );
-   }
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .pathMapping("/api/")
+                .useDefaultResponseMessages(false)
+                .forCodeGeneration(true)
+                .produces(produces())
+                .apiInfo(apiInfo())
+                .enableUrlTemplating(true);
+    }
+
+    private Set<String> produces() {
+        Set<String> produces = new HashSet<String>();
+        produces.add("application/json");
+        return produces;
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfo(
+                "MySwagger",
+                "FAEWFWEFAWE",
+                "V.3.3",
+                null,
+                new Contact("shusf", null, "fefwefew"),
+                null,
+                null
+        );
+    }
 }

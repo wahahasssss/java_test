@@ -15,5 +15,6 @@ import java.util.List;
 @Repository
 public interface StudentMapper {
     List<StudentsPo> listAllStudents();
+
     StudentsPo getStudentByName(String username);
 }

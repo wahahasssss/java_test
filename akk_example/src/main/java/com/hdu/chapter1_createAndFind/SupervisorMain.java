@@ -13,11 +13,11 @@ import akka.actor.ActorSystem;
 // actor的创建和查找
 public class SupervisorMain {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("supervisor");
-        ActorRef first = system.actorOf(FirstActor.props("1"),"first");
-        ActorRef supervisor = system.actorOf(FirstActor.props("2"),"supervisor");
-        first.tell("CREATE",supervisor);
+        ActorRef first = system.actorOf(FirstActor.props("1"), "first");
+        ActorRef supervisor = system.actorOf(FirstActor.props("2"), "supervisor");
+        first.tell("CREATE", supervisor);
 
 
     }

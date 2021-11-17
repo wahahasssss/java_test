@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "Controller")
-public class SwaggerWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter{
+public class SwaggerWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -44,6 +44,7 @@ public class SwaggerWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();

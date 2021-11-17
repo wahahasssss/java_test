@@ -14,6 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @Time 下午1:50
  */
 @Configuration
-@ComponentScan(basePackages = {"com.hdu"},excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = EnableWebMvc.class)})
+@ComponentScan(basePackages = {"com.hdu"}, excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
 public class RootConfig {
 }

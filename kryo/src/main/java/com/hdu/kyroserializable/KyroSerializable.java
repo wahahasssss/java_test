@@ -21,13 +21,14 @@ import java.util.Map;
  */
 public class KyroSerializable {
     static String path = "/Users/shushoufu/Desktop/document/java_test/kryo/src/main/resources/kryo.bin";
+
     public static void main(String[] args) throws FileNotFoundException {
         long start = System.currentTimeMillis();
         setSerializableObject();
-        System.out.println("kryo 序列化时间："+(System.currentTimeMillis()-start));
+        System.out.println("kryo 序列化时间：" + (System.currentTimeMillis() - start));
         start = System.currentTimeMillis();
         getSerializableObject();
-        System.out.println("kryo 原生反序列化时间："+(System.currentTimeMillis() - start));
+        System.out.println("kryo 原生反序列化时间：" + (System.currentTimeMillis() - start));
     }
 
     public static void setSerializableObject() throws FileNotFoundException {
@@ -37,14 +38,14 @@ public class KyroSerializable {
         kryo.setInstantiatorStrategy(new StdInstantiatorStrategy());
         kryo.register(Students.class);
         Output output = new Output(new FileOutputStream(path));
-        for (int i = 0;i<100000000;i++){
-            kryo.writeObject(output,new Students("zhang"+i,i));
+        for (int i = 0; i < 100000000; i++) {
+            kryo.writeObject(output, new Students("zhang" + i, i));
         }
         output.flush();
         output.close();
     }
 
-    public static void getSerializableObject(){
+    public static void getSerializableObject() {
         Kryo kryo = new Kryo();
         kryo.setReferences(false);
         kryo.setRegistrationRequired(false);
@@ -53,11 +54,11 @@ public class KyroSerializable {
         try {
             input = new Input(new FileInputStream(path));
             Students students = null;
-            while ((students = kryo.readObject(input,Students.class))!=null){
+            while ((students = kryo.readObject(input, Students.class)) != null) {
 //                System.out.println(students.toString());
             }
             input.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

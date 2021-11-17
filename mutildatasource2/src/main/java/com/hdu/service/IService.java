@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
  */
 public interface IService {
     void queryAllData();
+
     Long transactionTest();
+
     void readAfterCommit();
 }

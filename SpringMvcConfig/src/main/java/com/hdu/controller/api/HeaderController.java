@@ -19,14 +19,14 @@ import java.util.HashMap;
 @RestController
 @RequestMapping(value = "/api")
 public class HeaderController {
-    @RequestMapping(value = "headers",method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = "headers", method = {RequestMethod.POST, RequestMethod.GET})
     @ApiOperation("zzzzf")
-    public HashMap<String, String> headers(HttpServletRequest request){
+    public HashMap<String, String> headers(HttpServletRequest request) {
         Enumeration<String> names = request.getHeaderNames();
-        HashMap<String,String>  headers = new HashMap<>();
-        while (names.hasMoreElements()){
+        HashMap<String, String> headers = new HashMap<>();
+        while (names.hasMoreElements()) {
             String key = names.nextElement();
-            headers.put(key,request.getHeader(key));
+            headers.put(key, request.getHeader(key));
         }
         return headers;
     }

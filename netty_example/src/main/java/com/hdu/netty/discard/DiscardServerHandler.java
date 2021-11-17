@@ -12,15 +12,15 @@ import io.netty.util.ReferenceCountUtil;
  * @Date 2018/3/24
  * @Time 下午2:34
  */
-public class DiscardServerHandler extends ChannelInboundHandlerAdapter{
+public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try {
-            ByteBuf buf = (ByteBuf)msg;
-            while (buf.isReadable()){
-                System.out.println(String.format("msg content is %c",(char)buf.readByte()));
+            ByteBuf buf = (ByteBuf) msg;
+            while (buf.isReadable()) {
+                System.out.println(String.format("msg content is %c", (char) buf.readByte()));
             }
-        }finally {
+        } finally {
         }
 
         ctx.writeAndFlush(msg);

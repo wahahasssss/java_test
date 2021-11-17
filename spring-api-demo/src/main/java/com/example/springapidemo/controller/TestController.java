@@ -25,8 +25,9 @@ public class TestController {
     private final Logger LOG = LoggerFactory.getLogger(TestController.class);
     private Integer integer = 0;
     private AtomicInteger atomicInteger = new AtomicInteger(0);
+
     @RequestMapping(value = "test")
-    public String test(){
+    public String test() {
         System.out.println(this.toString());
         integer++;
         atomicInteger.incrementAndGet();
@@ -34,23 +35,24 @@ public class TestController {
         System.out.println("atomic" + atomicInteger.get());
         return "wahha";
     }
-    @RequestMapping(value = "headers",method = {RequestMethod.POST,RequestMethod.GET})
-    public HashMap<String, String> headers(HttpServletRequest request){
+
+    @RequestMapping(value = "headers", method = {RequestMethod.POST, RequestMethod.GET})
+    public HashMap<String, String> headers(HttpServletRequest request) {
         Enumeration<String> names = request.getHeaderNames();
-        HashMap<String,String>  headers = new HashMap<>();
-        headers.put("ts",String.valueOf(System.currentTimeMillis()));
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("ts", String.valueOf(System.currentTimeMillis()));
         headers.put("ip", IpUtils.getIpAddress(request));
-        while (names.hasMoreElements()){
+        while (names.hasMoreElements()) {
             String key = names.nextElement();
-            headers.put(key,request.getHeader(key));
+            headers.put(key, request.getHeader(key));
         }
-        LOG.info(String.format("receive headers %s",headers.toString()));
+        LOG.info(String.format("receive headers %s", headers.toString()));
         return headers;
     }
 
 
-    @RequestMapping(value = "json1",method = {RequestMethod.POST,RequestMethod.GET})
-    public String jsonOne(){
+    @RequestMapping(value = "json1", method = {RequestMethod.POST, RequestMethod.GET})
+    public String jsonOne() {
         return "{\n" +
                 "  \"data\": {\n" +
                 "    \"flag\": \"1\",\n" +
@@ -78,8 +80,8 @@ public class TestController {
                 "}";
     }
 
-    @RequestMapping(value = "json2",method = {RequestMethod.POST,RequestMethod.GET})
-    public String jsonTwo(){
+    @RequestMapping(value = "json2", method = {RequestMethod.POST, RequestMethod.GET})
+    public String jsonTwo() {
         return "{\n" +
                 "  \"resultStatus\": 1000,\n" +
                 "  \"result\": {\n" +
@@ -359,8 +361,9 @@ public class TestController {
                 "  }\n" +
                 "}";
     }
-    @RequestMapping(value = "json3",method = {RequestMethod.POST,RequestMethod.GET})
-    public String jsonThree(){
+
+    @RequestMapping(value = "json3", method = {RequestMethod.POST, RequestMethod.GET})
+    public String jsonThree() {
         return "{\n" +
                 "  \"data\": {\n" +
                 "    \"flag\": \"1\",\n" +
@@ -387,8 +390,9 @@ public class TestController {
                 "  \"status\": true\n" +
                 "}";
     }
-    @RequestMapping(value = "json4",method = {RequestMethod.POST,RequestMethod.GET})
-    public String jsonFour(){
+
+    @RequestMapping(value = "json4", method = {RequestMethod.POST, RequestMethod.GET})
+    public String jsonFour() {
         return "{\n" +
                 "  \"resultStatus\": 43002,\n" +
                 "  \"result\": {\n" +

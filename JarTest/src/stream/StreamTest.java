@@ -11,24 +11,24 @@ import java.util.stream.Collectors;
  * Created by CTWLPC on 2017/4/24.
  */
 public class StreamTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         final Collection<Streams.Task> tasks = Arrays.asList(
-                new Streams.Task(Streams.Status.OPEN,5),
-                new Streams.Task(Streams.Status.OPEN,13),
-                new Streams.Task(Streams.Status.CLOSED,8)
+                new Streams.Task(Streams.Status.OPEN, 5),
+                new Streams.Task(Streams.Status.OPEN, 13),
+                new Streams.Task(Streams.Status.CLOSED, 8)
         );
         final long points = tasks.stream()
                 .filter(task -> task.getStatus() == Streams.Status.OPEN)
                 .mapToInt(Streams.Task::getPoints)
                 .sum();
-        System.out.println("total points:"+ points);
+        System.out.println("total points:" + points);
 
         final double totalPoints = tasks
                 .stream()
                 .parallel()
                 .map(task -> task.getPoints())
-                .reduce(0,Integer::sum);
-        System.out.println("totalpoints:"+totalPoints);
+                .reduce(0, Integer::sum);
+        System.out.println("totalpoints:" + totalPoints);
 
         final Map<Streams.Status, List<Streams.Task>> map = tasks
                 .stream()

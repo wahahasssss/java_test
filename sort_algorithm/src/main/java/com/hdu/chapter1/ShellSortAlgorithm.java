@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class ShellSortAlgorithm {
 
-    public static int[] sort(int[] sourceArray){
+    public static int[] sort(int[] sourceArray) {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
@@ -35,10 +35,10 @@ public class ShellSortAlgorithm {
     }
 
 
-    public static void main(String[] args){
-        int[] arr = new int[]{1,23,43,46,87,64};
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 23, 43, 46, 87, 64};
         int[] sortedArr = sort(arr);
-        for (int i = 0; i < sortedArr.length;i++){
+        for (int i = 0; i < sortedArr.length; i++) {
             System.out.println(sortedArr[i]);
         }
     }

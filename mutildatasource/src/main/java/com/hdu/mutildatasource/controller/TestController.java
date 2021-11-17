@@ -20,13 +20,13 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-    @RequestMapping(value = "/db1",method = RequestMethod.POST)
-    public String db1(){
+    @RequestMapping(value = "/db1", method = RequestMethod.POST)
+    public String db1() {
         return testService.test1();
     }
 
-    @RequestMapping(value = "/db2",method = RequestMethod.POST)
-    public String db2(){
+    @RequestMapping(value = "/db2", method = RequestMethod.POST)
+    public String db2() {
         return testService.test2();
     }
 }

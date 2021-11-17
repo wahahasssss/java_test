@@ -11,6 +11,6 @@ import com.hdu.action.Action;
  * @Date 2018/4/10
  * @Time 下午2:32
  */
-public interface DecisionAction  extends Action {
+public interface DecisionAction extends Action {
     int doDecisionAction(ContextBase context);
 }

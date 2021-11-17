@@ -12,11 +12,11 @@ import com.hdu.mutildatasource.constant.DatabaseType;
 public class DatabaseContextHolder {
     private static final ThreadLocal<DatabaseType> contextHolder = new ThreadLocal<>();
 
-    public static void setDataBaseType(DatabaseType type){
+    public static void setDataBaseType(DatabaseType type) {
         contextHolder.set(type);
     }
 
-    public static DatabaseType getDatabaseType(){
+    public static DatabaseType getDatabaseType() {
         return contextHolder.get();
     }
 }

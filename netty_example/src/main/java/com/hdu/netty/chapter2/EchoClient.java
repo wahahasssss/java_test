@@ -46,16 +46,16 @@ public class EchoClient {
             ChannelFuture future = bootstrap.connect().sync();
 
             future.channel().closeFuture().sync();
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             group.shutdownGracefully().sync();
         }
     }
 
 
     public static void main(String[] args) throws InterruptedException {
-        EchoClient client = new EchoClient("127.0.0.1",1111);
+        EchoClient client = new EchoClient("127.0.0.1", 1111);
         client.start();
 
     }

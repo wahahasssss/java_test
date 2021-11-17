@@ -32,20 +32,20 @@ public class RamDicDemo {
         Analyzer analyzer = new StandardAnalyzer();
         Directory directory = new RAMDirectory();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
-        IndexWriter writer=  new IndexWriter(directory,config);
+        IndexWriter writer = new IndexWriter(directory, config);
         Document document = new Document();
         String text = "This is the text to be indexed.";
-        document.add(new Field("filedName",text, TextField.TYPE_STORED));
+        document.add(new Field("filedName", text, TextField.TYPE_STORED));
         writer.addDocument(document);
         writer.close();
 
         DirectoryReader directoryReader = DirectoryReader.open(directory);
         IndexSearcher indexSearcher = new IndexSearcher(directoryReader);
 
-        QueryParser parser = new QueryParser("filedName",analyzer);
+        QueryParser parser = new QueryParser("filedName", analyzer);
         Query query = parser.parse("text");
-        ScoreDoc[] hits = indexSearcher.search(query,10).scoreDocs;
-        for (int i = 0;i < hits.length;i++){
+        ScoreDoc[] hits = indexSearcher.search(query, 10).scoreDocs;
+        for (int i = 0; i < hits.length; i++) {
             Document hitDoc = indexSearcher.doc(hits[i].doc);
             System.out.println(hitDoc.get("filedName"));
         }

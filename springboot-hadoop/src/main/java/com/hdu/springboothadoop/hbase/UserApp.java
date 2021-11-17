@@ -9,22 +9,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UserApp {
 
-	private static final Log log = LogFactory.getLog(UserApp.class);
+    private static final Log log = LogFactory.getLog(UserApp.class);
 
-	public static void main(String[] args) throws Exception {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/application-context.xml", UserApp.class);
-		log.info("HBase Application Running");
-		context.registerShutdownHook();
-		
-		UserUtils userUtils = context.getBean(UserUtils.class);		
-		userUtils.initialize();
-		userUtils.addUsers();
-		
-		UserRepository userRepository = context.getBean(UserRepository.class);
-		List<User> users = userRepository.findAll();
-		System.out.println("Number of users = " + users.size());
-		System.out.println(users);
-	
-	}
+    public static void main(String[] args) throws Exception {
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+                "/META-INF/spring/application-context.xml", UserApp.class);
+        log.info("HBase Application Running");
+        context.registerShutdownHook();
+
+        UserUtils userUtils = context.getBean(UserUtils.class);
+        userUtils.initialize();
+        userUtils.addUsers();
+
+        UserRepository userRepository = context.getBean(UserRepository.class);
+        List<User> users = userRepository.findAll();
+        System.out.println("Number of users = " + users.size());
+        System.out.println(users);
+
+    }
 }

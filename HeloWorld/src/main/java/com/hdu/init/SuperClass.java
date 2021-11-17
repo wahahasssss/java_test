@@ -6,6 +6,7 @@ package com.hdu.init;
  */
 public class SuperClass {
     public static String value = "superClass value";
+
     static {
         System.out.println("SuperClass init!");
     }

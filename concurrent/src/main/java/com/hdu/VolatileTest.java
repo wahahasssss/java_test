@@ -10,8 +10,8 @@ package com.hdu;
 public class VolatileTest {
     private static volatile MyStatusEntity myData;
 
-    public static void main(String[] args){
-        myData = new MyStatusEntity("ssf",12,"1234");
+    public static void main(String[] args) {
+        myData = new MyStatusEntity("ssf", 12, "1234");
 
         System.out.println(myData);
         Thread thread = new Thread(new Runnable() {

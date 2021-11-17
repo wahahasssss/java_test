@@ -54,8 +54,8 @@
             <groupId>org.janusgraph</groupId>
             <artifactId>janusgraph-hbase</artifactId>
             <version>0.5.2</version>
-<!--            <scope>system</scope>-->
-<!--            <systemPath>${project.basedir}/lib/janusgraph-hbase-0.5.2.jar</systemPath>-->
+            <!--            <scope>system</scope>-->
+            <!--            <systemPath>${project.basedir}/lib/janusgraph-hbase-0.5.2.jar</systemPath>-->
         </dependency>
         <dependency>
             <groupId>org.apache.hbase</groupId>
@@ -73,17 +73,17 @@
             <optional>true</optional>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.hbase</groupId>-->
-<!--            <artifactId>hbase-shaded-server</artifactId>-->
-<!--            <version>1.4.10</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.hbase</groupId>-->
+        <!--            <artifactId>hbase-shaded-server</artifactId>-->
+        <!--            <version>1.4.10</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.hbase</groupId>-->
-<!--            <artifactId>hbase-shaded-client</artifactId>-->
-<!--            <version>1.4.10</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.hbase</groupId>-->
+        <!--            <artifactId>hbase-shaded-client</artifactId>-->
+        <!--            <version>1.4.10</version>-->
+        <!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>

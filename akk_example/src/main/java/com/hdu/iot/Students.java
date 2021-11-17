@@ -11,10 +11,11 @@ import java.io.Serializable;
  * @Date 2018/9/19
  * @Time 下午2:09
  */
-public class Students implements Serializable{
+public class Students implements Serializable {
     private String name;
     private Integer age;
     private Entiry entiry;
+
     public Students(String name, Integer age) {
         this.name = name;
         this.age = age;

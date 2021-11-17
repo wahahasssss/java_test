@@ -7,11 +7,11 @@
  */
 public class DamonThread {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Thread daemonThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     System.out.println("current time is " + System.currentTimeMillis());
                     try {
                         Thread.sleep(1000);

@@ -16,7 +16,7 @@ public class ClassLoadTest {
     public static void main(String[] args) throws ClassNotFoundException, InterruptedException {
 
         Enumeration enumeration = DriverManager.getDrivers();
-        while (enumeration.hasMoreElements()){
+        while (enumeration.hasMoreElements()) {
             Driver driver = (Driver) enumeration.nextElement();
             System.out.println(driver);
         }

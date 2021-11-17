@@ -16,7 +16,7 @@ import io.micronaut.http.annotation.Produces;
 public class TestController {
     @Get("/")
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello(){
+    public String hello() {
         return "Hello world";
     }
 }

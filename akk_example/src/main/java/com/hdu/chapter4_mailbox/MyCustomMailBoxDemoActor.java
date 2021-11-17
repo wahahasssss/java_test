@@ -13,18 +13,18 @@ import akka.event.LoggingAdapter;
  * @Date 2018/6/21
  * @Time 上午10:57
  */
-public class MyCustomMailBoxDemoActor extends AbstractActor implements RequiresMessageQueue<MyUnboundedMessageQueueSemantics>{
+public class MyCustomMailBoxDemoActor extends AbstractActor implements RequiresMessageQueue<MyUnboundedMessageQueueSemantics> {
 
-    LoggingAdapter log = Logging.getLogger(getContext().getSystem(),this);
+    LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
-    public static Props props(){
+    public static Props props() {
         return Props.create(MyCustomMailBoxDemoActor.class);
     }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .matchAny(o->{
+                .matchAny(o -> {
                     log.info(o.toString());
                 })
                 .build();

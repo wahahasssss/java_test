@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class TestService {
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println("TestService init...");
     }
 }

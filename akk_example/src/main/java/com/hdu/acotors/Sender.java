@@ -11,21 +11,23 @@ import akka.actor.Props;
  * @Date 2018/3/20
  * @Time 下午4:49
  */
-public class Sender extends AbstractActor{
+public class Sender extends AbstractActor {
     private String path;
-    public static Props props(){
-        return Props.create(Sender.class,()->new Sender());
+
+    public static Props props() {
+        return Props.create(Sender.class, () -> new Sender());
     }
 
 
-    static public class SendHandle{
+    static public class SendHandle {
         private String message;
 
         public SendHandle(String message) {
             this.message = message;
         }
-        public void handle(){
-            System.out.println(String.format("handle message is %s",message));
+
+        public void handle() {
+            System.out.println(String.format("handle message is %s", message));
         }
     }
 
@@ -38,12 +40,12 @@ public class Sender extends AbstractActor{
     public Receive createReceive() {
         path = getSelf().path().address().toString();
         System.out.println(getSelf().path());
-        ActorRef secondActor = getContext().actorOf(Props.empty(),"second");
+        ActorRef secondActor = getContext().actorOf(Props.empty(), "second");
         System.out.println(secondActor.path());
         System.out.println(path);
         return receiveBuilder()
-                .match(SendHandle.class,SendHandle::handle)
-                .matchEquals("stop",o->{
+                .match(SendHandle.class, SendHandle::handle)
+                .matchEquals("stop", o -> {
                     getContext().stop(getSelf());
                 })
                 .build();

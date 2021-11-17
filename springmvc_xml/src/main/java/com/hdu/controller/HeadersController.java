@@ -23,17 +23,17 @@ import java.util.Random;
 @RequestMapping(value = "/v1")
 public class HeadersController {
 
-    @RequestMapping(value = "/headers",method = {RequestMethod.POST,RequestMethod.GET})
-    public HashMap<Object,Object> headers(HttpServletRequest request){
-        HashMap<Object,Object> maps = new HashMap<>();
+    @RequestMapping(value = "/headers", method = {RequestMethod.POST, RequestMethod.GET})
+    public HashMap<Object, Object> headers(HttpServletRequest request) {
+        HashMap<Object, Object> maps = new HashMap<>();
         Enumeration<String> headerNames = request.getHeaderNames();
         Random random = new Random();
-        while (headerNames.hasMoreElements()){
+        while (headerNames.hasMoreElements()) {
             String name = headerNames.nextElement();
             maps.put(name, request.getHeader(name));
         }
-        maps.put("ts",String.valueOf(System.currentTimeMillis())
-                +String.valueOf(random.nextInt(100000)));
+        maps.put("ts", String.valueOf(System.currentTimeMillis())
+                + String.valueOf(random.nextInt(100000)));
         return maps;
     }
 }

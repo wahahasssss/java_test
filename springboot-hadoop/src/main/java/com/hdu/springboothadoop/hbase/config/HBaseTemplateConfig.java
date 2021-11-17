@@ -5,6 +5,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.hadoop.hbase.HbaseTemplate;
+
 /**
  * DESCRIPTION:
  *
@@ -15,7 +16,7 @@ import org.springframework.data.hadoop.hbase.HbaseTemplate;
 @org.springframework.context.annotation.Configuration
 public class HBaseTemplateConfig {
     @Bean
-    public HbaseTemplate hbaseTemplate(){
+    public HbaseTemplate hbaseTemplate() {
         HbaseTemplate hbaseTemplate = new HbaseTemplate();
         hbaseTemplate.setAutoFlush(true);
         hbaseTemplate.setConfiguration(HBaseConfiguration.create());
@@ -23,10 +24,10 @@ public class HBaseTemplateConfig {
     }
 
     @Bean
-    public Configuration configuration(){
+    public Configuration configuration() {
         Configuration configuration = HBaseConfiguration.create();
-        configuration.set("hbase.zookeeper.quorum","localhost,localhost");
-        configuration.set("hbase.zookeeper.port","2181");
+        configuration.set("hbase.zookeeper.quorum", "localhost,localhost");
+        configuration.set("hbase.zookeeper.port", "2181");
         return configuration;
     }
 

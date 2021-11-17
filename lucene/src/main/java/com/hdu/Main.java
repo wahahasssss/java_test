@@ -12,10 +12,10 @@ import org.apache.lucene.search.similarities.Similarity;
  * @Time 下午3:02
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
-            int t = 1/0;
-        }catch (Exception e){
+            int t = 1 / 0;
+        } catch (Exception e) {
             System.out.println(String.format("exception :%s", ExceptionUtils.getStackTrace(e)));
         }
     }

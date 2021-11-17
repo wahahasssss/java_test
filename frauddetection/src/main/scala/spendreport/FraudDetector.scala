@@ -24,12 +24,12 @@ import org.apache.flink.walkthrough.common.entity.Alert
 import org.apache.flink.walkthrough.common.entity.Transaction
 
 /**
-  * Skeleton code for implementing a fraud detector.
-  */
+ * Skeleton code for implementing a fraud detector.
+ */
 object FraudDetector {
   val SMALL_AMOUNT: Double = 1.00
   val LARGE_AMOUNT: Double = 500.00
-  val ONE_MINUTE: Long     = 60 * 1000L
+  val ONE_MINUTE: Long = 60 * 1000L
 }
 
 @SerialVersionUID(1L)
@@ -37,9 +37,9 @@ class FraudDetector extends KeyedProcessFunction[Long, Transaction, Alert] {
 
   @throws[Exception]
   def processElement(
-      transaction: Transaction,
-      context: KeyedProcessFunction[Long, Transaction, Alert]#Context,
-      collector: Collector[Alert]): Unit = {
+                      transaction: Transaction,
+                      context: KeyedProcessFunction[Long, Transaction, Alert]#Context,
+                      collector: Collector[Alert]): Unit = {
 
     val alert = new Alert
     alert.setId(transaction.getAccountId)

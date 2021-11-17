@@ -23,12 +23,12 @@ public class TestService {
     private DB2Mapper db2Mapper;
 
 
-    public String test1(){
+    public String test1() {
         DatabaseContextHolder.setDataBaseType(DatabaseType.db1);
         return String.valueOf(db1Mapper.getId());
     }
 
-    public String test2(){
+    public String test2() {
         DatabaseContextHolder.setDataBaseType(DatabaseType.db2);
         return String.valueOf(db2Mapper.getId());
     }

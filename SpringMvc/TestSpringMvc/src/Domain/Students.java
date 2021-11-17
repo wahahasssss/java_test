@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by B41-80 on 2016/12/15.
  */
-public class Students implements Serializable{
+public class Students implements Serializable {
     private String Name;
     private int Age;
     private Double Grade;

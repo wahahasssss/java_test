@@ -12,9 +12,10 @@ import akka.event.LoggingAdapter;
  * @Date 2018/3/21
  * @Time 上午9:23
  */
-public class IotSupervisorActor extends AbstractActor{
-    private final LoggingAdapter loggingAdapter = Logging.getLogger(getContext().getSystem(),this);
-    public static Props props(){
+public class IotSupervisorActor extends AbstractActor {
+    private final LoggingAdapter loggingAdapter = Logging.getLogger(getContext().getSystem(), this);
+
+    public static Props props() {
         return Props.create(IotSupervisorActor.class);
     }
 

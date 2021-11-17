@@ -17,7 +17,7 @@ import java.util.List;
  * @Time 下午4:41
  */
 //@Component
-public class HbaseRunner implements CommandLineRunner{
+public class HbaseRunner implements CommandLineRunner {
 
     @Autowired
     private UserUtils userUtils;

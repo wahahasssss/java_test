@@ -19,28 +19,28 @@ import org.apache.storm.tuple.Values;
  * @Time 上午9:58
  */
 public class StreamJoinMain {
-    public static StormTopology buildTopology(){
-        FixedBatchSpout spout = new FixedBatchSpout(new Fields("key","value1"),3,
-                new Values("a","1"),new Values("b","2"),new Values("a","3"),new Values("a","4"));
+    public static StormTopology buildTopology() {
+        FixedBatchSpout spout = new FixedBatchSpout(new Fields("key", "value1"), 3,
+                new Values("a", "1"), new Values("b", "2"), new Values("a", "3"), new Values("a", "4"));
         spout.setCycle(true);
-        FixedBatchSpout spout2 = new FixedBatchSpout(new Fields("key","value2"),3,
-                new Values("a","1"),new Values("b","2"),new Values("a","3"),new Values("a","5"),
-                new Values("a","6"));
+        FixedBatchSpout spout2 = new FixedBatchSpout(new Fields("key", "value2"), 3,
+                new Values("a", "1"), new Values("b", "2"), new Values("a", "3"), new Values("a", "5"),
+                new Values("a", "6"));
 
 //        FixedBatchSpout spout3 = new FixedBatchSpout()
         spout2.setCycle(true);
         TridentTopology topology = new TridentTopology();
-        Stream stream1 = topology.newStream("spout1",spout);
-        Stream stream2 = topology.newStream("spout2",spout2);
+        Stream stream1 = topology.newStream("spout1", spout);
+        Stream stream2 = topology.newStream("spout2", spout2);
 
-        topology.join(stream1,new Fields("key"),stream2,new Fields("key"),new Fields("key","value1","value2"))
+        topology.join(stream1, new Fields("key"), stream2, new Fields("key"), new Fields("key", "value1", "value2"))
                 .peek(new Consumer() {
                     @Override
                     public void accept(TridentTuple input) {
                         System.out.println(input.toString());
                         try {
                             Thread.sleep(2000);
-                        }catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
@@ -48,10 +48,10 @@ public class StreamJoinMain {
         return topology.build();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Config config = new Config();
         config.setMaxSpoutPending(20);
         LocalCluster cluster = new LocalCluster();
-        cluster.submitTopology("wordCounter",config,buildTopology());
+        cluster.submitTopology("wordCounter", config, buildTopology());
     }
 }

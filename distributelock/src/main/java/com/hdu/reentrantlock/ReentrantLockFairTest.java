@@ -12,33 +12,35 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockFairTest {
     private static ReentrantLock fairLock = new ReentrantLock(true);
     private static volatile Integer count = 0;
-    public static void doSomething(){
+
+    public static void doSomething() {
         try {
             fairLock.lock();
             count = count + 2;
             System.out.println(count);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             fairLock.unlock();
         }
     }
 
 
     //测试一些愚蠢的事情
-    public static void doSomethingFool(){
+    public static void doSomethingFool() {
         try {
             count = count + 2;
             System.out.println(count);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
 
         }
     }
-    public static void main(String[] args){
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(10,10, 1,TimeUnit.MINUTES,new LinkedBlockingQueue<>());
-        for (int i = 0; i < 10000; i ++){
+
+    public static void main(String[] args) {
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 1, TimeUnit.MINUTES, new LinkedBlockingQueue<>());
+        for (int i = 0; i < 10000; i++) {
             pool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -49,7 +51,7 @@ public class ReentrantLockFairTest {
         }
         pool.shutdown();
         try {
-            pool.awaitTermination(10,TimeUnit.MINUTES);
+            pool.awaitTermination(10, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

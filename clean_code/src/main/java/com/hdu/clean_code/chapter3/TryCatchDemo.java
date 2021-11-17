@@ -6,15 +6,15 @@ package com.hdu.clean_code.chapter3;
  */
 public class TryCatchDemo {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             doSomething();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void doSomething(){
+    public static void doSomething() {
         //todo do something
     }
 }

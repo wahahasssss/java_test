@@ -24,15 +24,15 @@ import java.util.HashMap;
 @ResponseBody
 public class TestController {
 
-    @RequestMapping(value = "headers",method = {RequestMethod.POST,RequestMethod.GET})
-    public HashMap<String, String> headers(HttpServletRequest request){
+    @RequestMapping(value = "headers", method = {RequestMethod.POST, RequestMethod.GET})
+    public HashMap<String, String> headers(HttpServletRequest request) {
         Enumeration<String> names = request.getHeaderNames();
-        HashMap<String,String>  headers = new HashMap<>();
-        while (names.hasMoreElements()){
+        HashMap<String, String> headers = new HashMap<>();
+        while (names.hasMoreElements()) {
             String key = names.nextElement();
-            headers.put(key,request.getHeader(key));
+            headers.put(key, request.getHeader(key));
         }
-        headers.put("ts",String.valueOf(System.currentTimeMillis()));
+        headers.put("ts", String.valueOf(System.currentTimeMillis()));
         return headers;
     }
 }

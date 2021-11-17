@@ -22,7 +22,7 @@ public class ThreadLocalMain {
                 local1.set("thread1 one");
 //                local2.set("thread1 two");
 
-                while (true){
+                while (true) {
                     System.out.println(local1.get());
 //                    System.out.println(local2.get());
                     try {
@@ -41,7 +41,7 @@ public class ThreadLocalMain {
                 local1.set("thread 2 local1 one");
                 local1.set("thread 2 local1 two");
                 local2.set("thread 2 local2 one");
-                while (true){
+                while (true) {
                     System.out.println(local1.get());
                     System.out.println(local2.get());
                     try {
@@ -53,11 +53,11 @@ public class ThreadLocalMain {
                     }
                 }
             }
-        },"Thread2");
+        }, "Thread2");
 
         thread2.start();
 
-        while (true){
+        while (true) {
             Thread.sleep(1000);
         }
     }

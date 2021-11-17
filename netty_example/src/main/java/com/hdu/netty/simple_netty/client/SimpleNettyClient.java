@@ -24,13 +24,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SimpleNettyClient {
     public static Channel channel;
 
-    public Bootstrap buildClientBootStrap(){
+    public Bootstrap buildClientBootStrap() {
         EventLoopGroup loopGroup = new NioEventLoopGroup(1);
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(loopGroup)
                 .channel(NioSocketChannel.class)
-                .option(ChannelOption.SO_KEEPALIVE,Boolean.TRUE)
-                .remoteAddress("127.0.0.1",6787)
+                .option(ChannelOption.SO_KEEPALIVE, Boolean.TRUE)
+                .remoteAddress("127.0.0.1", 6787)
                 .handler(new ChannelInitializer<Channel>() {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
@@ -44,18 +44,18 @@ public class SimpleNettyClient {
     }
 
 
-    public Channel startClient(Bootstrap bootstrap){
+    public Channel startClient(Bootstrap bootstrap) {
         ChannelFuture future = bootstrap.connect().syncUninterruptibly();
         return future.channel();
     }
 
-    public void runTask(){
+    public void runTask() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
-                    if (channel != null && channel.isActive()){
-                        channel.writeAndFlush(new SimpleEntity( String.valueOf(System.currentTimeMillis()),String.valueOf(System.currentTimeMillis())));
+                while (true) {
+                    if (channel != null && channel.isActive()) {
+                        channel.writeAndFlush(new SimpleEntity(String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis())));
                     }
                     try {
                         Thread.sleep(1000);
@@ -67,7 +67,8 @@ public class SimpleNettyClient {
         });
         thread.start();
     }
-    public static void run_concurrent_task(){
+
+    public static void run_concurrent_task() {
 
         SimpleThreadFactory threadFactory = new SimpleThreadFactory();
         BlockingQueue queue = new ArrayBlockingQueue(2000);
@@ -80,7 +81,7 @@ public class SimpleNettyClient {
             }
         });
         AtomicInteger count = new AtomicInteger(0);
-        for (int i = 0;i < 4000; i ++){
+        for (int i = 0; i < 4000; i++) {
             pool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -95,30 +96,27 @@ public class SimpleNettyClient {
         pool.shutdown();
         try {
             System.out.println("pool had shutdown");
-            pool.awaitTermination(1000,TimeUnit.MINUTES);
+            pool.awaitTermination(1000, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void run_one_task(){
+    public static void run_one_task() {
         SimpleNettyClient client = new SimpleNettyClient();
         client.runTask();
         Bootstrap bootstrap = client.buildClientBootStrap();
         channel = client.startClient(bootstrap);
         channel.closeFuture().syncUninterruptibly();
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         run_one_task();
 //        run_concurrent_task();
     }
 
 
-
-
-
-
-   static class SimpleThreadFactory implements ThreadFactory{
+    static class SimpleThreadFactory implements ThreadFactory {
 
         @Override
         public Thread newThread(Runnable r) {

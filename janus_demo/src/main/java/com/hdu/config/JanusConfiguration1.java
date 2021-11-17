@@ -36,8 +36,8 @@ public class JanusConfiguration1 {
     private String janusHosts;
 
     @Bean(name = "janusCluster")
-    public Cluster initJanusCluster(){
-        if (org.apache.commons.lang3.StringUtils.isEmpty(janusHosts)){
+    public Cluster initJanusCluster() {
+        if (org.apache.commons.lang3.StringUtils.isEmpty(janusHosts)) {
             return null;
         }
         String[] hosts = janusHosts.split(",");
@@ -58,16 +58,16 @@ public class JanusConfiguration1 {
 
     @Bean(name = "janusClient")
     @DependsOn(value = "janusCluster")
-    public Client initJanusClient(){
-        client =  cluster.connect();
+    public Client initJanusClient() {
+        client = cluster.connect();
         return client;
     }
 
     @Bean
     @DependsOn(value = "janusClient")
-    public GraphTraversalSource graphTraversalSource(){
+    public GraphTraversalSource graphTraversalSource() {
         try {
-             graphTraversalSource = traversal().withRemote(DriverRemoteConnection.using(cluster, graphName+"_traversal"));
+            graphTraversalSource = traversal().withRemote(DriverRemoteConnection.using(cluster, graphName + "_traversal"));
             return graphTraversalSource;
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,7 +18,7 @@
                      fileName="${logDir}/logs.log"
                      filePattern="${logDir}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Pattern>%d [%t] %-5p [%c] - %m%n</Pattern>
             </PatternLayout>
             <!-- 文件截断的条件，具体参考文档 -->
             <Policies>
@@ -34,7 +34,7 @@
             <!-- 可以通过该参数来设置获取日志的权限 -->
             <ThresholdFilter level="ERROR"/>
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Pattern>%d [%t] %-5p [%c] - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="24"/>

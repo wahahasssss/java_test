@@ -19,22 +19,21 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "Controller")
-public class SwaggerWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter{
+public class SwaggerWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Bean
-    public ViewResolver viewResolver()
-    {
+    public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views");
         viewResolver.setSuffix(".jsp");
-        return  viewResolver;
+        return viewResolver;
     }
+
     @Bean
-    public MessageSource messageSource()
-    {
+    public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
-        return  messageSource;
+        return messageSource;
     }
 
     @Override

@@ -11,10 +11,10 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * @Date 2019/1/22
  * @Time 下午2:11
  */
-public class SimpleNettyServerHandlerV2 extends ChannelInboundHandlerAdapter{
+public class SimpleNettyServerHandlerV2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if (msg instanceof SimpleEntity){
+        if (msg instanceof SimpleEntity) {
             System.out.println("v2 simple receive msg is " + msg.toString());
             ctx.fireChannelRead(msg);
         }

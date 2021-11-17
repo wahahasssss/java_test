@@ -11,24 +11,24 @@ import java.util.concurrent.ForkJoinPool;
 @SpringBootApplication
 public class LeetcodeDemoApplication {
 
-	private static void test(){
-		List<String> keys = new ArrayList<>();
-		List<Object> values = new ArrayList<>();
-		HashMap<String,Object> mapsDetails = new HashMap<>();
-		mapsDetails.put("one",1);
-		mapsDetails.put("two",2);
-		mapsDetails.put("three",3);
-		mapsDetails.put("four",4);
+    private static void test() {
+        List<String> keys = new ArrayList<>();
+        List<Object> values = new ArrayList<>();
+        HashMap<String, Object> mapsDetails = new HashMap<>();
+        mapsDetails.put("one", 1);
+        mapsDetails.put("two", 2);
+        mapsDetails.put("three", 3);
+        mapsDetails.put("four", 4);
 
-		keys.addAll(mapsDetails.keySet());
-		values.addAll(mapsDetails.values());
-		System.out.println(keys);
-		System.out.println("===================");
-		System.out.println(values);
-	}
+        keys.addAll(mapsDetails.keySet());
+        values.addAll(mapsDetails.values());
+        System.out.println(keys);
+        System.out.println("===================");
+        System.out.println(values);
+    }
 
-	public static void main(String[] args) {
-		test();
-		SpringApplication.run(LeetcodeDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        test();
+        SpringApplication.run(LeetcodeDemoApplication.class, args);
+    }
 }

@@ -8,11 +8,11 @@ package com.hdu.base;
  * @Time 下午12:52
  */
 public class ThreadTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     System.out.println(System.currentTimeMillis());
                     try {
                         Thread.sleep(1000);

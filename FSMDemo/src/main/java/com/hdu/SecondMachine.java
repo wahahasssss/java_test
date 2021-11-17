@@ -28,11 +28,11 @@ public class SecondMachine {
         this.state = normalState;
     }
 
-    public void updateState(FsmState state){
+    public void updateState(FsmState state) {
         this.state = state;
     }
 
-    public void switchProxy(){
+    public void switchProxy() {
         state.beforeAction();
         state.switchProxy();
         state.afterAction();

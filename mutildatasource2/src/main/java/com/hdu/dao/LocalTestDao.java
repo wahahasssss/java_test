@@ -24,7 +24,7 @@ public interface LocalTestDao {
     List<TestTablePo> findAll();
 
     @Insert("INSERT INTO test_tbl (name, age, password) VALUES (#{info.name}, #{info.age}, #{info.password})")
-    @Options(useGeneratedKeys = true,keyColumn = "id", keyProperty = "info.id")
+    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "info.id")
     int save(@Param("info") TestTablePo info);
 
     @Select("SELECT * FROM test_tbl WHERE id = #{id}")

@@ -15,12 +15,12 @@ import javax.script.ScriptException;
 public class JavaScriptMain {
     public static void main(String[] args) throws ScriptException, NoSuchMethodException {
         ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName("js");
-        String jsFunction =  "''' '''";
+        String jsFunction = "''' '''";
 
         scriptEngine.eval(jsFunction);
 
-        Invocable invocable = (Invocable)scriptEngine;
-        Object res   = invocable.invokeFunction("add", 1,2);
+        Invocable invocable = (Invocable) scriptEngine;
+        Object res = invocable.invokeFunction("add", 1, 2);
         System.out.println(res);
 
     }

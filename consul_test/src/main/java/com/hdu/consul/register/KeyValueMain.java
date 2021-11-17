@@ -27,9 +27,10 @@ public class KeyValueMain {
 
     /**
      * 添加consul的KeyValue监听，
+     *
      * @param key
      */
-    private static KVCache addKeyValueListener(String key,KeyValueClient client){
+    private static KVCache addKeyValueListener(String key, KeyValueClient client) {
         KVCache kvCache = KVCache.newCache(client, key);
         kvCache.addListener(new ConsulCache.Listener<String, Value>() {
             @Override
@@ -72,7 +73,7 @@ public class KeyValueMain {
         int success = 0;
         int failed = 0;
 
-        KeyValueClient keyValueClient  = consul.keyValueClient();
+        KeyValueClient keyValueClient = consul.keyValueClient();
 
         KVCache kvCache = addKeyValueListener("/listener/key", keyValueClient);
         kvCache.start();
@@ -90,17 +91,17 @@ public class KeyValueMain {
 //            consul.keyValueClient().putValue(PutOptions.)
             String consulValue = consul.keyValueClient().getValueAsString(key).get();
             if (consulValue.equals(value)) {
-                success ++;
-                System.out.println(String.format("i is %d,success times is %d",i,success));
+                success++;
+                System.out.println(String.format("i is %d,success times is %d", i, success));
             } else {
-                failed ++;
-                System.out.println(String.format("i is %d,failed times is %d",i,failed));
+                failed++;
+                System.out.println(String.format("i is %d,failed times is %d", i, failed));
             }
 //            consul.keyValueClient().deleteKey(key);
         }
 
-        while (true){
-            keyValueClient.putValue("/listener/key",String.valueOf(System.currentTimeMillis()));
+        while (true) {
+            keyValueClient.putValue("/listener/key", String.valueOf(System.currentTimeMillis()));
             Thread.sleep(1000);
         }
 

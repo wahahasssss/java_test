@@ -13,7 +13,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
  * @Date 2019/1/10
  * @Time 上午11:23
  */
-public class HttpAggregatorInitializer extends ChannelInitializer<Channel>{
+public class HttpAggregatorInitializer extends ChannelInitializer<Channel> {
     private final Boolean isClient;
 
     public HttpAggregatorInitializer(Boolean isClient) {
@@ -22,11 +22,11 @@ public class HttpAggregatorInitializer extends ChannelInitializer<Channel>{
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        if (isClient){
-            ch.pipeline().addLast("codec",new HttpClientCodec());
-        }else {
-            ch.pipeline().addLast("codec",new HttpServerCodec());
+        if (isClient) {
+            ch.pipeline().addLast("codec", new HttpClientCodec());
+        } else {
+            ch.pipeline().addLast("codec", new HttpServerCodec());
         }
-        ch.pipeline().addLast("aggregator",new HttpObjectAggregator(512*1024));//最大消息大小限制为512KB
+        ch.pipeline().addLast("aggregator", new HttpObjectAggregator(512 * 1024));//最大消息大小限制为512KB
     }
 }

@@ -15,12 +15,13 @@ import java.sql.*;
 public class PrestoJdbcTest {
 
     static final String URL = "jdbc:presto://localhost:8080/hive/test_ssf";
+
     public static void main(String[] args) throws SQLException {
-        Connection connection = DriverManager.getConnection(URL,"students_text",null);
+        Connection connection = DriverManager.getConnection(URL, "students_text", null);
         String sql = "SELECT * FROM students_text";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()){
+        while (resultSet.next()) {
             Long result = resultSet.getLong(1);
 
             System.out.println(result);

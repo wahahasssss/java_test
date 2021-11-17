@@ -34,19 +34,18 @@ public class Student {
         this.category = category;
     }
 
-    public String GetName()
-    {
-    	int id = 0;
-    	setName("调下堵上");
-    	return id+this.name;
+    public String GetName() {
+        int id = 0;
+        setName("调下堵上");
+        return id + this.name;
     }
-    private void setName(String name)
-    {
-    	this.name = name;
+
+    private void setName(String name) {
+        this.name = name;
     }
-    public Student()
-    {
-    	System.out.println("hfejfiejpofjae");
+
+    public Student() {
+        System.out.println("hfejfiejpofjae");
     }
 
     @Override

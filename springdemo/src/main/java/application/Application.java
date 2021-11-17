@@ -2,6 +2,7 @@ package application;
 /**
  * Created by B41-80 on 2016/12/14.
  */
+
 import BLL.StudentsBll;
 import Domain.Students;
 import org.springframework.boot.SpringApplication;
@@ -17,28 +18,27 @@ import java.util.List;
 public class Application {
 
     @RequestMapping("/")
-    public String Greeting()
-    {
+    public String Greeting() {
         return "Hello World";
     }
+
     @RequestMapping("/hello")
-    public String Hello()
-    {
+    public String Hello() {
         return "HELLO 界面";
     }
+
     @RequestMapping("/error")
-    public String Error(){
-        return  "eoor";
+    public String Error() {
+        return "eoor";
     }
+
     @RequestMapping("/students")
-    public List<Students> Students()
-    {
+    public List<Students> Students() {
         return StudentsBll.GetStudents();
     }
 
-    public static void main(String[] args)
-    {
-        SpringApplication.run(Application.class,args);
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
 
 }

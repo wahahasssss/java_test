@@ -11,11 +11,12 @@ import org.slf4j.LoggerFactory
  **/
 object RequestLogApplication {
   final val logger = LoggerFactory.getLogger(this.getClass)
+
   @throws[Exception]
   def main(args: Array[String]): Unit = {
     logger.info("begin stream handle");
-//    PrintJob.start()
-//    KafkaConsumerJob.start
+    //    PrintJob.start()
+    //    KafkaConsumerJob.start
     KafkaConsumerTableJob.start()
     logger.info("end stream handle\"")
   }

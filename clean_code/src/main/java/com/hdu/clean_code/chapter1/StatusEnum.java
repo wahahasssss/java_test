@@ -5,7 +5,7 @@ package com.hdu.clean_code.chapter1;
  * @Date: 2020/3/26 2:14 下午
  */
 public enum StatusEnum {
-    STATUS_VALUE(1,"测试");
+    STATUS_VALUE(1, "测试");
     private Integer index;
     private String desc;
 

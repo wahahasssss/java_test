@@ -11,7 +11,7 @@ public class MyDistributeLockMain {
 
     public static void main(String[] args) throws InterruptedException {
         final Service service = new Service();
-        for (int i = 0;i<1000;i++){
+        for (int i = 0; i < 1000; i++) {
             Thread thread = new Thread(new Runnable() {
                 public void run() {
                     try {

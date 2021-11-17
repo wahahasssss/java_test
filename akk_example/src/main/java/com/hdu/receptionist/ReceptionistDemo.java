@@ -14,36 +14,38 @@ import akka.actor.typed.receptionist.ServiceKey;
  * @Time 下午5:33
  */
 public class ReceptionistDemo {
-    static final ServiceKey PingServiceKey = ServiceKey.create(Ping.class,"pingservice");
+    static final ServiceKey PingServiceKey = ServiceKey.create(Ping.class, "pingservice");
 
-    public static class Pong{}
+    public static class Pong {
+    }
 
-    public static class Ping{
+    public static class Ping {
         private final ActorRef<Pong> replyTo;
-        Ping(ActorRef<Pong> replyTo){
+
+        Ping(ActorRef<Pong> replyTo) {
             this.replyTo = replyTo;
         }
     }
 
-    static Behavior<Ping> pingService(){
-        return Behaviors.setup((ctx)->{
+    static Behavior<Ping> pingService() {
+        return Behaviors.setup((ctx) -> {
             ctx.getSystem().receptionist()
-                    .tell(Receptionist.register(PingServiceKey,ctx.getSelf()));
-        return Behaviors.receive(Ping.class)
-                .onMessage(Ping.class,(c,msg)->{
-                    msg.replyTo.tell(new Pong());
-                    return Behaviors.same();
-                }).build();
+                    .tell(Receptionist.register(PingServiceKey, ctx.getSelf()));
+            return Behaviors.receive(Ping.class)
+                    .onMessage(Ping.class, (c, msg) -> {
+                        msg.replyTo.tell(new Pong());
+                        return Behaviors.same();
+                    }).build();
         });
     }
 
 
-    static Behavior<Pong> pinger(ActorRef<Ping> pingService){
-        return Behaviors.setup((ctx)->{
+    static Behavior<Pong> pinger(ActorRef<Ping> pingService) {
+        return Behaviors.setup((ctx) -> {
             pingService.tell(new Ping(ctx.getSelf()));
             return Behaviors.receive(Pong.class)
-                    .onMessage(Pong.class,(c,msg)->{
-                        System.out.println("I was ponged! "+ msg);
+                    .onMessage(Pong.class, (c, msg) -> {
+                        System.out.println("I was ponged! " + msg);
                         return Behaviors.same();
                     }).build();
         });

@@ -20,7 +20,8 @@ public class TreeNode {
 
     public TreeNode() {
     }
-    public TreeNode(int i){
+
+    public TreeNode(int i) {
         this.value = i;
     }
 

@@ -21,8 +21,9 @@ import static akka.pattern.PatternsCS.pipe;
 
 
 public class Start {
-    public static final ActorSystem ACTOR_SYSTEM = ActorSystem.create("actor_system",ConfigFactory.load("startapplication"));
-    public static void main(String[] args){
+    public static final ActorSystem ACTOR_SYSTEM = ActorSystem.create("actor_system", ConfigFactory.load("startapplication"));
+
+    public static void main(String[] args) {
 //        System.out.println("begin run ");
 //        Config config = ConfigFactory.load("example.conf");
 //        ActorSystem system = ActorSystem.create("hello",config);
@@ -31,30 +32,30 @@ public class Start {
 
 
         try {
-            ActorRef sender = ACTOR_SYSTEM.actorOf(Sender.props(),"sender");
-            ActorRef machine = ACTOR_SYSTEM.actorOf(Machine.props(),"machine");
+            ActorRef sender = ACTOR_SYSTEM.actorOf(Sender.props(), "sender");
+            ActorRef machine = ACTOR_SYSTEM.actorOf(Machine.props(), "machine");
             String path = "akka.tcp://iot_system@127.0.0.1:2552/user/device";
             ActorSelection selection = ACTOR_SYSTEM.actorSelection(path);
-            selection.tell("test",machine);
-            Students students = new Students("ssf",12);
+            selection.tell("test", machine);
+            Students students = new Students("ssf", 12);
             students.setEntiry(new Entiry("zzzz"));
-            selection.tell(students,ActorRef.noSender());
+            selection.tell(students, ActorRef.noSender());
 //            machine.tell(new Machine.Bike(),sender);
 //            machine.tell(new Machine.Car(),sender);
 //            machine.tell(new Machine.Stop(),sender)
 
-            ask(selection,"test",10000).whenComplete((r,e)->{
+            ask(selection, "test", 10000).whenComplete((r, e) -> {
 
                 System.out.println(".....");
             });
-            ask(selection,"test",100).whenComplete((msg,ex)->{
-                System.out.println("ask reply message is " + msg + "exception: "+ex);
+            ask(selection, "test", 100).whenComplete((msg, ex) -> {
+                System.out.println("ask reply message is " + msg + "exception: " + ex);
             });
 
             System.out.println("next");
             ActorRef remoteActorRef = ACTOR_SYSTEM.actorFor(path);
-            remoteActorRef.tell("test",machine);
-        }catch (Exception ex){
+            remoteActorRef.tell("test", machine);
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 

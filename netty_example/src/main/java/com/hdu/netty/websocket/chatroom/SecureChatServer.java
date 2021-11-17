@@ -80,7 +80,7 @@ public class SecureChatServer {
     public static void main(String[] args) throws CertificateException, SSLException {
         System.out.println("begin secure chat server");
         SelfSignedCertificate certificate = new SelfSignedCertificate();
-        SslContext sslContext = SslContextBuilder.forServer(certificate.certificate(),certificate.privateKey()).build();
+        SslContext sslContext = SslContextBuilder.forServer(certificate.certificate(), certificate.privateKey()).build();
 
         SecureChatServer chatServer = new SecureChatServer(sslContext);
         ChannelFuture future = chatServer.startSecureServer();

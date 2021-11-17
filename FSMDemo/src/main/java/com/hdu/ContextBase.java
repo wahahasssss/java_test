@@ -9,7 +9,8 @@ package com.hdu;
  */
 public abstract class ContextBase<T extends State> {
     private T contextData;
-    public T getContextData(){
+
+    public T getContextData() {
         return contextData;
     }
 }

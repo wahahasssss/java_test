@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
  * @Date 2018/8/9
  * @Time 下午3:12
  */
-public class ConnectHandler extends ChannelInboundHandlerAdapter{
+public class ConnectHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("Client " + ctx.channel().remoteAddress() + " connected;Thread is " + Thread.currentThread().getId());
@@ -27,11 +27,11 @@ public class ConnectHandler extends ChannelInboundHandlerAdapter{
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
-        ByteBuf byteBuf = (ByteBuf)msg;
+        ByteBuf byteBuf = (ByteBuf) msg;
         byte[] bytes = new byte[byteBuf.readableBytes()];
-        byteBuf.getBytes(byteBuf.readerIndex(),bytes);
+        byteBuf.getBytes(byteBuf.readerIndex(), bytes);
         System.out.println("receive msg:" + new String(bytes));
-        ctx.writeAndFlush(Unpooled.copiedBuffer("I received your msg ,3q\n",Charset.defaultCharset()));
+        ctx.writeAndFlush(Unpooled.copiedBuffer("I received your msg ,3q\n", Charset.defaultCharset()));
     }
 
     @Override

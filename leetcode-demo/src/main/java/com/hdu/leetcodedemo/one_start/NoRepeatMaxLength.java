@@ -15,14 +15,14 @@ public class NoRepeatMaxLength {
         HashSet<String> tmpStrings = new HashSet<>();
         int tmpMaxLength = 0;
         int maxLength = 0;
-        for(int i = 0;i<strings.length;i++){
-            if (!strings[i].contentEquals("") && !tmpStrings.contains(strings[i])){
+        for (int i = 0; i < strings.length; i++) {
+            if (!strings[i].contentEquals("") && !tmpStrings.contains(strings[i])) {
                 tmpStrings.add(strings[i]);
                 tmpMaxLength += 1;
-                if (tmpMaxLength>maxLength){
+                if (tmpMaxLength > maxLength) {
                     maxLength = tmpMaxLength;
                 }
-            }else {
+            } else {
 
                 tmpMaxLength = 1;
                 tmpStrings.clear();
@@ -31,7 +31,8 @@ public class NoRepeatMaxLength {
         }
         return maxLength;
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("aab"));
 
     }

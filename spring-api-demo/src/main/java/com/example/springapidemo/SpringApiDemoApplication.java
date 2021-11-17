@@ -23,7 +23,7 @@ import java.util.function.Function;
 @SpringBootApplication
 public class SpringApiDemoApplication {
 
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 //		GravityCallBackDto param = new GravityCallBackDto();
 //		param.setAppId(1);
 //		String jsonStr = JSON.toJSONString(param);
@@ -43,16 +43,16 @@ public class SpringApiDemoApplication {
 //		map.put(1,"two");
 //		map.put(2,"zz");
 //		System.out.println(Jackson.toJsonString(map));
-		SpringApplication.run(SpringApiDemoApplication.class, args);
-		List<Integer> list = Arrays.asList(1,2,3);
-		list.forEach(t->{
-			System.out.println(t);
-		});
-		for (Integer i:list){
-			System.out.println(i);
-		}
+        SpringApplication.run(SpringApiDemoApplication.class, args);
+//        List<Integer> list = Arrays.asList(1, 2, 3);
+//        list.forEach(t -> {
+//            System.out.println(t);
+//        });
+//        for (Integer i : list) {
+//            System.out.println(i);
+//        }
 
 
-	}
+    }
 
 }

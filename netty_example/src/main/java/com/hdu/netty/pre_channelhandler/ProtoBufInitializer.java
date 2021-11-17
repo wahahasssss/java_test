@@ -16,7 +16,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
  * @Date 2019/1/10
  * @Time 下午5:26
  */
-public class ProtoBufInitializer extends ChannelInitializer<Channel>{
+public class ProtoBufInitializer extends ChannelInitializer<Channel> {
     private final MessageLite lite;
 
     public ProtoBufInitializer(MessageLite lite) {
@@ -31,7 +31,7 @@ public class ProtoBufInitializer extends ChannelInitializer<Channel>{
         ch.pipeline().addLast(new ObjectHandler());
     }
 
-    public static final class ObjectHandler extends SimpleChannelInboundHandler<Object>{
+    public static final class ObjectHandler extends SimpleChannelInboundHandler<Object> {
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
             System.out.println(msg.toString());

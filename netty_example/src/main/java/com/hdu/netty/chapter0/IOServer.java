@@ -14,13 +14,13 @@ public class IOServer {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8000);
 
-        while (true){
+        while (true) {
             Socket socket = serverSocket.accept();
             InputStream is = socket.getInputStream();
             byte[] data = new byte[1024];
             int len = -1;
-            while ((len = is.read(data)) != -1){
-                System.out.println(new String(data,0,len));
+            while ((len = is.read(data)) != -1) {
+                System.out.println(new String(data, 0, len));
             }
             socket.close();
 

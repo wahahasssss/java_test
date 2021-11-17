@@ -24,17 +24,18 @@ import java.util.UUID;
  **/
 public class InsertDemo {
     private static RestHighLevelClient restHighLevelClient;
-    private static List<String> cities = Arrays.asList("成都","北京","上海");
-    private static List<String> region = Arrays.asList("成都大区","湖北省区","济南大区");
-    private static List<String> chars = Arrays.asList("a","b","c","d","e","f","g","h","i");
-    private static List<String> mainCities = Arrays.asList("成都","北京");
+    private static List<String> cities = Arrays.asList("成都", "北京", "上海");
+    private static List<String> region = Arrays.asList("成都大区", "湖北省区", "济南大区");
+    private static List<String> chars = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i");
+    private static List<String> mainCities = Arrays.asList("成都", "北京");
     private static List<String> ips = Arrays.asList("60.174.169.26", "233.128.56.68", "46.245.160.32");
     private static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//    private static List<String> ips = Arrays.asList("60.174.169.26");
+    //    private static List<String> ips = Arrays.asList("60.174.169.26");
     private static String test_index = "rcs_event_test";
     private static String stage_index = "rcs_event_stage";
 
     private static String visit_index = "rcs_visit_detail";
+
     public static void main(String[] args) throws IOException {
 
         String[] node = "192.168.2.10,192.168.2.13,192.168.2.14".split(",");
@@ -61,7 +62,7 @@ public class InsertDemo {
     }
 
     private static void insertData(Integer limit, RestHighLevelClient client, String index) throws IOException {
-        for (int i = 0; i< limit;i++){
+        for (int i = 0; i < limit; i++) {
 //            DemoTo demoTo = buildTo(i);
             VisitTo visitTo = buildVisitTo(i);
             IndexRequest indexRequest = new IndexRequest(index).id(String.valueOf(i))
@@ -70,9 +71,10 @@ public class InsertDemo {
             System.out.println("INSERT " + JSON.toJSONString(visitTo));
         }
     }
+
     private static void bulkInsertData(Integer batchLimit, Integer batch, RestHighLevelClient client, String index) throws IOException {
         BulkRequest bulkRequest = new BulkRequest();
-        for (int i = 0; i < batchLimit;i++){
+        for (int i = 0; i < batchLimit; i++) {
             int count = batch * batchLimit + i;
             DemoTo demoTo = buildTo(count);
             IndexRequest indexRequest = new IndexRequest(index).id(String.valueOf(count))
@@ -81,12 +83,12 @@ public class InsertDemo {
             System.out.println("INSERT " + JSON.toJSONString(demoTo));
         }
         BulkResponse responses = client.bulk(bulkRequest);
-        for (BulkItemResponse res:responses.getItems()){
+        for (BulkItemResponse res : responses.getItems()) {
             System.out.println("Bulk Insert Result is " + res.isFailed());
         }
     }
 
-    private static DemoTo buildTo(Integer i){
+    private static DemoTo buildTo(Integer i) {
         DemoTo demoTo = new DemoTo();
         demoTo.setIp(ips.get(new Random().nextInt(ips.size())));
         demoTo.setCompanyId("123456");
@@ -103,7 +105,7 @@ public class InsertDemo {
         return demoTo;
     }
 
-    private static VisitTo buildVisitTo(Integer i){
+    private static VisitTo buildVisitTo(Integer i) {
         LocalDateTime now = LocalDateTime.now();
         VisitTo visitTo = VisitTo.builder()
                 .visit_id("visit_id_" + i)
@@ -123,9 +125,9 @@ public class InsertDemo {
         return visitTo;
     }
 
-    private static String randomString(Integer length){
+    private static String randomString(Integer length) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++ ){
+        for (int i = 0; i < length; i++) {
             sb.append(chars.get(new Random().nextInt(chars.size())));
         }
         return sb.toString();

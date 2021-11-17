@@ -16,22 +16,25 @@ import org.apache.flink.types.Row
 
 /**
  * table接口任务
+ *
  * @author shushoufu
  * @date 2020/11/10
  **/
-case class SumInfo(private var name : String,var age:BigInt)
+case class SumInfo(private var name: String, var age: BigInt)
+
 case class StudentsActivity(var name: String,
-                                var age: Int,
-                                var birthday: String,
-                                var activityTime: String,
-                                var activity: String,
-                                var activityTimestamp: Long){
+                            var age: Int,
+                            var birthday: String,
+                            var activityTime: String,
+                            var activity: String,
+                            var activityTimestamp: Long) {
   def this() {
-    this("",0,"","","",0L)
+    this("", 0, "", "", "", 0L)
   }
 }
-case class KafkaConsumerTableJob(){
-  def startJob(): Unit ={
+
+case class KafkaConsumerTableJob() {
+  def startJob(): Unit = {
 
     //初始化环境设置
     val envSetting = EnvironmentSettings.newInstance()
@@ -55,29 +58,29 @@ case class KafkaConsumerTableJob(){
 
 
     //接入外部 source kafka
-    val stream : DataStream[StudentsActivity] = bsSteamingEnv.addSource(KafkaSourceTable.getKafkaConsumer)
+    val stream: DataStream[StudentsActivity] = bsSteamingEnv.addSource(KafkaSourceTable.getKafkaConsumer)
       .assignTimestampsAndWatermarks(CustomWaterStrategyTable.initWaterStrategy())
       .name("kafka_source")
 
 
-    bsTableEnv.createTemporaryView("students_info", stream, $"name",$"age",$"birthday",$"activityTime",$"activity",$"activityTimestamp")
+    bsTableEnv.createTemporaryView("students_info", stream, $"name", $"age", $"birthday", $"activityTime", $"activity", $"activityTimestamp")
 
 
     // 从视图students_info 查询信息
-    val table : Table = bsTableEnv.sqlQuery("SELECT name, age, birthday, activityTime,activity,activityTimestamp from students_info")
+    val table: Table = bsTableEnv.sqlQuery("SELECT name, age, birthday, activityTime,activity,activityTimestamp from students_info")
 
 
     //将查询接过转成stream
 
     //todo 待完成
     val retractStream = bsTableEnv.toRetractStream[StudentsActivityInfo](table)
-//    val appendStream = bsTableEnv.toAppendStream[StudentsActivityInfo](table);
-//
-//
-//    retractStream.addSink(new PrintSinkWithTable())
-//      .name("allOrderSink")
-//      .uid("allOrderSink")
-//      .setParallelism(1)
+    //    val appendStream = bsTableEnv.toAppendStream[StudentsActivityInfo](table);
+    //
+    //
+    //    retractStream.addSink(new PrintSinkWithTable())
+    //      .name("allOrderSink")
+    //      .uid("allOrderSink")
+    //      .setParallelism(1)
 
 
     bsSteamingEnv.execute("kafka job execute")
@@ -87,7 +90,8 @@ case class KafkaConsumerTableJob(){
 
 object KafkaConsumerTableJob {
   private val kafkaConsumerTableJob = KafkaConsumerTableJob()
-  def start(): Unit ={
+
+  def start(): Unit = {
     kafkaConsumerTableJob.startJob()
   }
 }

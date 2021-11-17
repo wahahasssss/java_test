@@ -11,6 +11,6 @@ import java.util.stream.IntStream;
 public class ParellelDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         IntStream range = IntStream.range(1, 100000);
-        new ForkJoinPool(10).submit(()->range.parallel().forEach(t->System.out.println(t))).get();
+        new ForkJoinPool(10).submit(() -> range.parallel().forEach(t -> System.out.println(t))).get();
     }
 }

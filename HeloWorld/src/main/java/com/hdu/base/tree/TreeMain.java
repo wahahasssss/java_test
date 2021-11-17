@@ -11,7 +11,7 @@ import java.util.List;
  * @Versiion：1.0
  */
 public class TreeMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         TreeNode root = new TreeNode();
         root.setValue(1);
 
@@ -76,7 +76,7 @@ public class TreeMain {
         System.out.println(postSortList);
 
 
-        System.out.println(TreeAlgorithmUtil.depth(root,0));
+        System.out.println(TreeAlgorithmUtil.depth(root, 0));
 
 
         System.out.println(TreeAlgorithmUtil.secure(root));

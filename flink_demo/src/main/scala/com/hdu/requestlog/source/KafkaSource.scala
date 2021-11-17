@@ -16,21 +16,21 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer
 case class KafkaSource() {
 }
 
-object KafkaSource{
+object KafkaSource {
   val ip = "172.31.196.186"
   val properties = new Properties()
-  properties.setProperty("bootstrap.servers",ip + ":9092," + ip + ":9093," + ip + ":9094")
-//  properties.setProperty("bootstrap.servers", "192.168.31.203:9092,192.168.31.203:9093,192.168.31.203:9094")
+  properties.setProperty("bootstrap.servers", ip + ":9092," + ip + ":9093," + ip + ":9094")
+  //  properties.setProperty("bootstrap.servers", "192.168.31.203:9092,192.168.31.203:9093,192.168.31.203:9094")
   properties.setProperty("group.id", "test")
-//  properties.setProperty("enable.auto.commit","false")
-//  properties.setProperty("auto-offset-reset","earliest")
+  //  properties.setProperty("enable.auto.commit","false")
+  //  properties.setProperty("auto-offset-reset","earliest")
 
   val topic = "TestComposeTopic";
 
 
-  def getKafkaConsumer:FlinkKafkaConsumer[StudentsActivityInfo] = {
+  def getKafkaConsumer: FlinkKafkaConsumer[StudentsActivityInfo] = {
 
-    val kafkaConsumer : FlinkKafkaConsumer[StudentsActivityInfo] = new FlinkKafkaConsumer[StudentsActivityInfo](topic, new StudentActivitySchema(), properties)
+    val kafkaConsumer: FlinkKafkaConsumer[StudentsActivityInfo] = new FlinkKafkaConsumer[StudentsActivityInfo](topic, new StudentActivitySchema(), properties)
     kafkaConsumer
   }
 }

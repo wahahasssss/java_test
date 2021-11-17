@@ -9,8 +9,11 @@ package com.hdu.chapter1;
  */
 public class Singleton {
     private static Singleton singleton = new Singleton();
-    private Singleton(){}
-    public static Singleton newInstance(){
+
+    private Singleton() {
+    }
+
+    public static Singleton newInstance() {
         return singleton;
     }
 }

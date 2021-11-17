@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class ResponseModel {
     private Integer code;
-    private HashMap<String,String> headers;
+    private HashMap<String, String> headers;
 
     public ResponseModel() {
     }

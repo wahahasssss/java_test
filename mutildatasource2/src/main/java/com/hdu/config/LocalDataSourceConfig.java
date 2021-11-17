@@ -20,16 +20,15 @@ import javax.sql.DataSource;
  * @Time 11:20 AM
  */
 @Configuration
-@MapperScan(basePackages = "com.hdu.dao",annotationClass = LocalDatasource.class,sqlSessionFactoryRef = LocalDataSourceConfig.LOCAL_SESSION_FACTORY_NAME)
+@MapperScan(basePackages = "com.hdu.dao", annotationClass = LocalDatasource.class, sqlSessionFactoryRef = LocalDataSourceConfig.LOCAL_SESSION_FACTORY_NAME)
 public class LocalDataSourceConfig {
     static final String LOCAL_SESSION_FACTORY_NAME = "local_session_factory";
-
 
 
     @Bean(name = "localDatasource")
     @Primary
     @ConfigurationProperties(prefix = "local.datasource")
-    public DataSource localDataSource(){
+    public DataSource localDataSource() {
         return DataSourceBuilder.create().build();
     }
 

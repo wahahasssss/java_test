@@ -6,7 +6,7 @@ import com.hdu.clean_code.chapter2.Money;
  * @Author: ssf
  * @Date: 2020/3/30 2:26 下午
  */
-public class HourlyEmployee extends Employee{
+public class HourlyEmployee extends Employee {
     @Override
     public boolean isPayday() {
         return false;

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/api")
 public class TestController {
-    @RequestMapping(value = "ts",method = {RequestMethod.GET,RequestMethod.POST})
-    public Long ts(){
+    @RequestMapping(value = "ts", method = {RequestMethod.GET, RequestMethod.POST})
+    public Long ts() {
         return System.currentTimeMillis();
     }
 }

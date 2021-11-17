@@ -35,9 +35,10 @@ public class IndexerTest {
     private Directory dic;
     private IndexReader reader;
     private IndexSearcher indexSearcher;
+
     @Before
     public void setUp() throws Exception {
-        dic  = FSDirectory.open(Paths.get(luceneIndex));
+        dic = FSDirectory.open(Paths.get(luceneIndex));
         reader = DirectoryReader.open(dic);
         indexSearcher = new IndexSearcher(reader);
     }
@@ -53,26 +54,24 @@ public class IndexerTest {
         String searchField = "content";
 
         Analyzer analyzer = new StandardAnalyzer();
-        QueryParser queryParser = new QueryParser(searchField,analyzer);
+        QueryParser queryParser = new QueryParser(searchField, analyzer);
         Query query = queryParser.parse("SessionListener");
-        TopDocs topDocs = indexSearcher.search(query,10);
+        TopDocs topDocs = indexSearcher.search(query, 10);
         QueryScorer scorer = new QueryScorer(query);
 
         Fragmenter fragmenter = new SimpleSpanFragmenter(scorer);
-        SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter("<b><font color='red'>","</font></b>");
-        Highlighter highlighter = new Highlighter(simpleHTMLFormatter,scorer);
+        SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter("<b><font color='red'>", "</font></b>");
+        Highlighter highlighter = new Highlighter(simpleHTMLFormatter, scorer);
         highlighter.setTextFragmenter(fragmenter);
 
 
-
-        for (ScoreDoc doc:topDocs.scoreDocs){
+        for (ScoreDoc doc : topDocs.scoreDocs) {
             Document document = indexSearcher.doc(doc.doc);
             System.out.print(document.get("content"));
-            System.out.println(">>>>"+document.get("filename"));
-            TokenStream tokenStream = analyzer.tokenStream("content",new StringReader(document.get("content")));
-            System.out.println(highlighter.getBestFragment(tokenStream,document.get("content")));
+            System.out.println(">>>>" + document.get("filename"));
+            TokenStream tokenStream = analyzer.tokenStream("content", new StringReader(document.get("content")));
+            System.out.println(highlighter.getBestFragment(tokenStream, document.get("content")));
         }
-
 
 
     }

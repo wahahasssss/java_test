@@ -24,7 +24,7 @@ public class ServiceLoaderMain {
 //        while (services.hasNext()){
 //            System.out.println(services.next());
 //        }
-        if (false | false){
+        if (false | false) {
             System.out.println("qqqq");
         }
 

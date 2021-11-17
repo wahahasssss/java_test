@@ -11,9 +11,9 @@ import akka.actor.ActorSystem;
  * @Time 5:35 PM
  */
 public class KafkaMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test-system");
-        ActorRef consumer = actorSystem.actorOf(ConsumerDemo.props(),"consumer");
-        consumer.tell("start",ActorRef.noSender());
+        ActorRef consumer = actorSystem.actorOf(ConsumerDemo.props(), "consumer");
+        consumer.tell("start", ActorRef.noSender());
     }
 }

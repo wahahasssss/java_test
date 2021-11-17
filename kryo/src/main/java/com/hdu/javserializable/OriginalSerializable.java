@@ -15,35 +15,36 @@ import java.util.Map;
  */
 public class OriginalSerializable {
     static String path = "/Users/shushoufu/Desktop/document/java_test/kryo/src/main/resources/file.bin";
+
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
         setSerializableObject();
-        System.out.println("java 序列化时间："+(System.currentTimeMillis()-start));
+        System.out.println("java 序列化时间：" + (System.currentTimeMillis() - start));
         start = System.currentTimeMillis();
         getSerializableObject();
-        System.out.println("java原生反序列化时间："+(System.currentTimeMillis() - start));
+        System.out.println("java原生反序列化时间：" + (System.currentTimeMillis() - start));
     }
 
     public static void setSerializableObject() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path);
         ObjectOutputStream so = new ObjectOutputStream(fileOutputStream);
-        for (int i = 0;i<100000000;i++){
-            so.writeObject(new Students("zhang"+i,i));
+        for (int i = 0; i < 100000000; i++) {
+            so.writeObject(new Students("zhang" + i, i));
         }
         so.flush();
         so.close();
     }
 
-    public static void getSerializableObject(){
+    public static void getSerializableObject() {
         FileInputStream fileInputStream;
         try {
             fileInputStream = new FileInputStream(path);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             Students students = null;
-            while ((students =(Students)objectInputStream.readObject())!=null){
+            while ((students = (Students) objectInputStream.readObject()) != null) {
 //                System.out.println(students.toString());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

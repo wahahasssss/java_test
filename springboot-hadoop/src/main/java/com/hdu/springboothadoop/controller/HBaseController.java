@@ -25,8 +25,8 @@ public class HBaseController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<User> listUsers(){
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public List<User> listUsers() {
         return userRepository.findAll();
     }
 

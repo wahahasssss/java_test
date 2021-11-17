@@ -15,9 +15,10 @@ import java.util.Map;
  * @Date 2018/7/26
  * @Time 下午4:12
  */
-public class RichBolt extends BaseRichBolt{
+public class RichBolt extends BaseRichBolt {
 
-    private OutputCollector collector ;
+    private OutputCollector collector;
+
     @Override
     public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
         this.collector = collector;

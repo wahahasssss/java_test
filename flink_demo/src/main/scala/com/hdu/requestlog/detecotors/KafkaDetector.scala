@@ -10,7 +10,7 @@ import org.apache.flink.walkthrough.common.entity.{Alert, Transaction}
  * @author shushoufu
  * @date 2020/10/19
  **/
-class KafkaDetector extends KeyedProcessFunction[String, StudentsActivityInfo, String]{
+class KafkaDetector extends KeyedProcessFunction[String, StudentsActivityInfo, String] {
   override def processElement(i: StudentsActivityInfo, context: KeyedProcessFunction[String, StudentsActivityInfo, String]#Context, collector: Collector[String]): Unit = {
     collector.collect(JsonUtil.toJsonString(i))
   }

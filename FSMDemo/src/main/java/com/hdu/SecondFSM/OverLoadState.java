@@ -10,9 +10,10 @@ import com.hdu.action.StateEnum;
  * @Date 2018/4/10
  * @Time 下午3:56
  */
-public class OverLoadState extends AbstractFsmState{
+public class OverLoadState extends AbstractFsmState {
 
     private static final StateEnum STATE_ENUM = StateEnum.OVERLOAD;
+
     public OverLoadState(SecondMachine machine) {
         super(machine);
     }

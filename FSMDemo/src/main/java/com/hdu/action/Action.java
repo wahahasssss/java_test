@@ -12,6 +12,7 @@ import com.hdu.ContextBase;
 public interface Action {
     /**
      * 是否满足执行条件
+     *
      * @param context
      * @return
      */
@@ -19,6 +20,7 @@ public interface Action {
 
     /**
      * 状态改变之前
+     *
      * @param context
      */
     void beforeStateChange(ContextBase context);
@@ -26,6 +28,7 @@ public interface Action {
 
     /**
      * 状态改变之后
+     *
      * @param context
      */
     void afterStateChange(ContextBase context);

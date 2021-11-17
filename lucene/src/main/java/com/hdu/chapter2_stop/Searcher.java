@@ -20,18 +20,18 @@ import java.io.IOException;
  * @Time 下午3:30
  */
 public class Searcher {
-    public void searchContent(String keyWord,String indexPath) throws IOException, ParseException {
+    public void searchContent(String keyWord, String indexPath) throws IOException, ParseException {
         File file = new File(indexPath);
         IndexReader indexReader = DirectoryReader.open(FSDirectory.open(file.toPath()));
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
         StandardAnalyzer analyzer = new StandardAnalyzer();
-        QueryParser parser = new QueryParser("content",analyzer);
-        TopDocs topDocs = indexSearcher.search(parser.parse(keyWord),10);
+        QueryParser parser = new QueryParser("content", analyzer);
+        TopDocs topDocs = indexSearcher.search(parser.parse(keyWord), 10);
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
-        Explanation explanation = indexSearcher.explain(parser.parse("content"),10);
+        Explanation explanation = indexSearcher.explain(parser.parse("content"), 10);
         System.out.println(explanation.getDescription());
-        for (ScoreDoc scoreDoc:scoreDocs){
-            Document document= indexSearcher.doc(scoreDoc.doc);
+        for (ScoreDoc scoreDoc : scoreDocs) {
+            Document document = indexSearcher.doc(scoreDoc.doc);
             System.out.println(document);
         }
     }

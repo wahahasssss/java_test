@@ -25,18 +25,18 @@ import java.io.IOException;
 public class TempTest {
     public static void main(String[] args) throws IOException {
         BasicCredentialsProvider credsProvider = new BasicCredentialsProvider();
-        HttpHost proxy = new HttpHost("114.67.80.9",20001,"http");
+        HttpHost proxy = new HttpHost("114.67.80.9", 20001, "http");
 
         credsProvider.setCredentials(new AuthScope(proxy.getHostName(), proxy.getPort()),
                 new UsernamePasswordCredentials("meituanwaimai", "waimaisankuai"));
 
         HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(credsProvider).build();
-        SocketConfig socketConfig = SocketConfig.custom().setSoTimeout(5000*10).build();
-        RequestConfig requestConfig =  RequestConfig.custom()
+        SocketConfig socketConfig = SocketConfig.custom().setSoTimeout(5000 * 10).build();
+        RequestConfig requestConfig = RequestConfig.custom()
                 .setProxy(proxy)  // 设置 HttpHost 代理
-                .setConnectTimeout(1000*5)  // 设置连接到服务器的时间
-                .setConnectionRequestTimeout(1000*5)  // 设置获取 connection 的时间
-                .setSocketTimeout(5000*10)  // 设置获取数据的时间
+                .setConnectTimeout(1000 * 5)  // 设置连接到服务器的时间
+                .setConnectionRequestTimeout(1000 * 5)  // 设置获取 connection 的时间
+                .setSocketTimeout(5000 * 10)  // 设置获取数据的时间
                 .build();
 
         HttpGet get = new HttpGet("http://47.94.245.160:8080/api/headers");

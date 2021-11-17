@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 /**
  * 堆排序
- *
+ * <p>
  * 利用数据结构堆 排序
- *
+ * <p>
  * 大顶堆，每个节点的值都大于或等于其子节点的值，在对拍讯中用于升序排列
  * 小顶堆，每个节点的值都小于或者等于其子节点的值，在堆排序算法中用于降序排列
- *
+ * <p>
  * 堆排序的平均时间复杂度为 O（nlogn）
  */
 public class HeapSortAlgorithm {
@@ -63,8 +63,8 @@ public class HeapSortAlgorithm {
 
     public static void main(String[] args) throws Exception {
         HeapSortAlgorithm heapSortAlgorithm = new HeapSortAlgorithm();
-        int[] arr = new  int[]{1,43,76,48,93,65,98};
-        for (int i:heapSortAlgorithm.sort(arr)){
+        int[] arr = new int[]{1, 43, 76, 48, 93, 65, 98};
+        for (int i : heapSortAlgorithm.sort(arr)) {
             System.out.println(i);
         }
     }

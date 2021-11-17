@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class LinkedListSum {
     final static String NUMBER_STRING = "0123456789";
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         long sum = getNumber(l1) + getNumber(l2);
@@ -25,7 +26,7 @@ public class LinkedListSum {
         String sumString = String.valueOf(number);
         ListNode resultNode = null;
         for (String s : sumString.split("")) {
-            if (NUMBER_STRING.contains(s)){
+            if (NUMBER_STRING.contains(s)) {
                 ListNode tmpNode = new ListNode(Long.valueOf(s));
                 if (resultNode != null) {
                     tmpNode.next = resultNode;

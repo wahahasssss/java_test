@@ -20,7 +20,7 @@ public class LoginService {
     @Autowired
     private StudentMapper studentMapper;
 
-    public Boolean login(String userName,String password){
+    public Boolean login(String userName, String password) {
         //获取数据库所有的学生信息
         List<StudentPo> studentPoList = studentMapper.listAllStudents();
         //获取对应某个学生的信息 根据名字查找

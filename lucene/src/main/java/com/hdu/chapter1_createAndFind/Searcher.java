@@ -30,21 +30,21 @@ public class Searcher {
     public Searcher(String indexDirectoryPath) throws IOException {
         File file = new File(indexDirectoryPath);
         Directory indexDirectory = FSDirectory.open(file.toPath());
-        IndexReader indexReader = new ExitableDirectoryReader(StandardDirectoryReader.open(indexDirectory),new QueryTimeoutImpl(1000));
+        IndexReader indexReader = new ExitableDirectoryReader(StandardDirectoryReader.open(indexDirectory), new QueryTimeoutImpl(1000));
         indexSearcher = new IndexSearcher(indexReader);
-        queryParser = new QueryParser(LuceneConstant.CONTENTS,new StandardAnalyzer());
+        queryParser = new QueryParser(LuceneConstant.CONTENTS, new StandardAnalyzer());
     }
 
     public TopDocs search(String searchQuery) throws ParseException, IOException {
         query = queryParser.parse(searchQuery);
-        return indexSearcher.search(query,LuceneConstant.MAX_SEARCH);
+        return indexSearcher.search(query, LuceneConstant.MAX_SEARCH);
     }
 
     public Document getDocument(ScoreDoc scoreDoc) throws IOException {
         return indexSearcher.doc(scoreDoc.doc);
     }
 
-    public void close(){
+    public void close() {
         //todo
 
     }

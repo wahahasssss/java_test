@@ -11,10 +11,10 @@ import java.util.ServiceLoader;
  * @Time 下午2:14
  */
 public class ServiceLoaderMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ServiceLoader<MessageService> serviceLoader = ServiceLoader.load(MessageService.class);
         Iterator<MessageService> services = serviceLoader.iterator();
-        while (services.hasNext()){
+        while (services.hasNext()) {
             MessageService messageService = services.next();
             System.out.println(messageService.getMessage());
         }

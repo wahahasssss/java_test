@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @Date 2018/12/27
  * @Time 下午7:19
  */
-public class CustomDriver2 implements Driver{
+public class CustomDriver2 implements Driver {
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
         return null;

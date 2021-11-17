@@ -16,7 +16,7 @@ import java.net.URL;
  * @Date 2019/1/10
  * @Time 下午5:41
  */
-public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequest>{
+public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     private final String wsUri;
     private static final File INDEX;
 
@@ -24,11 +24,11 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
         URL location = HttpRequestHandler.class.getProtectionDomain().getCodeSource().getLocation();
         try {
             String path = location.toURI() + "index.html";
-            path = !path.contains("file:")?path:path.substring(5);
+            path = !path.contains("file:") ? path : path.substring(5);
             INDEX = new File(path);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new IllegalStateException("unable to locate index.html",ex);
+            throw new IllegalStateException("unable to locate index.html", ex);
         }
     }
 
@@ -39,28 +39,28 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest request) throws Exception {
         System.out.println("received message is " + request.toString());
-        if (wsUri.equalsIgnoreCase(request.uri())){
+        if (wsUri.equalsIgnoreCase(request.uri())) {
             ctx.fireChannelRead(request.retain());
-        }else {
-            if (HttpUtil.is100ContinueExpected(request)){
+        } else {
+            if (HttpUtil.is100ContinueExpected(request)) {
                 send100Continue(ctx);
             }
-            RandomAccessFile file = new RandomAccessFile(INDEX,"r");
-            HttpResponse response = new DefaultHttpResponse(request.protocolVersion(),HttpResponseStatus.OK);
-            response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/html;charset=UTF-8");
+            RandomAccessFile file = new RandomAccessFile(INDEX, "r");
+            HttpResponse response = new DefaultHttpResponse(request.protocolVersion(), HttpResponseStatus.OK);
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html;charset=UTF-8");
             boolean keepAlive = HttpUtil.isKeepAlive(request);
-            if (keepAlive){
-                response.headers().set(HttpHeaderNames.CONTENT_LENGTH,file.length());
-                response.headers().set(HttpHeaderNames.CONNECTION,HttpHeaderValues.KEEP_ALIVE);
+            if (keepAlive) {
+                response.headers().set(HttpHeaderNames.CONTENT_LENGTH, file.length());
+                response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
             }
             ctx.write(response);
-            if (ctx.pipeline().get(SslHandler.class)==null){
-                ctx.write(new DefaultFileRegion(file.getChannel(),0,file.length()));
-            }else {
+            if (ctx.pipeline().get(SslHandler.class) == null) {
+                ctx.write(new DefaultFileRegion(file.getChannel(), 0, file.length()));
+            } else {
                 ctx.write(new ChunkedNioFile(file.getChannel()));
             }
             ChannelFuture future = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
-            if (!keepAlive){
+            if (!keepAlive) {
                 future.addListener(ChannelFutureListener.CLOSE);
             }
         }
@@ -68,8 +68,8 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
     }
 
 
-    private static void send100Continue(ChannelHandlerContext ctx){
-        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,HttpResponseStatus.CONTINUE);
+    private static void send100Continue(ChannelHandlerContext ctx) {
+        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.CONTINUE);
         ctx.writeAndFlush(response);
     }
 

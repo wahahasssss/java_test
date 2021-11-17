@@ -15,13 +15,14 @@ import java.nio.charset.Charset;
  */
 public class PlainOioServer {
     private static PlainOioServer PLAIN_OIO_SERVER;
+
     public PlainOioServer() {
     }
 
-    public void server(int port) throws IOException{
+    public void server(int port) throws IOException {
         final ServerSocket socket = new ServerSocket(port);
         try {
-            for (;;){
+            for (; ; ) {
                 final Socket clientSocket = socket.accept();
                 System.out.println("Accept connection from " + clientSocket);
                 new Thread(new Runnable() {
@@ -33,9 +34,9 @@ public class PlainOioServer {
                             outputStream.write("Hi ! \r\b".getBytes(Charset.forName("UTF-8")));
                             outputStream.flush();
                             clientSocket.close();
-                        }catch (IOException e){
+                        } catch (IOException e) {
                             e.printStackTrace();
-                        }finally {
+                        } finally {
                             try {
                                 clientSocket.close();
                             } catch (IOException e) {
@@ -45,8 +46,7 @@ public class PlainOioServer {
                     }
                 }).start();
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

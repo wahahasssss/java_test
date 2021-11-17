@@ -10,27 +10,28 @@ package com.hdu.zookeeper_distributelock;
 public class TestMain {
 
     private static int n = 500;
-    public static void secKill(){
+
+    public static void secKill() {
         System.out.println(--n);
     }
-    public static void main(String[] args){
-        for (int i = 0;i< 1000;i++){
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 1000; i++) {
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     DistributeLock lock = null;
                     try {
-                        lock = new DistributeLock("47.94.245.160:2181","test1");
+                        lock = new DistributeLock("47.94.245.160:2181", "test1");
                         lock.lock();
-                        if (n>0){
+                        if (n > 0) {
                             secKill();
                         }
-                        System.out.println(Thread.currentThread().getName()+ ":running" );
-                    }catch (Exception e){
+                        System.out.println(Thread.currentThread().getName() + ":running");
+                    } catch (Exception e) {
                         System.out.println("分布式锁 failed。。。 ");
-                    }
-                    finally {
-                        if (lock!=null){
+                    } finally {
+                        if (lock != null) {
                             lock.unlock();
                         }
                     }

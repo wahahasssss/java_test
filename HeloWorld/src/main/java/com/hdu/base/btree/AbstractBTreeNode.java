@@ -2,29 +2,29 @@ package com.hdu.base.btree;
 
 import java.util.LinkedList;
 import java.util.Queue;
- 
+
 /**
  * Created by Kali on 14-5-26.\
  * Abstract node.
  */
 public abstract class AbstractBTreeNode<K extends Comparable<K>> {
- 
+
     protected final int degree;
- 
+
     AbstractBTreeNode(int degree) {
         if (degree < 2) {
             throw new IllegalArgumentException("degree must >= 2");
         }
         this.degree = degree;
     }
- 
+
     /**
      * If the node is leaf.
      *
      * @return true if is leaf,false if not.
      */
-     abstract boolean isLeaf();
- 
+    abstract boolean isLeaf();
+
     /**
      * Search key in the B-Tree.
      *
@@ -32,7 +32,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @return key in the B-tree or null if key does not exist in the tree.
      */
     abstract K search(K key);
- 
+
     /**
      * Insert a key in to a node when the node is not full.
      *
@@ -40,7 +40,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @throws java.lang.RuntimeException if node is full
      */
     abstract void insertNotFull(K key);
- 
+
     /**
      * <p>Delete a key when the {@code keys >= degree}.</p>
      * <p>If key to delete does not exist in current node,internal node will find a subtree tree the key
@@ -50,7 +50,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @param key the key to delete.
      */
     abstract void deleteNotEmpty(K key);
- 
+
     /**
      * <p>Insert a key in to B-Tree.</p>
      * <p>Insert a key into current node.</p>
@@ -69,7 +69,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         this.setKey(key, i);
         this.setNKey(this.nkey() + 1);
     }
- 
+
     /**
      * <p>Get a key with index of {@code idx} in current node</p>
      *
@@ -77,8 +77,8 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @return key of given index
      * @throws java.lang.RuntimeException if {@code idx < 0 } or {@code idx >= degree *2 -1}
      */
-     abstract K getKey(int idx);
- 
+    abstract K getKey(int idx);
+
     /**
      * <p>Delete given key in current node.</p>
      *
@@ -92,7 +92,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         }
         return null;
     }
- 
+
     /**
      * <p>Delete a key with given index.</p>
      *
@@ -112,19 +112,19 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         this.setKey(null, this.nkey() - 1);
         this.setNKey(this.nkey() - 1);
         return result;
- 
+
     }
- 
+
     /**
      * <p>Check if current exists given key</p>
      *
      * @param key key to check
      * @return true is given key exists in current node.
      */
-     boolean existsKey(K key) {
+    boolean existsKey(K key) {
         return indexOfKey(key) >= 0;
     }
- 
+
     /**
      * Replace one key with newKey
      *
@@ -137,7 +137,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
             setKey(newKey, index);
         }
     }
- 
+
     /**
      * Replace given index key with a new key
      *
@@ -146,7 +146,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @return the key be replaced or null if index is invalid
      */
     protected abstract K setKey(K newKey, int oldKeyIndex);
- 
+
     /**
      * Set one of current child with given index.
      *
@@ -154,7 +154,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @param index index of child to set
      */
     protected abstract void setChild(AbstractBTreeNode<K> sub, int index);
- 
+
     /**
      * Insert a child at given index.
      *
@@ -170,15 +170,15 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         this.setChild(sub, index);
         this.setNChild(this.nchild() + 1);
     }
- 
+
     /**
      * Get child with given index.
      *
      * @param index index of child to get
      * @return child subtree of null if index is invalid
      */
-     abstract AbstractBTreeNode<K> getChild(int index);
- 
+    abstract AbstractBTreeNode<K> getChild(int index);
+
     /**
      * Delete given child in current node.
      *
@@ -196,7 +196,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
             deleteChild(index);
         }
     }
- 
+
     /**
      * Delete child with given index
      *
@@ -216,7 +216,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         }
         return result;
     }
- 
+
     /**
      * Split a full child to two child node.
      *
@@ -224,7 +224,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @throws java.lang.RuntimeException is child to spilt is not full
      */
     protected abstract void splitChild(int child);
- 
+
     /**
      * Split current node to two node.
      *
@@ -233,7 +233,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @throws java.lang.RuntimeException if current node is not full.
      */
     protected abstract K splitSelf(AbstractBTreeNode<K> newNode);
- 
+
     /**
      * Merge current node with another .
      *
@@ -242,7 +242,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @throws java.lang.RuntimeException if keys of either node exceed degree-1.
      */
     protected abstract void merge(K middle, AbstractBTreeNode<K> sibling);
- 
+
     /**
      * Set key amount of current node.
      *
@@ -250,21 +250,21 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @return old key amount
      */
     protected abstract int setNKey(int nkey);
- 
+
     /**
      * Key amount of current node.
      *
      * @return key amount of current node.
      */
-     abstract int nkey();
- 
+    abstract int nkey();
+
     /**
      * Child amount of current node.
      *
      * @return child amount.
      */
-     abstract int nchild();
- 
+    abstract int nchild();
+
     /**
      * Set child amount of current node.
      *
@@ -272,7 +272,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
      * @return old child amount.
      */
     protected abstract int setNChild(int nchild);
- 
+
     /**
      * Get index of given key.
      *
@@ -287,7 +287,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
         }
         return -1;
     }
- 
+
     /**
      * Check whether current node is full.
      *
@@ -296,7 +296,7 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
     protected boolean isFull() {
         return nkey() == degree * 2 - 1;
     }
- 
+
     /**
      * Check current node is not full.
      *
@@ -307,25 +307,25 @@ public abstract class AbstractBTreeNode<K extends Comparable<K>> {
             throw new RuntimeException(this.toString() + " is full.");
         }
     }
- 
+
     /**
      * Recursively traverse the B-Tree,constitute a string.
      *
      * @param root root of B-Tree.
-     * @param <K> Type of key of B-Tree
+     * @param <K>  Type of key of B-Tree
      * @return String of B-Tree.
      */
-    static <K extends Comparable<K>> String BTreeToString(AbstractBTreeNode<K> root){
+    static <K extends Comparable<K>> String BTreeToString(AbstractBTreeNode<K> root) {
         StringBuffer sb = new StringBuffer();
         AbstractBTreeNode node;
         Queue<AbstractBTreeNode> queue = new LinkedList<>();
         queue.add(root);
         String newLine = System.getProperty("line.separator");
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             node = queue.poll();
             sb.append(node).append(newLine);
             int i = 0;
-            while (node.getChild(i) != null){
+            while (node.getChild(i) != null) {
                 queue.offer(node.getChild(i));
                 i++;
             }

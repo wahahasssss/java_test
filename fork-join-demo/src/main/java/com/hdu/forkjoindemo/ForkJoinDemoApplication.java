@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ForkJoinDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ForkJoinDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ForkJoinDemoApplication.class, args);
+    }
 }

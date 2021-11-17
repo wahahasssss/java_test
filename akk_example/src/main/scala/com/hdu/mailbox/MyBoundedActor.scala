@@ -5,19 +5,21 @@ import akka.dispatch.{BoundedMessageQueueSemantics, NonBlockingBoundedMailbox, R
 import com.hdu.actors.MyActor
 
 /**
-  * DESCRIPTION:
-  *
-  * @author shushoufu
-  * @Date 2018/4/11
-  * @Time 下午8:18
-  */
+ * DESCRIPTION:
+ *
+ * @author shushoufu
+ * @Date 2018/4/11
+ * @Time 下午8:18
+ */
 
-object MyBoundedActor{
-  def props:Props = Props[MyBoundedActor]
+object MyBoundedActor {
+  def props: Props = Props[MyBoundedActor]
 }
-class MyBoundedActor extends Actor with RequiresMessageQueue[BoundedMessageQueueSemantics]{
+
+class MyBoundedActor extends Actor with RequiresMessageQueue[BoundedMessageQueueSemantics] {
 
   NonBlockingBoundedMailbox
+
   override def receive: Receive = {
     case _ => println("this is a bounded actor")
   }

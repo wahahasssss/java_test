@@ -21,19 +21,18 @@ public class AtomicMain {
     private static AtomicInteger atomic = new AtomicInteger();
 
 
-
     public static void mutilatePreload() throws InterruptedException {
         BlockingQueue queues = new ArrayBlockingQueue(100000);
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(30,30,10, TimeUnit.SECONDS,queues);
-        for (int i = 0; i < 2000;i++){
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(30, 30, 10, TimeUnit.SECONDS, queues);
+        for (int i = 0; i < 2000; i++) {
             pool.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         System.out.println(atomic.incrementAndGet());
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
-                        if (e instanceof ConcurrentModificationException){
+                        if (e instanceof ConcurrentModificationException) {
                             System.out.println("======>>>>>");
                         }
 
@@ -44,8 +43,9 @@ public class AtomicMain {
 
 //        System.out.println(.);
         pool.shutdown();
-        pool.awaitTermination(100,TimeUnit.SECONDS);
+        pool.awaitTermination(100, TimeUnit.SECONDS);
     }
+
     public static void main(String[] args) throws InterruptedException {
         mutilatePreload();
     }

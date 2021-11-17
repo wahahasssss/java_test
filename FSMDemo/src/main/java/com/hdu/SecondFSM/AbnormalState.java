@@ -10,9 +10,10 @@ import com.hdu.action.StateEnum;
  * @Date 2018/4/10
  * @Time 下午4:02
  */
-public class AbnormalState extends AbstractFsmState{
+public class AbnormalState extends AbstractFsmState {
 
     private final static StateEnum STATE_ENUM = StateEnum.ABNORMAL;
+
     public AbnormalState(SecondMachine machine) {
         super(machine);
     }

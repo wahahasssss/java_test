@@ -23,7 +23,7 @@ public class ServiceLoaderWithCustomeUrlMain {
         URLClassLoader classLoader = new URLClassLoader(new URL[]{file.toURI().toURL()});
         ServiceLoader serviceLoader = ServiceLoader.load(MessageService.class);
         Iterator<MessageService> services = serviceLoader.iterator();
-        while (services.hasNext()){
+        while (services.hasNext()) {
             System.out.println(services.next());
         }
 

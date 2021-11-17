@@ -21,7 +21,7 @@ public class UUIDController {
     private SnowflakeIdWorker snowflakeIdWorker;
 
     @RequestMapping(value = "/random")
-    public long uuid(){
+    public long uuid() {
         return snowflakeIdWorker.nextId();
     }
 }

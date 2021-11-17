@@ -4,27 +4,30 @@ import akka.actor.{Actor, ActorSystem, Props}
 import akka.event.Logging
 
 /**
-  * DESCRIPTION:
-  *
-  * @author shushoufu
-  * @Date 2018/4/9
-  * @Time 下午5:31
-  */
+ * DESCRIPTION:
+ *
+ * @author shushoufu
+ * @Date 2018/4/9
+ * @Time 下午5:31
+ */
 case object Swap
-class Swapper extends Actor{
+
+class Swapper extends Actor {
+
   import context._
-  var log = Logging(system,this)
+
+  var log = Logging(system, this)
 
 
-  def sayHi:Receive = {
-    case Swap=>{
+  def sayHi: Receive = {
+    case Swap => {
       log.info("hi")
       become(sayHo)
     }
   }
 
-  def sayHo:Receive={
-    case Swap=>{
+  def sayHo: Receive = {
+    case Swap => {
       log.info("ho")
       become(sayHi)
     }
@@ -37,10 +40,13 @@ class Swapper extends Actor{
     }
   }
 }
-object SwapperApp extends App{
+
+object SwapperApp extends App {
+
   import com.hdu.Swap._
+
   val system = ActorSystem("swapperSystem")
-  val swap = system.actorOf(Props[Swapper],"swapper")
+  val swap = system.actorOf(Props[Swapper], "swapper")
   swap ! Swap
   swap ! Swap
   swap ! Swap

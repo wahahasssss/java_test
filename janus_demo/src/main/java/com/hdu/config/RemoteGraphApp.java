@@ -53,6 +53,7 @@ public class RemoteGraphApp extends JanusGraphApp {
 
     /**
      * Constructs a graph app using the given properties.
+     *
      * @param fileName location of the properties file
      */
     public RemoteGraphApp(final String fileName) {

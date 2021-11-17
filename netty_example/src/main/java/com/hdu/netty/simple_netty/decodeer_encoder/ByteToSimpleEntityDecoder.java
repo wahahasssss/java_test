@@ -15,8 +15,9 @@ import java.util.List;
  * @Date 2019/1/21
  * @Time 下午6:53
  */
-public class ByteToSimpleEntityDecoder extends ByteToMessageDecoder{
+public class ByteToSimpleEntityDecoder extends ByteToMessageDecoder {
     private static final SerializeUtil SERIALIZE_UTIL;
+
     static {
         SERIALIZE_UTIL = new SerializeUtil();
     }
@@ -40,6 +41,7 @@ public class ByteToSimpleEntityDecoder extends ByteToMessageDecoder{
 
     /**
      * kryo序列化
+     *
      * @param ctx
      * @param in
      * @param out
@@ -48,10 +50,10 @@ public class ByteToSimpleEntityDecoder extends ByteToMessageDecoder{
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
         byte[] bytes = new byte[in.readableBytes()];
-        in.readBytes(bytes,0,in.readableBytes());
-        Object instance = SERIALIZE_UTIL.deserialization(bytes,SimpleEntity.class);
-        if (instance!=null){
-            out.add(SERIALIZE_UTIL.deserialization(bytes,SimpleEntity.class));
+        in.readBytes(bytes, 0, in.readableBytes());
+        Object instance = SERIALIZE_UTIL.deserialization(bytes, SimpleEntity.class);
+        if (instance != null) {
+            out.add(SERIALIZE_UTIL.deserialization(bytes, SimpleEntity.class));
         }
     }
 }

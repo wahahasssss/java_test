@@ -8,8 +8,8 @@ import java.util.Arrays;
  */
 public class InsertSortAlgorithm {
 
-    public static int[] sort(int[] sourceArray)throws Exception{
-        int[] arr = Arrays.copyOf(sourceArray,sourceArray.length);
+    public static int[] sort(int[] sourceArray) throws Exception {
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
         // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         for (int i = 1; i < arr.length; i++) {
@@ -35,9 +35,9 @@ public class InsertSortAlgorithm {
 
 
     public static void main(String[] args) throws Exception {
-        int[] arr = new int[]{37,47,43,43,94,43,877,45};
+        int[] arr = new int[]{37, 47, 43, 43, 94, 43, 877, 45};
         int[] sortedArr = sort(arr);
-        for (int num:sortedArr){
+        for (int num : sortedArr) {
             System.out.println(num);
         }
     }

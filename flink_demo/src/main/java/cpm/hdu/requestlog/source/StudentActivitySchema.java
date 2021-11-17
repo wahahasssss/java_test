@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
  * @Date：2021/3/18 11:40 上午
  * @Versiion：1.0
  */
-public class StudentActivitySchema extends AbstractDeserializationSchema<StudentsActivityInfo>{
+public class StudentActivitySchema extends AbstractDeserializationSchema<StudentsActivityInfo> {
     @Override
     public StudentsActivityInfo deserialize(byte[] message) throws IOException {
         String studentActivityString = new String(message, StandardCharsets.UTF_8);

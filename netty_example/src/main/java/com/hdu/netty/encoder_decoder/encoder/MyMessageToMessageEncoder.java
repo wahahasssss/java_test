@@ -16,7 +16,7 @@ import java.util.List;
  * @Date 2019/1/9
  * @Time 下午7:43
  */
-public class MyMessageToMessageEncoder extends MessageToMessageEncoder<TestEntity2>{
+public class MyMessageToMessageEncoder extends MessageToMessageEncoder<TestEntity2> {
     @Override
     protected void encode(ChannelHandlerContext ctx, TestEntity2 msg, List<Object> out) throws Exception {
         TestEntity entity = new TestEntity();

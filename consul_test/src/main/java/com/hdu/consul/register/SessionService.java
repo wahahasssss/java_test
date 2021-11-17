@@ -25,57 +25,60 @@ public class SessionService {
     private static final SessionClient SESSION_CLIENT;
     private static final KeyValueClient KEY_VALUE_CLIENT;
     private static Integer COUNT = 100;
+
     static {
-        SESSION_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP,CONSUL_PORT)).build().sessionClient();
-        KEY_VALUE_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP,CONSUL_PORT)).build().keyValueClient();
+        SESSION_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP, CONSUL_PORT)).build().sessionClient();
+        KEY_VALUE_CLIENT = Consul.builder().withHostAndPort(HostAndPort.fromParts(CONSUL_IP, CONSUL_PORT)).build().keyValueClient();
     }
 
     /**
      * 创建session
+     *
      * @param sessionName
      * @return
      */
-    public static String createSession(String sessionName){
+    public static String createSession(String sessionName) {
         Session session = ImmutableSession.builder().name(sessionName)
                 .build();
-       return SESSION_CLIENT.createSession(session).getId();
+        return SESSION_CLIENT.createSession(session).getId();
     }
 
-    public static void destroySession(String sessionId){
+    public static void destroySession(String sessionId) {
         SESSION_CLIENT.destroySession(sessionId);
     }
 
     /**
      * 获取锁
+     *
      * @param sessionName
      */
-    public static void acquireLock(String sessionName,String key) throws InterruptedException {
+    public static void acquireLock(String sessionName, String key) throws InterruptedException {
         Session session = ImmutableSession.builder().name(sessionName).build();
         SessionCreatedResponse response = SESSION_CLIENT.createSession(session);
         String name = session.getName().get();
         String sessionId = response.getId();
-        if (KEY_VALUE_CLIENT.acquireLock(key, name, sessionId)){
+        if (KEY_VALUE_CLIENT.acquireLock(key, name, sessionId)) {
             COUNT--;
             System.out.println("current count is :" + COUNT);
             System.out.println("sessionIs is :" + sessionId);
             Thread.sleep(1000);
             KEY_VALUE_CLIENT.releaseLock(key, sessionId);
             SESSION_CLIENT.destroySession(sessionId);
-        }else {
+        } else {
             System.out.println("acquireLock Error");
         }
     }
 
     /**
-     *
      * @param key
      * @param sessionId
      */
-    public static void releaseLock(String key,String sessionId){
+    public static void releaseLock(String key, String sessionId) {
         KEY_VALUE_CLIENT.releaseLock(key, sessionId);
         KEY_VALUE_CLIENT.deleteKey(key);
-         SESSION_CLIENT.destroySession(sessionId);
+        SESSION_CLIENT.destroySession(sessionId);
     }
+
     public static void main(String[] args) throws InterruptedException {
 //        String sessionId = SessionService.createSession("session_" + UUID.randomUUID().toString());
 //        destroySession("acc7e759-57eb-2f65-b6b0-f6d145fea5d2");

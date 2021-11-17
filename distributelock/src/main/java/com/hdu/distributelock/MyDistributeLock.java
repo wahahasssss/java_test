@@ -23,9 +23,9 @@ public class MyDistributeLock {
     public String acquireLock() throws InterruptedException {
         Jedis conn = pool.getResource();
         String id = UUID.randomUUID().toString();
-        while (true){
-            if (conn.setnx("resource",id)==1){
-                conn.expire("resource",5);
+        while (true) {
+            if (conn.setnx("resource", id) == 1) {
+                conn.expire("resource", 5);
                 return id;
             }
 
@@ -35,10 +35,9 @@ public class MyDistributeLock {
     }
 
 
-
-    public void releaseLock(String id){
+    public void releaseLock(String id) {
         Jedis conn = pool.getResource();
-        if (conn.get("resource").equals(id)){
+        if (conn.get("resource").equals(id)) {
             conn.del("resource");
         }
 

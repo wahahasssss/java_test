@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2019/1/14
  * @Time 下午7:15
  */
-public class LogEventEncoder extends MessageToMessageEncoder<LogEvent>{
+public class LogEventEncoder extends MessageToMessageEncoder<LogEvent> {
     private final InetSocketAddress remoteAddress;
 
     public LogEventEncoder(InetSocketAddress remoteAddress) {
@@ -28,10 +28,10 @@ public class LogEventEncoder extends MessageToMessageEncoder<LogEvent>{
     protected void encode(ChannelHandlerContext ctx, LogEvent logEvent, List<Object> out) throws Exception {
         byte[] file = logEvent.getLogfile().getBytes(CharsetUtil.UTF_8);
         byte[] msg = logEvent.getMsg().getBytes(CharsetUtil.UTF_8);
-        ByteBuf buf = ctx.alloc().buffer(file.length  + msg.length + 1);
+        ByteBuf buf = ctx.alloc().buffer(file.length + msg.length + 1);
         buf.writeBytes(file);
         buf.writeByte(LogEvent.SEPARATOR);
         buf.writeBytes(msg);
-        out.add(new DatagramPacket(buf,remoteAddress));
+        out.add(new DatagramPacket(buf, remoteAddress));
     }
 }

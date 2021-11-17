@@ -20,20 +20,20 @@ public class TestController {
     private IService iService;
 
 
-    @RequestMapping(value = "/print",method = {RequestMethod.GET,RequestMethod.POST})
-    public boolean print(){
+    @RequestMapping(value = "/print", method = {RequestMethod.GET, RequestMethod.POST})
+    public boolean print() {
         iService.queryAllData();
         return true;
     }
 
     @RequestMapping(value = "/transaction", method = {RequestMethod.GET, RequestMethod.POST})
-    public boolean transaction(){
+    public boolean transaction() {
         iService.transactionTest();
         return true;
     }
 
     @RequestMapping(value = "/read", method = {RequestMethod.GET, RequestMethod.POST})
-    public boolean read(){
+    public boolean read() {
         iService.readAfterCommit();
         return true;
     }

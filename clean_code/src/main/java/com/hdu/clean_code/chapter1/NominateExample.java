@@ -14,7 +14,8 @@ public class NominateExample {
     private static List<int[]> gameBoard = new ArrayList<int[]>();
     private static Integer STATUS_VALUE = 0;
     private static Integer FLAGGED = 4;
-    public void main(String[] args){
+
+    public void main(String[] args) {
         int d; // xxxx
         int elapsedTimeInDays;
         int daysSinceCreation;
@@ -23,20 +24,20 @@ public class NominateExample {
     }
 
 
-    public List<int[]> getThem(){
+    public List<int[]> getThem() {
         List<int[]> list1 = new ArrayList<int[]>();
-        for (int[] x:theList){  //theList 是啥？
-            if (x[0] == 4){     //theList 零下标条目的意义是什么？ 值4代表上面意思
+        for (int[] x : theList) {  //theList 是啥？
+            if (x[0] == 4) {     //theList 零下标条目的意义是什么？ 值4代表上面意思
                 list1.add(x);
             }
         }
         return list1;
     }
 
-    public List<int[]> getFlaggedCells(){
+    public List<int[]> getFlaggedCells() {
         List<int[]> flaggedCells = new ArrayList<int[]>();
-        for (int[] cell:gameBoard){
-            if (cell[STATUS_VALUE] == FLAGGED){
+        for (int[] cell : gameBoard) {
+            if (cell[STATUS_VALUE] == FLAGGED) {
                 flaggedCells.add(cell);
             }
         }
@@ -45,27 +46,27 @@ public class NominateExample {
 
     /**
      * 有意义的区分Processors
+     *
      * @param a1
      * @param a2
      */
-    public static void copyChars(char[] a1,char[] a2){
-        for (int i = 0; i < a1.length;i++){
+    public static void copyChars(char[] a1, char[] a2) {
+        for (int i = 0; i < a1.length; i++) {
             a2[i] = a1[i];
         }
     }
 
-    static class DtaRcrd102{
+    static class DtaRcrd102 {
         private Date genymdhms;
         private Date modymdhms;
         private final String pszqint = "102";
     }
 
-    static class Customer{
+    static class Customer {
         private Date generationTimestamp;
         private Date modificationTimestamp;
         private final String recordId = "102";
     }
-
 
 
 }

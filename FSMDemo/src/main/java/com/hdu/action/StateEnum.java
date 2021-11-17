@@ -21,7 +21,7 @@ public enum StateEnum {
         this.code = code;
     }
 
-    public static int valueOf(StateEnum value){
+    public static int valueOf(StateEnum value) {
         return value.code;
     }
 }

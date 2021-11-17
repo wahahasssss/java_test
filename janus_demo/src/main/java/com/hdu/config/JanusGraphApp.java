@@ -49,6 +49,7 @@ public class JanusGraphApp extends GraphApp {
 
     /**
      * Constructs a graph app using the given properties.
+     *
      * @param fileName location of the properties file
      */
     public JanusGraphApp(final String fileName) {
@@ -219,9 +220,9 @@ public class JanusGraphApp extends GraphApp {
         // mixed indexes
         if (useMixedIndex) {
             s.append("management.buildIndex(\"vAge\", Vertex.class).addKey(age).buildMixedIndex(\"")
-                .append(mixedIndexConfigName).append("\"); ");
+                    .append(mixedIndexConfigName).append("\"); ");
             s.append("management.buildIndex(\"eReasonPlace\", Edge.class).addKey(reason).addKey(place).buildMixedIndex(\"")
-                .append(mixedIndexConfigName).append("\"); ");
+                    .append(mixedIndexConfigName).append("\"); ");
         }
 
         s.append("management.commit(); created = true; }");

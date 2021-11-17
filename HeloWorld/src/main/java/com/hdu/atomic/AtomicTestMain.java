@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AtomicTestMain {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         AtomicInteger i = new AtomicInteger();
         i.getAndAdd(1);
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();

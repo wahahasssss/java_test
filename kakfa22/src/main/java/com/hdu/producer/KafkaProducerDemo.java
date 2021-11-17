@@ -16,6 +16,6 @@ public class KafkaProducerDemo {
 //        while (true){
 //            producerService.(100);
 //            Thread.sleep(1000);
-        }
+    }
 
 }

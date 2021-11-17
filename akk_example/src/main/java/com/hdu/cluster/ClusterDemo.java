@@ -23,25 +23,26 @@ public class ClusterDemo {
         void execute();
     }
 
-    class Save implements Command{
+    class Save implements Command {
         @Override
         public void execute() {
             System.out.println("execute something...");
         }
     }
 
-    class Load implements Command{
-        public void execute(){
+    class Load implements Command {
+        public void execute() {
             System.out.println("load something...");
         }
     }
-    private static Behavior<Command> behaviors(){
+
+    private static Behavior<Command> behaviors() {
         return Behaviors.receive(Command.class)
-                .onMessage(Save.class,(ctx,msg)->{
+                .onMessage(Save.class, (ctx, msg) -> {
                     msg.execute();
                     return Behaviors.same();
                 })
-                .onMessage(Load.class,(ctx,msg)->{
+                .onMessage(Load.class, (ctx, msg) -> {
                     msg.execute();
                     return Behaviors.same();
                 })
@@ -49,9 +50,9 @@ public class ClusterDemo {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Config config = ConfigFactory.load("clusterApplication");
-        ActorSystem system = ActorSystem.create(behaviors(),"cluster_system",config);
+        ActorSystem system = ActorSystem.create(behaviors(), "cluster_system", config);
         Cluster cluster = Cluster.get(system);
 
         cluster.manager().tell(Join.create(cluster.selfMember().address()));

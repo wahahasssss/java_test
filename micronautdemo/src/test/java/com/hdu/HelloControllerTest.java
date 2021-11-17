@@ -23,12 +23,13 @@ public class HelloControllerTest {
     @Inject
     @Client("/")
     RxHttpClient client;
+
     @Test
-    public void testHello(){
+    public void testHello() {
         HttpRequest request = HttpRequest.GET("/hello");
         String body = client.toBlocking().retrieve(request);
 
         assertNotNull(body);
-        assertEquals(body,"Hello World");
+        assertEquals(body, "Hello World");
     }
 }

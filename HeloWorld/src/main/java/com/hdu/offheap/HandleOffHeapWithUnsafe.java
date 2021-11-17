@@ -15,8 +15,8 @@ public class HandleOffHeapWithUnsafe {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Field field = Unsafe.class.getDeclaredField("theUnsafe");
         field.setAccessible(true);
-        Unsafe unsafe = (Unsafe)field.get(null);
-        long allocateAddress = unsafe.allocateMemory(10*1024*1024);
+        Unsafe unsafe = (Unsafe) field.get(null);
+        long allocateAddress = unsafe.allocateMemory(10 * 1024 * 1024);
         System.out.println("allocate memory address is  " + allocateAddress);
 //        unsafe.putChar("".getBytes());
 

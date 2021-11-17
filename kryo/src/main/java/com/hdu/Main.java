@@ -8,7 +8,7 @@ package com.hdu;
  * @Time 下午5:05
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
 }

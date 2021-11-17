@@ -3,7 +3,9 @@ package com.hdu;
 import org.junit.Test;
 
 import java.util.List;
+
 import static org.mockito.Mockito.*;
+
 /**
  * DESCRIPTION:
  *
@@ -14,12 +16,10 @@ import static org.mockito.Mockito.*;
 public class generate {
 
     @Test
-    public void test(){
+    public void test() {
         List listMock = mock(List.class);
         listMock.add("one");
         listMock.clear();
-
-
 
 
         verify(listMock).add("one");

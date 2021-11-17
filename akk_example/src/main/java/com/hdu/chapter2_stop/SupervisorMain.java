@@ -14,17 +14,17 @@ import akka.actor.PoisonPill;
  */
 //停止actor的几种方式
 public class SupervisorMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("supervisor");
-        ActorRef first = system.actorOf(FirstActor.props("1"),"first");
-        ActorRef supervisor = system.actorOf(FirstActor.props("2"),"supervisor");
-        for(int i = 0;i<10;i++){
-            first.tell("x",supervisor);
+        ActorRef first = system.actorOf(FirstActor.props("1"), "first");
+        ActorRef supervisor = system.actorOf(FirstActor.props("2"), "supervisor");
+        for (int i = 0; i < 10; i++) {
+            first.tell("x", supervisor);
         }
-        first.tell("CREATE",supervisor);
+        first.tell("CREATE", supervisor);
 ////        first.tell(PoisonPill.getInstance(),ActorRef.noSender());
 //        system.stop(first);
         ActorSelection selection = system.actorSelection("akka://supervisor/user/first/second2");
-        selection.tell("print",ActorRef.noSender());
+        selection.tell("print", ActorRef.noSender());
     }
 }

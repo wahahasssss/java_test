@@ -11,9 +11,9 @@ import com.hdu.action.StateEnum;
  * @Date 2018/4/10
  * @Time 下午3:44
  */
-public class BannedDecisionAction implements DecisionAction{
+public class BannedDecisionAction implements DecisionAction {
     public int doDecisionAction(ContextBase context) {
-        if (context.getContextData().getCode() == StateEnum.NORMAL.ordinal()){
+        if (context.getContextData().getCode() == StateEnum.NORMAL.ordinal()) {
             return StateEnum.NORMAL.ordinal();
         }
         //TODO  DO SOMETHING

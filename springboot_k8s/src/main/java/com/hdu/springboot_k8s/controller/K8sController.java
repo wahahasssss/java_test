@@ -18,7 +18,7 @@ import java.util.Map;
 @RestController
 public class K8sController {
     @RequestMapping(value = "/ts", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResultDto timestamp(){
+    public ResultDto timestamp() {
         Map<String, String> data = new HashMap<>();
         data.put("ts", String.valueOf(System.currentTimeMillis()));
         return ResultDto.builder().code(0).data(data).msg("success").build();

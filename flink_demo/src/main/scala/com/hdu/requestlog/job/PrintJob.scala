@@ -7,20 +7,22 @@ import org.apache.flink.walkthrough.common.sink.AlertSink
 import org.apache.flink.walkthrough.common.entity.Alert
 import org.apache.flink.walkthrough.common.entity.Transaction
 import org.apache.flink.walkthrough.common.source.TransactionSource
+
 /**
  * @author shushoufu
  * @date 2020/08/14
  **/
 
-case class PrintJob(){
+case class PrintJob() {
 
 }
+
 object PrintJob {
   @throws[Exception]
-  def start(): Unit ={
+  def start(): Unit = {
     print("begin FraudDetectionJob")
 
-    val env:StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     val transactions: DataStream[Transaction] = env
       .addSource(new TransactionSource)
       .name("transactions")

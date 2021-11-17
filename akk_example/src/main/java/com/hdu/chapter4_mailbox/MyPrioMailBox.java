@@ -16,12 +16,12 @@ import java.util.Comparator;
  * @Date 2018/6/20
  * @Time 下午7:08
  */
-public class MyPrioMailBox extends UnboundedStablePriorityMailbox{
+public class MyPrioMailBox extends UnboundedStablePriorityMailbox {
     public MyPrioMailBox(Comparator<Envelope> cmp, int initialCapacity) {
         super(cmp, initialCapacity);
     }
 
-    public MyPrioMailBox(ActorSystem.Settings settings, Config config){
+    public MyPrioMailBox(ActorSystem.Settings settings, Config config) {
         super(new PriorityGenerator() {
             @Override
             public int gen(Object message) {

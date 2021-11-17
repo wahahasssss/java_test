@@ -63,18 +63,18 @@ public class DistributeLock implements Lock, Watcher {
                 waitForLock(WAIT_LOCK, sessionTimeout);
             }
         } catch (InterruptedException e) {
-            System.out.println(String.format( "lock e"+ e.getMessage()));
+            System.out.println(String.format("lock e" + e.getMessage()));
         } catch (KeeperException e) {
-            System.out.println(String.format("lock e"+ e.getMessage()));
+            System.out.println(String.format("lock e" + e.getMessage()));
         }
     }
 
     private boolean waitForLock(String prev, long waitTime) throws KeeperException, InterruptedException {
-        Stat stat = zooKeeper.exists(ROOT_LOCK + "/" + prev,true);
-        if (stat!=null){
-            System.out.println(Thread.currentThread().getName() + " wait for lock" + ROOT_LOCK + "/"+ prev);
+        Stat stat = zooKeeper.exists(ROOT_LOCK + "/" + prev, true);
+        if (stat != null) {
+            System.out.println(Thread.currentThread().getName() + " wait for lock" + ROOT_LOCK + "/" + prev);
             this.countDownLatch = new CountDownLatch(1);
-            this.countDownLatch.await(waitTime,TimeUnit.MILLISECONDS);
+            this.countDownLatch.await(waitTime, TimeUnit.MILLISECONDS);
             this.countDownLatch = null;
             System.out.println(Thread.currentThread().getName() + "等到了锁");
         }
@@ -108,24 +108,23 @@ public class DistributeLock implements Lock, Watcher {
             }
             String preNode = CURRENT_LOCK.substring(CURRENT_LOCK.lastIndexOf("/") + 1);
             WAIT_LOCK = lockObjects.get(Collections.binarySearch(lockObjects, preNode) - 1);
-        }
-        catch(InterruptedException e) {
-            System.out.println(String.format("try lock e "+ e.getMessage()));
-        }catch (KeeperException e){
-            System.out.println(String.format("try lock e "+ e.getMessage()));
-        }catch (Exception e){
-            System.out.println(String.format("try lock e "+ e.getMessage()));
+        } catch (InterruptedException e) {
+            System.out.println(String.format("try lock e " + e.getMessage()));
+        } catch (KeeperException e) {
+            System.out.println(String.format("try lock e " + e.getMessage()));
+        } catch (Exception e) {
+            System.out.println(String.format("try lock e " + e.getMessage()));
         }
         return false;
-}
+    }
 
     public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
         try {
-            if (this.tryLock()){
+            if (this.tryLock()) {
                 return true;
             }
-            return waitForLock(WAIT_LOCK,time);
-        }catch (Exception e){
+            return waitForLock(WAIT_LOCK, time);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -134,14 +133,14 @@ public class DistributeLock implements Lock, Watcher {
     public void unlock() {
         try {
             System.out.println("释放锁" + CURRENT_LOCK);
-            zooKeeper.delete(CURRENT_LOCK,-1);
+            zooKeeper.delete(CURRENT_LOCK, -1);
             CURRENT_LOCK = null;
             zooKeeper.close();
-        }catch (InterruptedException e){
-            System.out.println(String.format("unlock e "+ e.getMessage()));
-        }catch (KeeperException e){
-            System.out.println(String.format("unlock e "+ e.getMessage()));
-        }catch (Exception e){
+        } catch (InterruptedException e) {
+            System.out.println(String.format("unlock e " + e.getMessage()));
+        } catch (KeeperException e) {
+            System.out.println(String.format("unlock e " + e.getMessage()));
+        } catch (Exception e) {
             System.out.println("unlock e " + e.getMessage());
         }
     }
@@ -155,12 +154,15 @@ public class DistributeLock implements Lock, Watcher {
             this.countDownLatch.countDown();
         }
     }
+
     public static class LockException extends RuntimeException {
         private static final long serialVersionUID = 1L;
-        public LockException(String e){
+
+        public LockException(String e) {
             super(e);
         }
-        public LockException(Exception e){
+
+        public LockException(Exception e) {
             super(e);
         }
     }

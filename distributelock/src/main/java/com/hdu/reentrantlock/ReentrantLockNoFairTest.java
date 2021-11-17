@@ -12,14 +12,15 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockNoFairTest {
     private static ReentrantLock lock = new ReentrantLock();
     private static Integer count = 0;
-    public static void doSomething(){
+
+    public static void doSomething() {
         try {
             lock.lock();
-            count ++ ;
-            System.out.println(String.format("Thread %s do something %d",Thread.currentThread().getName(),count));
-        }catch (Exception e){
+            count++;
+            System.out.println(String.format("Thread %s do something %d", Thread.currentThread().getName(), count));
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

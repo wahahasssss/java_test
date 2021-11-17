@@ -6,6 +6,7 @@
 
     <bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean"/>
     <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
-    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher" p:jobRepository-ref="jobRepository"/>
+    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher"
+          p:jobRepository-ref="jobRepository"/>
 
 </beans>

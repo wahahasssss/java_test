@@ -15,49 +15,50 @@ public class ReentrantLockCondition {
     private static Condition condition1 = lock.newCondition();
     private static Condition condition2 = lock.newCondition();
 
-    public static void desc1(){
+    public static void desc1() {
         try {
             lock.lock();
-            while (state){
+            while (state) {
                 condition1.await();
             }
-            if (count > 0){
-                System.out.println("Thread " + Thread.currentThread().getName() +" count : " + count);
+            if (count > 0) {
+                System.out.println("Thread " + Thread.currentThread().getName() + " count : " + count);
 
-                count --;
+                count--;
             }
             state = true;
             condition2.signal();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            lock.unlock();
-        }
-    }
-    public static void desc2(){
-        try {
-            lock.lock();
-            while (!state){
-                condition2.await();
-            }
-            if (count > 0){
-                System.out.println("Thread " + Thread.currentThread().getName() +" count : " + count);
-                count --;
-            }
-            state = false;
-            condition1.signal();
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
 
-    public static void main(String[] args){
+    public static void desc2() {
+        try {
+            lock.lock();
+            while (!state) {
+                condition2.await();
+            }
+            if (count > 0) {
+                System.out.println("Thread " + Thread.currentThread().getName() + " count : " + count);
+                count--;
+            }
+            state = false;
+            condition1.signal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public static void main(String[] args) {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (count > 0){
+                while (count > 0) {
                     desc1();
                 }
 
@@ -66,7 +67,7 @@ public class ReentrantLockCondition {
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (count > 0){
+                while (count > 0) {
                     desc2();
                 }
             }

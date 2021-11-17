@@ -10,7 +10,7 @@ import com.hdu.service.ILoginService;
  * @Date 2018/12/31
  * @Time 下午5:42
  */
-public class LoginServiceImpl implements ILoginService{
+public class LoginServiceImpl implements ILoginService {
     private StudentMapper studentMapper;
 
     public void setStudentMapper(StudentMapper studentMapper) {
@@ -19,7 +19,7 @@ public class LoginServiceImpl implements ILoginService{
 
     @Override
     public boolean login(String userName, String password) {
-        if (studentMapper.getStudentByName(userName).getPassword().equals(password)){
+        if (studentMapper.getStudentByName(userName).getPassword().equals(password)) {
             return true;
         }
         return false;

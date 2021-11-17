@@ -9,15 +9,15 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 public class SpringbootAkkaApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			System.out.println(inetAddress.getCanonicalHostName());
-			System.out.println("======================");
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-		SpringApplication.run(SpringbootAkkaApplication.class, args);
-	}
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            System.out.println(inetAddress.getCanonicalHostName());
+            System.out.println("======================");
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        SpringApplication.run(SpringbootAkkaApplication.class, args);
+    }
 }

@@ -17,13 +17,12 @@ public class Queue {
     private Integer maxValue = -1;
 
 
-
-    public Queue(){
+    public Queue() {
     }
 
     public int max_value() {
-        if (queryList.size() == 0){
-            return  -1;
+        if (queryList.size() == 0) {
+            return -1;
         }
         return maxValue;
     }
@@ -36,19 +35,19 @@ public class Queue {
 
 
     public int pop_front() {
-        if (queryList.size() == 0){
+        if (queryList.size() == 0) {
             return -1;
         }
         int value = queryList.remove(0);
-        if (value == maxValue){
+        if (value == maxValue) {
             calMaxValue();
         }
         System.out.println(queryList);
         return value;
     }
 
-    private void calMaxValue(){
-        for (int v:queryList){
+    private void calMaxValue() {
+        for (int v : queryList) {
             maxValue = Math.max(maxValue, v);
         }
     }

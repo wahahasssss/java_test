@@ -21,27 +21,24 @@ import static akka.pattern.Patterns.ask;
 public class SupervisorMain {
     public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create("c3_supervisor");
-        ActorRef supervisor = system.actorOf(SupervisorActor.props(),"supervisor_actor");
-        ActorRef childActor = (ActorRef) Await.result(ask(supervisor, Props.create(ChildActor.class),5000),Duration.create(5,SECONDS));
+        ActorRef supervisor = system.actorOf(SupervisorActor.props(), "supervisor_actor");
+        ActorRef childActor = (ActorRef) Await.result(ask(supervisor, Props.create(ChildActor.class), 5000), Duration.create(5, SECONDS));
         //        ActorRef child2Actor = (ActorRef) Await.result(ask(supervisor,Child2Actor.props(),5000),Duration.create(5,SECONDS));
 
 
-        childActor.tell("throw",ActorRef.noSender());
+        childActor.tell("throw", ActorRef.noSender());
 //        childActor.tell(42,ActorRef.noSender());//发送消息
 //        int result1 = (Integer) Await.result(ask(childActor,"get",5000),Duration.create(5,SECONDS));
 //        System.out.println("result  is " + result1);
 //
 //        childActor.tell(new ArithmeticException(),ActorRef.noSender());
-        int result = (Integer) Await.result(ask(childActor,"get",5000),Duration.create(5,SECONDS));
+        int result = (Integer) Await.result(ask(childActor, "get", 5000), Duration.create(5, SECONDS));
 //        System.out.println("result  is " + result);
 
 //        childActor.tell(new NullPointerException(),ActorRef.noSender());
 //        Thread.sleep(1000);
 //        childActor.tell(PoisonPill.getInstance(),ActorRef.noSender());
 //        childActor.tell(new IllegalArgumentException(),ActorRef.noSender());
-
-
-
 
 
 //        int result1 = (Integer) Await.result(ask(childActor,"get",5000),Duration.create(5,SECONDS));

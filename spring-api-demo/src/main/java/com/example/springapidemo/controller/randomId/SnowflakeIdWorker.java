@@ -90,26 +90,26 @@ public class SnowflakeIdWorker {
     private long lastTimeStamp = -1L;
 
 
-    public SnowflakeIdWorker(){
-        this(1,1);
+    public SnowflakeIdWorker() {
+        this(1, 1);
     }
 
-    public SnowflakeIdWorker(long workerId,long datacenterId){
-        assert workerId > maxWorkerId || workerId < 0: "workerId must in 0 < 31";
-        assert datacenterId > maxDataCenterId || datacenterId < 0: "datacenterId must in 0 < 31";
+    public SnowflakeIdWorker(long workerId, long datacenterId) {
+        assert workerId > maxWorkerId || workerId < 0 : "workerId must in 0 < 31";
+        assert datacenterId > maxDataCenterId || datacenterId < 0 : "datacenterId must in 0 < 31";
         this.workerId = workerId;
         this.datacenterId = datacenterId;
     }
 
-    public synchronized long nextId(){
+    public synchronized long nextId() {
         long timeStamp = timeGen();
-        assert timeStamp < lastTimeStamp:"时间戳错误，时间回滚";
-        if (timeStamp == lastTimeStamp){
+        assert timeStamp < lastTimeStamp : "时间戳错误，时间回滚";
+        if (timeStamp == lastTimeStamp) {
             sequence = (sequence + 1) & sequenceMask;
-            if (sequence == 0){
+            if (sequence == 0) {
                 timeStamp = tillNextMillis(lastTimeStamp);
             }
-        }else{
+        } else {
             sequence = 0L;
         }
         lastTimeStamp = timeStamp;
@@ -117,14 +117,15 @@ public class SnowflakeIdWorker {
     }
 
 
-    private long tillNextMillis(long lastTimeStamp){
+    private long tillNextMillis(long lastTimeStamp) {
         long timeStamp = timeGen();
-        while (timeStamp <= lastTimeStamp){
+        while (timeStamp <= lastTimeStamp) {
             timeStamp = timeGen();
         }
         return timeStamp;
     }
-    private long timeGen(){
+
+    private long timeGen() {
         return System.currentTimeMillis();
     }
 }

@@ -3,12 +3,12 @@ package com.hdu.supervisor
 import akka.actor.Actor
 
 /**
-  * DESCRIPTION:
-  *
-  * @author shushoufu
-  * @Date 2018/4/10
-  * @Time 下午8:46
-  */
+ * DESCRIPTION:
+ *
+ * @author shushoufu
+ * @Date 2018/4/10
+ * @Time 下午8:46
+ */
 class ChildActor extends Actor {
   var state = 0
 

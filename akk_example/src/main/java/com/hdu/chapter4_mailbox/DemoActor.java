@@ -13,21 +13,22 @@ import akka.event.LoggingAdapter;
  * @Date 2018/6/20
  * @Time 下午7:21
  */
-public class DemoActor extends AbstractActor{
-    LoggingAdapter log = Logging.getLogger(getContext().getSystem(),this);
+public class DemoActor extends AbstractActor {
+    LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
+
     {
-        for (Object msg:new Object[]{
+        for (Object msg : new Object[]{
                 "lowpriority", "lowpriority",
                 "highpriority", "pigdog", "pigdog2", "pigdog3", "highpriority",
                 PoisonPill.getInstance()
-        }){
-            getSelf().tell(msg,getSelf());
+        }) {
+            getSelf().tell(msg, getSelf());
         }
     }
-    public static Props props(){
+
+    public static Props props() {
         return Props.create(DemoActor.class);
     }
-
 
 
     @Override
@@ -39,7 +40,7 @@ public class DemoActor extends AbstractActor{
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .matchAny(msg->{
+                .matchAny(msg -> {
                     log.info(msg.toString());
                 })
                 .build();

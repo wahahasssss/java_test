@@ -19,13 +19,13 @@ import javax.sql.DataSource;
  * @Time 11:41 AM
  */
 @Configuration
-@MapperScan(basePackages = "com.hdu.dao",annotationClass = com.hdu.annation.DevDatasource.class,sqlSessionFactoryRef = DevDatasourceConfig.DEV_SESSION_FACTORY_NAME)
+@MapperScan(basePackages = "com.hdu.dao", annotationClass = com.hdu.annation.DevDatasource.class, sqlSessionFactoryRef = DevDatasourceConfig.DEV_SESSION_FACTORY_NAME)
 public class DevDatasourceConfig {
     static final String DEV_SESSION_FACTORY_NAME = "dev_session_factory";
 
     @Bean(name = "devDatasource")
     @ConfigurationProperties(prefix = "dev.datasource")
-    public DataSource devDatasource(){
+    public DataSource devDatasource() {
         return DataSourceBuilder.create().build();
     }
 

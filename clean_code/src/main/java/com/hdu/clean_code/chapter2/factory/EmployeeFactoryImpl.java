@@ -7,9 +7,9 @@ import com.hdu.clean_code.chapter2.exception.InvalidEmployeeType;
  * @Author: ssf
  * @Date: 2020/3/30 2:16 下午
  */
-public class EmployeeFactoryImpl implements EmployFactory{
+public class EmployeeFactoryImpl implements EmployFactory {
     public Employee makeEmployee(EmployeeType type) throws InvalidEmployeeType {
-        switch (type){
+        switch (type) {
             case COMMISSIONED:
                 return new CommissionedEmployee();
             case HOURLY:

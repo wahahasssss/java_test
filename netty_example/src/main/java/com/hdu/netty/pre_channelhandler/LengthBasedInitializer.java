@@ -14,14 +14,14 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
  * @Date 2019/1/10
  * @Time 下午5:01
  */
-public class LengthBasedInitializer extends ChannelInitializer<Channel>{
+public class LengthBasedInitializer extends ChannelInitializer<Channel> {
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(64*1024,0,8));
+        ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(64 * 1024, 0, 8));
         ch.pipeline().addLast(new FrameHandler());
     }
 
-    public static final class FrameHandler extends SimpleChannelInboundHandler<ByteBuf>{
+    public static final class FrameHandler extends SimpleChannelInboundHandler<ByteBuf> {
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
             System.out.println(msg.toString());

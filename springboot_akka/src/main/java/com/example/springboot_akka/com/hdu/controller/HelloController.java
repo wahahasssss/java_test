@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @PostMapping(value = "/hello")
-    public String helloAkka(){
+    public String helloAkka() {
         return "hello world";
     }
 }

@@ -13,10 +13,10 @@ import io.netty.util.ReferenceCountUtil;
  * @Date 2019/1/22
  * @Time 下午2:14
  */
-public class SimpleNettyDeepServerHandlerV2 extends ChannelInboundHandlerAdapter{
+public class SimpleNettyDeepServerHandlerV2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if(msg instanceof SimpleEntity){
+        if (msg instanceof SimpleEntity) {
             System.out.println("simple deep server v2 received msg is " + msg.toString());
             ctx.writeAndFlush(msg).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
         }

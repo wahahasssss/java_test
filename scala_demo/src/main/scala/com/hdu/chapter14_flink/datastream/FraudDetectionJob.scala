@@ -7,18 +7,19 @@ import org.apache.flink.walkthrough.common.entity.Alert
 import org.apache.flink.walkthrough.common.entity.Transaction
 import org.apache.flink.walkthrough.common.source.TransactionSource
 import org.slf4j.impl.Log4jLoggerFactory
+
 /**
  * @author shushoufu
  * @date 2020/08/14
  **/
 object FraudDetectionJob {
   @throws[Exception]
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]): Unit = {
     print("begin FraudDetectionJob")
-    for(args <- args){
+    for (args <- args) {
 
     }
-    val env:StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     val transactions: DataStream[Transaction] = env
       .addSource(new TransactionSource)
       .name("transactions")

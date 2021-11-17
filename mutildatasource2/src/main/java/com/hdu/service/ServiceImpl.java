@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @Time 2:44 PM
  */
 @Service
-public class ServiceImpl implements IService{
+public class ServiceImpl implements IService {
     @Autowired
     private DevTestDao devTestDao;
     @Autowired
@@ -41,12 +41,12 @@ public class ServiceImpl implements IService{
     }
 
     @Transactional(propagation = Propagation.NEVER)
-    public void readAfterCommit(){
+    public void readAfterCommit() {
         long id = transactionTest();
         TestTablePo t = localTestDao.findOne(id);
-        if (t!=null){
+        if (t != null) {
             System.out.println(t);
-        }else {
+        } else {
             System.out.println("null" + id);
         }
     }

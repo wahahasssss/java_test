@@ -10,7 +10,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @Date 2019/1/14
  * @Time 下午8:13
  */
-public class LogEventHandler extends SimpleChannelInboundHandler<LogEvent>{
+public class LogEventHandler extends SimpleChannelInboundHandler<LogEvent> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogEvent msg) throws Exception {
         System.out.println(msg.toString());

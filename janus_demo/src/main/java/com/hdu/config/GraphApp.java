@@ -43,6 +43,7 @@ public class GraphApp {
 
     /**
      * Constructs a graph app using the given properties.
+     *
      * @param fileName location of the properties file
      */
     public GraphApp(final String fileName) {
@@ -171,7 +172,7 @@ public class GraphApp {
      * Returns the geographical coordinates as a float array.
      */
     protected float[] getGeoFloatArray(final float lat, final float lon) {
-        final float[] fa = { lat, lon };
+        final float[] fa = {lat, lon};
         return fa;
     }
 

@@ -12,7 +12,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @Date 2019/1/21
  * @Time 下午7:07
  */
-public class SimpleNettyServerHandler extends SimpleChannelInboundHandler<SimpleEntity>{
+public class SimpleNettyServerHandler extends SimpleChannelInboundHandler<SimpleEntity> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SimpleEntity msg) throws Exception {

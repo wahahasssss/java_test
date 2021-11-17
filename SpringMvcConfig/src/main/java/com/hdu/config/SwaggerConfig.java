@@ -24,8 +24,7 @@ import java.util.Set;
 @EnableWebMvc
 public class SwaggerConfig {
     @Bean
-    public Docket apis()
-    {
+    public Docket apis() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .pathMapping("/")
                 .useDefaultResponseMessages(false)
@@ -35,15 +34,14 @@ public class SwaggerConfig {
                 .enableUrlTemplating(true);
     }
 
-    private Set<String> produes()
-    {
+    private Set<String> produes() {
         Set<String> produces = new HashSet<String>();
         produces.add("application/json");
         return produces;
     }
-    private ApiInfo apiInfo()
-    {
-        return new ApiInfo("说明1","说明2","说明3","说明4",new Contact("shusf","","270838235@qq.com"),"说明5","说明6");
+
+    private ApiInfo apiInfo() {
+        return new ApiInfo("说明1", "说明2", "说明3", "说明4", new Contact("shusf", "", "270838235@qq.com"), "说明5", "说明6");
     }
 
 }

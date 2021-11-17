@@ -19,7 +19,7 @@ public class Atomic {
         /**初始化unsafe类**/
         Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
         theUnsafe.setAccessible(true);
-        Unsafe UNSAFE  = (Unsafe)theUnsafe.get(null);
+        Unsafe UNSAFE = (Unsafe) theUnsafe.get(null);
         System.out.println(UNSAFE);
 //        /** 修改字段**/
 //        byte[] data = new byte[10];
@@ -33,7 +33,7 @@ public class Atomic {
         /** 修改字段**/
 
 
-        Student student = new Student(1,"ssf","32");
+        Student student = new Student(1, "ssf", "32");
         System.out.println(student);
         Field field = student.getClass().getDeclaredField("name");
         long tmpOffset = UNSAFE.objectFieldOffset(field);
@@ -41,14 +41,14 @@ public class Atomic {
         long idOffset = UNSAFE.objectFieldOffset(idField);
         System.out.println(tmpOffset + "," + idOffset);
         System.out.println(UNSAFE.getIntVolatile(student, idOffset));
-        UNSAFE.putObject(student,tmpOffset,"zzd");
+        UNSAFE.putObject(student, tmpOffset, "zzd");
 
         System.out.println(student);
 
 
-         /** cas操作**/
-         UNSAFE.compareAndSwapInt(student,idOffset,12,23);
-         System.out.println(student);
+        /** cas操作**/
+        UNSAFE.compareAndSwapInt(student, idOffset, 12, 23);
+        System.out.println(student);
 
     }
 }

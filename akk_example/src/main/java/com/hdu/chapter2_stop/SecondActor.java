@@ -10,27 +10,27 @@ import akka.actor.Props;
  * @Date 2018/6/12
  * @Time 下午2:36
  */
-public class SecondActor extends AbstractActor{
+public class SecondActor extends AbstractActor {
 
-    public static Props props(){
+    public static Props props() {
         return Props.create(SecondActor.class);
     }
 
     @Override
     public void postStop() throws Exception {
         super.postStop();
-        System.out.println("second actor "  + getSelf().path() + " is stopped...");
+        System.out.println("second actor " + getSelf().path() + " is stopped...");
     }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .matchEquals("print",(r)->{
+                .matchEquals("print", (r) -> {
                     Thread.sleep(1000);
                     System.out.println("this is second actor:path is " + getSelf().path().toString() + ",sender is " + getSender().path().toString());
 
                 })
-                .match(Integer.class,(i)->{
+                .match(Integer.class, (i) -> {
                     Thread.sleep(1000);
 
                     System.out.println("this is second actor:path is " + getSelf().path().toString() + ",sender is " + getSender().path().toString() + ", number is " + i);

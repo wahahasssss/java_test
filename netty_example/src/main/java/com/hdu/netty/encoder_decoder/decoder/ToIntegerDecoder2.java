@@ -13,7 +13,7 @@ import java.util.List;
  * @Date 2019/1/8
  * @Time 下午9:02
  */
-public class ToIntegerDecoder2 extends ReplayingDecoder<Void>{
+public class ToIntegerDecoder2 extends ReplayingDecoder<Void> {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         list.add(byteBuf.readInt());

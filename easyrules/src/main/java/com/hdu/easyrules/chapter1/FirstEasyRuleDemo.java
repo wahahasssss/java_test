@@ -16,17 +16,17 @@ import org.jeasy.rules.core.DefaultRulesEngine;
 public class FirstEasyRuleDemo {
 
     @Condition
-    public boolean when(){
+    public boolean when() {
         return true;
     }
 
 
     @Action
-    public void then(){
+    public void then() {
         System.out.println("when true then print something");
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Facts facts = new Facts();
         Rules rules = new Rules();
         rules.register(new FirstEasyRuleDemo());

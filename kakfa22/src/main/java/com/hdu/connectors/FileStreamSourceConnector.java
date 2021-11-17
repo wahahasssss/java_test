@@ -16,7 +16,7 @@ import java.util.Map;
  * @Date 2019/4/30
  * @Time 3:04 PM
  */
-public class FileStreamSourceConnector extends SourceConnector{
+public class FileStreamSourceConnector extends SourceConnector {
 
 
     public static final String FILE_CONFIG = "file";
@@ -24,6 +24,7 @@ public class FileStreamSourceConnector extends SourceConnector{
 
     private String filename;
     private String topic;
+
     @Override
     public Class<? extends Task> taskClass() {
         return null;
@@ -61,7 +62,6 @@ public class FileStreamSourceConnector extends SourceConnector{
     public String version() {
         return null;
     }
-
 
 
 }

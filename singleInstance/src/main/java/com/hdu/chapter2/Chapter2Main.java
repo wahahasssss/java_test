@@ -14,9 +14,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class Chapter2Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         BlockingQueue queue = new ArrayBlockingQueue(1000);
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(10,10,1000, TimeUnit.SECONDS,queue);
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 1000, TimeUnit.SECONDS, queue);
 
 //        for (int i = 0;i < 1000;i++){
 //            pool.execute(new Runnable() {
@@ -28,7 +28,7 @@ public class Chapter2Main {
 //        }
 
 
-        for (int i = 0;i < 1000;i++){
+        for (int i = 0; i < 1000; i++) {
             pool.execute(new Runnable() {
                 public void run() {
                     Singleton singleton = Singleton.newInstanceDoubleCheck();

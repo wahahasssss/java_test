@@ -41,42 +41,43 @@ public class Start {
     private final static String JDBC_URI = "";
     private final static String USER_NAME = "";
     private final static String PASSWORD = "";
-//    static <T> Collection<T> filter(Collection<T> c, Predicate<T> predicate);
+
+    //    static <T> Collection<T> filter(Collection<T> c, Predicate<T> predicate);
     public static void main(String[] args) throws InterruptedException {
         ArrayList<Apple> apples = new ArrayList<Apple>();
-        for (int i = 0;i < 100; i ++){
+        for (int i = 0; i < 100; i++) {
             Random random = new Random();
             int tmp = random.nextInt(20);
-            Apple apple = new Apple((double)2 + tmp/10.0f, Color.red);
+            Apple apple = new Apple((double) 2 + tmp / 10.0f, Color.red);
             apples.add(apple);
         }
         apples.sort(Comparator.comparingDouble(Apple::getWeight));
-        for (Apple apple:
-             apples) {
+        for (Apple apple :
+                apples) {
             System.out.println(apple.toString());
         }
         System.out.println("--------------------------------");
         List<Apple> qualifiedApples = apples.stream()
-                .filter((Apple a)-> a.getWeight()>3)
+                .filter((Apple a) -> a.getWeight() > 3)
                 .collect(toList());
 
 
-        Thread t = new Thread(()->System.out.println("this is a function "));
+        Thread t = new Thread(() -> System.out.println("this is a function "));
         t.start();
 
-        List<Apple> sortedList = apples.stream().sorted((Apple a,Apple b)->a.getWeight().compareTo(b.getWeight())).collect(toList());
+        List<Apple> sortedList = apples.stream().sorted((Apple a, Apple b) -> a.getWeight().compareTo(b.getWeight())).collect(toList());
 
         List<String> colors = Arrays.asList("red", "green", "black", "orange", "blue", "purple");
-        BiFunction<Double, Color,Apple> appleBiFunction = Apple::new;
-        Apple theBiApple = appleBiFunction.apply(12.2d,Color.black);
+        BiFunction<Double, Color, Apple> appleBiFunction = Apple::new;
+        Apple theBiApple = appleBiFunction.apply(12.2d, Color.black);
         System.out.println(theBiApple.toString());
 
-        TriFunction<Integer,Integer,Integer,Color> tri = Color::new;
-        Color black = tri.apply(0,0,0);
+        TriFunction<Integer, Integer, Integer, Color> tri = Color::new;
+        Color black = tri.apply(0, 0, 0);
         System.out.println(black.toString());
 
 
-        Map<Double,List<Apple>> doubleListMap = apples
+        Map<Double, List<Apple>> doubleListMap = apples
                 .parallelStream()
                 .collect(groupingBy(Apple::getWeight));
         System.out.println(doubleListMap.toString());
@@ -91,12 +92,12 @@ public class Start {
 //            System.out.println(String.format("the number is %d", num));
 //        });
         Accumulator accumulator = new Accumulator();
-        LongStream.rangeClosed(1,100)
+        LongStream.rangeClosed(1, 100)
                 .parallel()
                 .forEach(accumulator::add);
-        System.out.println(String.format("sum is %d",accumulator.getSum()));
+        System.out.println(String.format("sum is %d", accumulator.getSum()));
 
-        List<String> listStr = Arrays.asList("one","two","three","four");
+        List<String> listStr = Arrays.asList("one", "two", "three", "four");
         List<String> tmpList = listStr.stream()
                 .sorted(Comparator.naturalOrder())
                 .collect(toList());
@@ -120,10 +121,8 @@ public class Start {
         Thread.sleep(1000);
         LocalDateTime end = LocalDateTime.now();
 
-        Duration duration = Duration.between(start,end);
+        Duration duration = Duration.between(start, end);
 //        System.out.println(String.format(duration.getNano()));
-
-
 
 
     }
